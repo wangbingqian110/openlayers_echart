@@ -325,5 +325,4 @@ ADLayer.Element={
 	 },
 	};
 
-// window["ADLayer"] = ADLayer;
 export default ADLayer;

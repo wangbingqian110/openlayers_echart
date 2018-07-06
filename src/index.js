@@ -8,7 +8,7 @@ import {transform} from 'ol/proj'
 import echarts from 'echarts'
 
 //导入自定义的openlayers.echart模块
-import ADLayer from './openlayers.echart.js'
+import ADLayer from './openlayers.echart'
 
 const map = new Map({
 	target: 'map',
