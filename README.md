@@ -1,0 +1,2 @@
+# openlayers_echart
+最新版的OpenLayers与最新的ECharts相结合，实现了将ECharts中的地图换成OpenLayers的地图。
