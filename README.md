@@ -2,7 +2,8 @@
 **最新版的OpenLayers与最新的ECharts相结合，实现了将ECharts中的地图换成OpenLayers的地图。**
 
 ---
-![image](flight.gif)
+![image](flight1.gif)
+![image](flight2.gif)
 ---
 
 - **npm使用**
