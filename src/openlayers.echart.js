@@ -37,7 +37,7 @@ class ADLayer{
 		this._bindEvent();
 	}
 	_bindEvent(){
-		this._map.on('pointerdrag',this._moveHandler("onMoveEnd"))
+		this._map.on('postrender',this._moveHandler("onMoveEnd"))
 		this._map.getView().on('change:resolution',this._moveHandler("onMoveEnd"))
 	};
 	_moveHandler(type) {

@@ -2,8 +2,8 @@
 **最新版的OpenLayers与最新的ECharts相结合，实现了将ECharts中的地图换成OpenLayers的地图。**
 
 ---
-![image](flight1.gif)
-![image](flight2.gif)
+![image](https://raw.githubusercontent.com/wangbingqian110/openlayers_echart/master/flight1.gif)
+![image](https://raw.githubusercontent.com/wangbingqian110/openlayers_echart/master/flight2.gif)
 ---
 
 - **npm使用**
@@ -41,5 +41,9 @@ oe.render()
 var oe = new ADLayer(option,map,echarts) 
 oe.render()
 ```
+---
+
+- **GitHub：**
+https://github.com/wangbingqian110/openlayers_echart
 
 

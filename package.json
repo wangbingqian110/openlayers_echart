@@ -1,6 +1,6 @@
 {
   "name": "openlayers_echart",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,16 @@
     "build": "babel src/openlayers.echart.js -o dist/JS/openlayers_echart.es5.js"
   },
   "keywords": [
-    "openlayers+echarts"
+    "openlayers",
+    "echarts",
+    "openlayers3",
+    "echarts3",
+    "openlayers4",
+    "openlayers5",
+    "ol",
+    "openlayers3 echarts3",
+    "openlayers4 echarts3",
+    "openlayers5 echarts3"
   ],
   "author": "",
   "license": "ISC",
