@@ -228,6 +228,12 @@ var ADLayer = function () {
 		value: function onMoveEnd() {
 			this._ec.setOption(this._ecOptions, false);
 		}
+	}, {
+		key: 'clear',
+		value: function clear() {
+			this._ec.clear();
+			this._map.un('postrender', this._moveHandler("onMoveEnd"));
+		}
 	}]);
 
 	return ADLayer;

@@ -344,4 +344,5 @@ const map = new Map({
 
 	var oe= new ADLayer(option,map,echarts) 
 	oe.render()
+	setTimeout(()=>{oe.clear()},2000)
 })();

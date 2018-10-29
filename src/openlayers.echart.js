@@ -190,6 +190,11 @@ class ADLayer{
 	onMoveEnd() {
 		this._ec.setOption(this._ecOptions, false);
 	};
+
+	clear(){
+		this._ec.clear();
+		this._map.un('postrender',this._moveHandler("onMoveEnd"))
+	}
 }
 
 ADLayer.Element={
