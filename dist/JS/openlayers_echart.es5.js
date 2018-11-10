@@ -19,6 +19,7 @@ var ADLayer = function () {
 		this.zIndex = 999;
 		this._container = null;
 		this._echarts = echarts;
+		this.event = null;
 	}
 
 	_createClass(ADLayer, [{
@@ -62,8 +63,9 @@ var ADLayer = function () {
 	}, {
 		key: '_bindEvent',
 		value: function _bindEvent() {
-			this._map.on('postrender', this._moveHandler("onMoveEnd"));
-			this._map.getView().on('change:resolution', this._moveHandler("onMoveEnd"));
+			this.event = this._moveHandler("onMoveEnd");
+			this._map.on('postrender', this.event);
+			this._map.getView().on('change:resolution', this.event);
 		}
 	}, {
 		key: '_moveHandler',
@@ -231,8 +233,9 @@ var ADLayer = function () {
 	}, {
 		key: 'clear',
 		value: function clear() {
-			this._ec.clear();
-			this._map.un('postrender', this._moveHandler("onMoveEnd"));
+			this._ec.dispose();
+			this._map.un('postrender', this.event);
+			this._map.getView().un('change:resolution', this.event);
 		}
 	}]);
 

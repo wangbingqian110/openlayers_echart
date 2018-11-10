@@ -7,6 +7,7 @@ class ADLayer{
 		this.zIndex=999;
 		this._container=null;
 		this._echarts = echarts;
+		this.event = null;
 	}
 	getMap(){
 		return this._map;
@@ -37,8 +38,9 @@ class ADLayer{
 		this._bindEvent();
 	}
 	_bindEvent(){
-		this._map.on('postrender',this._moveHandler("onMoveEnd"))
-		this._map.getView().on('change:resolution',this._moveHandler("onMoveEnd"))
+		this.event = this._moveHandler("onMoveEnd")
+		this._map.on('postrender',this.event )
+		this._map.getView().on('change:resolution',this.event )
 	};
 	_moveHandler(type) {
 		var _this = this;
@@ -192,8 +194,9 @@ class ADLayer{
 	};
 
 	clear(){
-		this._ec.clear();
-		this._map.un('postrender',this._moveHandler("onMoveEnd"))
+		this._ec.dispose();
+		this._map.un('postrender',this.event)
+		this._map.getView().un('change:resolution',this.event)
 	}
 }
 
