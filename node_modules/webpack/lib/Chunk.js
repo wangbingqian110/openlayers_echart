@@ -8,15 +8,17 @@ const util = require("util");
 const SortableSet = require("./util/SortableSet");
 const intersect = require("./util/SetHelpers").intersect;
 const GraphHelpers = require("./GraphHelpers");
+const Entrypoint = require("./Entrypoint");
 let debugId = 1000;
 const ERR_CHUNK_ENTRY = "Chunk.entry was removed. Use hasRuntime()";
 const ERR_CHUNK_INITIAL =
 	"Chunk.initial was removed. Use canBeInitial/isOnlyInitial()";
 
-/** @typedef {import("./Module.js")} Module */
+/** @typedef {import("./Module")} Module */
 /** @typedef {import("./ChunkGroup")} ChunkGroup */
-/** @typedef {import("./ModuleReason.js")} ModuleReason */
+/** @typedef {import("./ModuleReason")} ModuleReason */
 /** @typedef {import("webpack-sources").Source} Source */
+/** @typedef {import("./util/createHash").Hash} Hash */
 
 /**
  *  @typedef {Object} WithId an object who has an id property *
@@ -29,6 +31,12 @@ const ERR_CHUNK_INITIAL =
  * @param {Module} b module
  * @returns {-1|0|1} sort value
  */
+
+// TODO use @callback
+/** @typedef {(a: Module, b: Module) => -1|0|1} ModuleSortPredicate */
+/** @typedef {(m: Module) => boolean} ModuleFilterPredicate */
+/** @typedef {(c: Chunk) => boolean} ChunkFilterPredicate */
+
 const sortModuleById = (a, b) => {
 	if (a.id < b.id) return -1;
 	if (b.id < a.id) return 1;
@@ -114,9 +122,11 @@ class Chunk {
 		this.entryModule = undefined;
 		/** @private @type {SortableSet<Module>} */
 		this._modules = new SortableSet(undefined, sortByIdentifier);
+		/** @type {string?} */
+		this.filenameTemplate = undefined;
 		/** @private @type {SortableSet<ChunkGroup>} */
 		this._groups = new SortableSet(undefined, sortChunkGroupById);
-		/** @type {Source[]} */
+		/** @type {string[]} */
 		this.files = [];
 		/** @type {boolean} */
 		this.rendered = false;
@@ -172,8 +182,13 @@ class Chunk {
 	 */
 	hasRuntime() {
 		for (const chunkGroup of this._groups) {
-			// We only need to check the first one
-			return chunkGroup.isInitial() && chunkGroup.getRuntimeChunk() === this;
+			if (
+				chunkGroup.isInitial() &&
+				chunkGroup instanceof Entrypoint &&
+				chunkGroup.getRuntimeChunk() === this
+			) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -288,7 +303,7 @@ class Chunk {
 	}
 
 	/**
-	 * @returns {SortableSet} the chunkGroups that said chunk is referenced in
+	 * @returns {SortableSet<ChunkGroup>} the chunkGroups that said chunk is referenced in
 	 */
 	get groupsIterable() {
 		return this._groups;
@@ -299,17 +314,21 @@ class Chunk {
 	 * @returns {-1|0|1} this is a comparitor function like sort and returns -1, 0, or 1 based on sort order
 	 */
 	compareTo(otherChunk) {
-		this._modules.sort();
-		otherChunk._modules.sort();
+		if (this.name && !otherChunk.name) return -1;
+		if (!this.name && otherChunk.name) return 1;
+		if (this.name < otherChunk.name) return -1;
+		if (this.name > otherChunk.name) return 1;
 		if (this._modules.size > otherChunk._modules.size) return -1;
 		if (this._modules.size < otherChunk._modules.size) return 1;
+		this._modules.sort();
+		otherChunk._modules.sort();
 		const a = this._modules[Symbol.iterator]();
 		const b = otherChunk._modules[Symbol.iterator]();
-		// eslint-disable-next-line
+		// eslint-disable-next-line no-constant-condition
 		while (true) {
 			const aItem = a.next();
-			const bItem = b.next();
 			if (aItem.done) return 0;
+			const bItem = b.next();
 			const aModuleIdentifier = aItem.value.identifier();
 			const bModuleIdentifier = bItem.value.identifier();
 			if (aModuleIdentifier < bModuleIdentifier) return -1;
@@ -325,6 +344,9 @@ class Chunk {
 		return this._modules.has(module);
 	}
 
+	/**
+	 * @returns {Module[]} an array of modules (do not modify)
+	 */
 	getModules() {
 		return this._modules.getFromCache(getArray);
 	}
@@ -367,11 +389,36 @@ class Chunk {
 			return false;
 		}
 
+		// Pick a new name for the integrated chunk
+		if (this.name && otherChunk.name) {
+			if (this.hasEntryModule() === otherChunk.hasEntryModule()) {
+				// When both chunks have entry modules or none have one, use
+				// shortest name
+				if (this.name.length !== otherChunk.name.length) {
+					this.name =
+						this.name.length < otherChunk.name.length
+							? this.name
+							: otherChunk.name;
+				} else {
+					this.name = this.name < otherChunk.name ? this.name : otherChunk.name;
+				}
+			} else if (otherChunk.hasEntryModule()) {
+				// Pick the name of the chunk with the entry module
+				this.name = otherChunk.name;
+			}
+		} else if (otherChunk.name) {
+			this.name = otherChunk.name;
+		}
+
 		// Array.from is used here to create a clone, because moveModule modifies otherChunk._modules
 		for (const module of Array.from(otherChunk._modules)) {
 			otherChunk.moveModule(module, this);
 		}
 		otherChunk._modules.clear();
+
+		if (otherChunk.entryModule) {
+			this.entryModule = otherChunk.entryModule;
+		}
 
 		for (const chunkGroup of otherChunk._groups) {
 			chunkGroup.replaceChunk(otherChunk, this);
@@ -379,22 +426,11 @@ class Chunk {
 		}
 		otherChunk._groups.clear();
 
-		if (this.name && otherChunk.name) {
-			if (this.name.length !== otherChunk.name.length) {
-				this.name =
-					this.name.length < otherChunk.name.length
-						? this.name
-						: otherChunk.name;
-			} else {
-				this.name = this.name < otherChunk.name ? this.name : otherChunk.name;
-			}
-		}
-
 		return true;
 	}
 
 	/**
-	 * @param {Chunk} newChunk the new chunk that will be split out of, and then chunk raphi twil=
+	 * @param {Chunk} newChunk the new chunk that will be split out of the current chunk
 	 * @returns {void}
 	 */
 	split(newChunk) {
@@ -418,6 +454,10 @@ class Chunk {
 	}
 
 	canBeIntegrated(otherChunk) {
+		if (this.preventIntegration || otherChunk.preventIntegration) {
+			return false;
+		}
+
 		const isAvailable = (a, b) => {
 			const queue = new Set(b.groupsIterable);
 			for (const chunkGroup of queue) {
@@ -430,14 +470,13 @@ class Chunk {
 			return true;
 		};
 
-		if (this.preventIntegration || otherChunk.preventIntegration) {
-			return false;
-		}
+		const selfHasRuntime = this.hasRuntime();
+		const otherChunkHasRuntime = otherChunk.hasRuntime();
 
-		if (this.hasRuntime() !== otherChunk.hasRuntime()) {
-			if (this.hasRuntime()) {
+		if (selfHasRuntime !== otherChunkHasRuntime) {
+			if (selfHasRuntime) {
 				return isAvailable(this, otherChunk);
-			} else if (otherChunk.hasRuntime()) {
+			} else if (otherChunkHasRuntime) {
 				return isAvailable(otherChunk, this);
 			} else {
 				return false;
@@ -482,6 +521,11 @@ class Chunk {
 		return this.addMultiplierAndOverhead(this.modulesSize(), options);
 	}
 
+	/**
+	 * @param {Chunk} otherChunk the other chunk
+	 * @param {TODO} options the options for this function
+	 * @returns {number | false} the size, or false if it can't be integrated
+	 */
 	integratedSize(otherChunk, options) {
 		// Chunk if it's possible to integrate this chunk
 		if (!this.canBeIntegrated(otherChunk)) {
@@ -511,6 +555,9 @@ class Chunk {
 		this.sortModules();
 	}
 
+	/**
+	 * @returns {Set<Chunk>} a set of all the async chunks
+	 */
 	getAllAsyncChunks() {
 		const queue = new Set();
 		const chunks = new Set();
@@ -539,9 +586,23 @@ class Chunk {
 		return chunks;
 	}
 
+	/**
+	 * @typedef {Object} ChunkMaps
+	 * @property {Record<string|number, string>} hash
+	 * @property {Record<string|number, Record<string, string>>} contentHash
+	 * @property {Record<string|number, string>} name
+	 */
+
+	/**
+	 * @param {boolean} realHash should the full hash or the rendered hash be used
+	 * @returns {ChunkMaps} the chunk map information
+	 */
 	getChunkMaps(realHash) {
+		/** @type {Record<string|number, string>} */
 		const chunkHashMap = Object.create(null);
+		/** @type {Record<string|number, Record<string, string>>} */
 		const chunkContentHashMap = Object.create(null);
+		/** @type {Record<string|number, string>} */
 		const chunkNameMap = Object.create(null);
 
 		for (const chunk of this.getAllAsyncChunks()) {
@@ -564,6 +625,9 @@ class Chunk {
 		};
 	}
 
+	/**
+	 * @returns {Record<string, Set<TODO>[]>} a record object of names to lists of child ids(?)
+	 */
 	getChildIdsByOrders() {
 		const lists = new Map();
 		for (const group of this.groupsIterable) {
@@ -591,7 +655,7 @@ class Chunk {
 			list.sort((a, b) => {
 				const cmp = b.order - a.order;
 				if (cmp !== 0) return cmp;
-				// TOOD webpack 5 remove this check of compareTo
+				// TODO webpack 5 remove this check of compareTo
 				if (a.group.compareTo) {
 					return a.group.compareTo(b.group);
 				}
@@ -634,11 +698,24 @@ class Chunk {
 		return chunkMaps;
 	}
 
+	/**
+	 * @typedef {Object} ChunkModuleMaps
+	 * @property {Record<string|number, (string|number)[]>} id
+	 * @property {Record<string|number, string>} hash
+	 */
+
+	/**
+	 * @param {ModuleFilterPredicate} filterFn function used to filter modules
+	 * @returns {ChunkModuleMaps} module map information
+	 */
 	getChunkModuleMaps(filterFn) {
+		/** @type {Record<string|number, (string|number)[]>} */
 		const chunkModuleIdMap = Object.create(null);
+		/** @type {Record<string|number, string>} */
 		const chunkModuleHashMap = Object.create(null);
 
 		for (const chunk of this.getAllAsyncChunks()) {
+			/** @type {(string|number)[]} */
 			let array;
 			for (const module of chunk.modulesIterable) {
 				if (filterFn(module)) {
@@ -699,17 +776,37 @@ class Chunk {
 // TODO remove in webpack 5
 Object.defineProperty(Chunk.prototype, "forEachModule", {
 	configurable: false,
-	value: util.deprecate(function(fn) {
-		this._modules.forEach(fn);
-	}, "Chunk.forEachModule: Use for(const module of chunk.modulesIterable) instead")
+	value: util.deprecate(
+		/**
+		 * @deprecated
+		 * @this {Chunk}
+		 * @typedef {function(any, any, Set<any>): void} ForEachModuleCallback
+		 * @param {ForEachModuleCallback} fn Callback function
+		 * @returns {void}
+		 */
+		function(fn) {
+			this._modules.forEach(fn);
+		},
+		"Chunk.forEachModule: Use for(const module of chunk.modulesIterable) instead"
+	)
 });
 
 // TODO remove in webpack 5
 Object.defineProperty(Chunk.prototype, "mapModules", {
 	configurable: false,
-	value: util.deprecate(function(fn) {
-		return Array.from(this._modules, fn);
-	}, "Chunk.mapModules: Use Array.from(chunk.modulesIterable, fn) instead")
+	value: util.deprecate(
+		/**
+		 * @deprecated
+		 * @this {Chunk}
+		 * @typedef {function(any, number): any} MapModulesCallback
+		 * @param {MapModulesCallback} fn Callback function
+		 * @returns {TODO[]} result of mapped modules
+		 */
+		function(fn) {
+			return Array.from(this._modules, fn);
+		},
+		"Chunk.mapModules: Use Array.from(chunk.modulesIterable, fn) instead"
+	)
 });
 
 // TODO remove in webpack 5

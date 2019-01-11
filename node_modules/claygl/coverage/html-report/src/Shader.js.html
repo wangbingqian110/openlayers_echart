@@ -1,0 +1,2096 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Shader.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> Shader.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.05% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>244/274</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.74% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>94/115</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">74.42% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>32/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.01% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>243/273</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">309×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">1298×</span>
+<span class="cline-any cline-yes">681×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">619×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">619×</span>
+<span class="cline-any cline-yes">619×</span>
+<span class="cline-any cline-yes">619×</span>
+<span class="cline-any cline-yes">619×</span>
+<span class="cline-any cline-yes">169×</span>
+<span class="cline-any cline-yes">169×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-yes">1219×</span>
+<span class="cline-any cline-yes">1219×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1166×</span>
+<span class="cline-any cline-yes">56×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1110×</span>
+<span class="cline-any cline-yes">427×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">427×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">683×</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-yes">90×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">90×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">591×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">538×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">485×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">432×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">429×</span>
+<span class="cline-any cline-yes">427×</span>
+<span class="cline-any cline-yes">427×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">180×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">247×</span>
+<span class="cline-any cline-yes">150×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">97×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">92×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">427×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">617×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">991×</span>
+<span class="cline-any cline-yes">991×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">69×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">69×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">280×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">550×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">497×</span>
+<span class="cline-any cline-yes">497×</span>
+<span class="cline-any cline-yes">497×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-yes">169×</span>
+<span class="cline-any cline-yes">169×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">499×</span>
+<span class="cline-any cline-yes">349×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">90×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">349×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">69×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">280×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">497×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-yes">111×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">111×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">120×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">89×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1708×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">259×</span>
+<span class="cline-any cline-yes">177×</span>
+<span class="cline-any cline-yes">177×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">177×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">259×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">305×</span>
+<span class="cline-any cline-yes">305×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">305×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">241×</span>
+<span class="cline-any cline-yes">241×</span>
+<span class="cline-any cline-yes">241×</span>
+<span class="cline-any cline-yes">241×</span>
+<span class="cline-any cline-yes">737×</span>
+<span class="cline-any cline-yes">737×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">241×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">239×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Mainly do the parse and compile of shader string
+ * Support shader code chunk import and export
+ * Support shader semantics
+ * http://www.nvidia.com/object/using_sas.html
+ * https://github.com/KhronosGroup/collada2json/issues/45
+ *
+ * TODO: Use etpl or other string template engine
+ */
+import util from './core/util';
+import vendor from './core/vendor';
+import glMatrix from './dep/glmatrix';
+var mat2 = glMatrix.mat2;
+var mat3 = glMatrix.mat3;
+var mat4 = glMatrix.mat4;
+&nbsp;
+var uniformRegex = /uniform\s+(bool|float|int|vec2|vec3|vec4|ivec2|ivec3|ivec4|mat2|mat3|mat4|sampler2D|samplerCube)\s+([\s\S]*?);/g;
+var attributeRegex = /attribute\s+(float|int|vec2|vec3|vec4)\s+([\s\S]*?);/g;
+var defineRegex = /#define\s+(\w+)?(\s+[\w-.]+)?\s*;?\s*\n/g;
+&nbsp;
+var uniformTypeMap = {
+    'bool': '1i',
+    'int': '1i',
+    'sampler2D': 't',
+    'samplerCube': 't',
+    'float': '1f',
+    'vec2': '2f',
+    'vec3': '3f',
+    'vec4': '4f',
+    'ivec2': '2i',
+    'ivec3': '3i',
+    'ivec4': '4i',
+    'mat2': 'm2',
+    'mat3': 'm3',
+    'mat4': 'm4'
+};
+&nbsp;
+var uniformValueConstructor = {
+    'bool': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return true; </span>},</span>
+    'int': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return 0; </span>},</span>
+    'float': function () { return 0; },
+    'sampler2D': function () { return null; },
+    'samplerCube': function () { return null; },
+&nbsp;
+    'vec2': function () { return [0, 0]; },
+    'vec3': function () { return [0, 0, 0]; },
+    'vec4': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return [0, 0, 0, 0]; </span>},</span>
+&nbsp;
+    'ivec2': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return [0, 0]; </span>},</span>
+    'ivec3': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return [0, 0, 0]; </span>},</span>
+    'ivec4': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return [0, 0, 0, 0]; </span>},</span>
+&nbsp;
+    'mat2': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return mat2.create(); </span>},</span>
+    'mat3': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return mat3.create(); </span>},</span>
+    'mat4': function () <span class="fstat-no" title="function not covered" >{ <span class="cstat-no" title="statement not covered" >return mat4.create(); </span>},</span>
+&nbsp;
+    'array': function () { return []; }
+};
+&nbsp;
+var attributeSemantics = [
+    'POSITION',
+    'NORMAL',
+    'BINORMAL',
+    'TANGENT',
+    'TEXCOORD',
+    'TEXCOORD_0',
+    'TEXCOORD_1',
+    'COLOR',
+    // Skinning
+    // https://github.com/KhronosGroup/glTF/blob/master/specification/README.md#semantics
+    'JOINT',
+    'WEIGHT'
+];
+var uniformSemantics = [
+    'SKIN_MATRIX',
+    // Information about viewport
+    'VIEWPORT_SIZE',
+    'VIEWPORT',
+    'DEVICEPIXELRATIO',
+    // Window size for window relative coordinate
+    // https://www.opengl.org/sdk/docs/man/html/gl_FragCoord.xhtml
+    'WINDOW_SIZE',
+    // Infomation about camera
+    'NEAR',
+    'FAR',
+    // Time
+    'TIME'
+];
+var matrixSemantics = [
+    'WORLD',
+    'VIEW',
+    'PROJECTION',
+    'WORLDVIEW',
+    'VIEWPROJECTION',
+    'WORLDVIEWPROJECTION',
+    'WORLDINVERSE',
+    'VIEWINVERSE',
+    'PROJECTIONINVERSE',
+    'WORLDVIEWINVERSE',
+    'VIEWPROJECTIONINVERSE',
+    'WORLDVIEWPROJECTIONINVERSE',
+    'WORLDTRANSPOSE',
+    'VIEWTRANSPOSE',
+    'PROJECTIONTRANSPOSE',
+    'WORLDVIEWTRANSPOSE',
+    'VIEWPROJECTIONTRANSPOSE',
+    'WORLDVIEWPROJECTIONTRANSPOSE',
+    'WORLDINVERSETRANSPOSE',
+    'VIEWINVERSETRANSPOSE',
+    'PROJECTIONINVERSETRANSPOSE',
+    'WORLDVIEWINVERSETRANSPOSE',
+    'VIEWPROJECTIONINVERSETRANSPOSE',
+    'WORLDVIEWPROJECTIONINVERSETRANSPOSE'
+];
+&nbsp;
+var attributeSizeMap = {
+    // WebGL does not support integer attributes
+    'vec4': 4,
+    'vec3': 3,
+    'vec2': 2,
+    'float': 1
+};
+&nbsp;
+&nbsp;
+var shaderIDCache = {};
+var shaderCodeCache = {};
+&nbsp;
+function getShaderID(vertex, fragment) {
+    var key = 'vertex:' + vertex + 'fragment:' + fragment;
+    if (shaderIDCache[key]) {
+        return shaderIDCache[key];
+    }
+    var id = util.genGUID();
+    shaderIDCache[key] = id;
+&nbsp;
+    shaderCodeCache[id] = {
+        vertex: vertex,
+        fragment: fragment
+    };
+&nbsp;
+    return id;
+}
+&nbsp;
+function removeComment(code) {
+    return code.replace(/[ \t]*\/\/.*\n/g, '' )   // remove //
+        .replace(/[ \t]*\/\*[\s\S]*?\*\//g, '' ); // remove /* */
+}
+&nbsp;
+function logSyntaxError() <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    console.error('Wrong uniform/attributes syntax');</span>
+}
+&nbsp;
+function parseDeclarations(type, line) {
+    var speratorsRegexp = /[,=\(\):]/;
+    var tokens = line
+        // Convert `symbol: [1,2,3]` to `symbol: vec3(1,2,3)`
+        .replace(/:\s*\[\s*(.*)\s*\]/g, '=' + type + '($1)')
+        .replace(/\s+/g, '')
+        .split(/(?=[,=\(\):])/g);
+&nbsp;
+    var newTokens = [];
+    for (var i = 0; i &lt; tokens.length; i++) {
+        if (tokens[i].match(speratorsRegexp)) {
+            newTokens.push(
+                tokens[i].charAt(0),
+                tokens[i].slice(1)
+            );
+        }
+        else {
+            newTokens.push(tokens[i]);
+        }
+    }
+    tokens = newTokens;
+&nbsp;
+    var TYPE_SYMBOL = 0;
+    var TYPE_ASSIGN = 1;
+    var TYPE_VEC = 2;
+    var TYPE_ARR = 3;
+    var TYPE_SEMANTIC = 4;
+    var TYPE_NORMAL = 5;
+&nbsp;
+    var opType = TYPE_SYMBOL;
+    var declarations = {};
+    var declarationValue = null;
+    var currentDeclaration;
+&nbsp;
+    addSymbol(tokens[0]);
+&nbsp;
+    function addSymbol(symbol) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!symbol) {
+<span class="cstat-no" title="statement not covered" >            logSyntaxError();</span>
+        }
+        var arrResult = symbol.match(/\[(.*?)\]/);
+        currentDeclaration = symbol.replace(/\[(.*?)\]/, '');
+        declarations[currentDeclaration] = {};
+        if (arrResult) {
+            declarations[currentDeclaration].isArray = true;
+            declarations[currentDeclaration].arraySize = arrResult[1];
+        }
+    }
+&nbsp;
+    for (var i = 1; i &lt; tokens.length; i++) {
+        var token = tokens[i];
+        if (!token) {   // Empty token;
+            continue;
+        }
+        if (token === '=') {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (opType !== TYPE_SYMBOL
+            &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >opType !== TYPE_ARR)</span> {
+<span class="cstat-no" title="statement not covered" >                logSyntaxError();</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+            opType = TYPE_ASSIGN;
+&nbsp;
+            continue;
+        }
+        else if (token === ':') {
+            opType = TYPE_SEMANTIC;
+&nbsp;
+            continue;
+        }
+        else if (token === ',') {
+            if (opType === TYPE_VEC) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!(declarationValue instanceof Array)) {
+<span class="cstat-no" title="statement not covered" >                    logSyntaxError();</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+                declarationValue.push(+tokens[++i]);
+            }
+            else {
+                opType = TYPE_NORMAL;
+            }
+&nbsp;
+            continue;
+        }
+        else if (token === ')') {
+            declarations[currentDeclaration].value = new vendor.Float32Array(declarationValue);
+            declarationValue = null;
+            opType = TYPE_NORMAL;
+            continue;
+        }
+        else if (token === '(') {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (opType !== TYPE_VEC) {
+<span class="cstat-no" title="statement not covered" >                logSyntaxError();</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!(declarationValue instanceof Array)) {
+<span class="cstat-no" title="statement not covered" >                logSyntaxError();</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+            declarationValue.push(+tokens[++i]);
+            continue;
+        }
+        else if (token.indexOf('vec') &gt;= 0) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (opType !== TYPE_ASSIGN
+            // Compatitable with old syntax `symbol: [1,2,3]`
+            &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >opType !== TYPE_SEMANTIC)</span> {
+<span class="cstat-no" title="statement not covered" >                logSyntaxError();</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+            opType = TYPE_VEC;
+            declarationValue = [];
+            continue;
+        }
+        else if (opType === TYPE_ASSIGN) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (type === 'bool') {
+<span class="cstat-no" title="statement not covered" >                declarations[currentDeclaration].value = token === 'true';</span>
+            }
+            else {
+                declarations[currentDeclaration].value = parseFloat(token);
+            }
+            declarationValue = null;
+            continue;
+        }
+        else if (opType === TYPE_SEMANTIC) {
+            var semantic = token;
+            if (attributeSemantics.indexOf(semantic) &gt;= 0
+                || uniformSemantics.indexOf(semantic) &gt;= 0
+                || matrixSemantics.indexOf(semantic) &gt;= 0
+            ) {
+                declarations[currentDeclaration].semantic = semantic;
+            }
+            else if (semantic === 'ignore' || semantic === 'unconfigurable') {
+                declarations[currentDeclaration].ignore = true;
+            }
+            else {
+                // Try to parse as a default tvalue.
+                if (type === 'bool') {
+                    declarations[currentDeclaration].value = semantic === 'true';
+                }
+                else {
+                    declarations[currentDeclaration].value = parseFloat(semantic);
+                }
+            }
+            continue;
+        }
+&nbsp;
+        // treat as symbol.
+        addSymbol(token);
+        opType = TYPE_SYMBOL;
+    }
+&nbsp;
+    return declarations;
+}
+&nbsp;
+&nbsp;
+/**
+ * @constructor
+ * @extends clay.core.Base
+ * @alias clay.Shader
+ * @param {string} vertex
+ * @param {string} fragment
+ * @example
+ * // Create a phong shader
+ * var shader = new clay.Shader(
+ *      clay.Shader.source('clay.standard.vertex'),
+ *      clay.Shader.source('clay.standard.fragment')
+ * );
+ */
+function Shader(vertex, fragment) {
+    // First argument can be { vertex, fragment }
+    if (typeof vertex === 'object') {
+        fragment = vertex.fragment;
+        vertex = vertex.vertex;
+    }
+&nbsp;
+    vertex = removeComment(vertex);
+    fragment = removeComment(fragment);
+&nbsp;
+    this._shaderID = getShaderID(vertex, fragment);
+&nbsp;
+    this._vertexCode = Shader.parseImport(vertex);
+    this._fragmentCode = Shader.parseImport(fragment);
+&nbsp;
+    /**
+     * @readOnly
+     */
+    this.attributeSemantics = {};
+    /**
+     * @readOnly
+     */
+    this.matrixSemantics = {};
+    /**
+     * @readOnly
+     */
+    this.uniformSemantics = {};
+    /**
+     * @readOnly
+     */
+    this.matrixSemanticKeys = [];
+    /**
+     * @readOnly
+     */
+    this.uniformTemplates = {};
+    /**
+     * @readOnly
+     */
+    this.attributes = {};
+    /**
+     * @readOnly
+     */
+    this.textures = {};
+    /**
+     * @readOnly
+     */
+    this.vertexDefines = {};
+    /**
+     * @readOnly
+     */
+    this.fragmentDefines = {};
+&nbsp;
+    this._parseAttributes();
+    this._parseUniforms();
+    this._parseDefines();
+}
+&nbsp;
+Shader.prototype = {
+&nbsp;
+    constructor: Shader,
+&nbsp;
+    // Create a new uniform instance for material
+    createUniforms: function () {
+        var uniforms = {};
+&nbsp;
+        for (var symbol in this.uniformTemplates){
+            var uniformTpl = this.uniformTemplates[symbol];
+            uniforms[symbol] = {
+                type: uniformTpl.type,
+                value: uniformTpl.value()
+            };
+        }
+&nbsp;
+        return uniforms;
+    },
+&nbsp;
+    _parseImport: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._vertexCode = Shader.parseImport(this.vertex);</span>
+<span class="cstat-no" title="statement not covered" >        this._fragmentCode = Shader.parseImport(this.fragment);</span>
+    },
+&nbsp;
+    _addSemanticUniform: function (symbol, uniformType, semantic) {
+        // This case is only for SKIN_MATRIX
+        // TODO
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (attributeSemantics.indexOf(semantic) &gt;= 0) {
+<span class="cstat-no" title="statement not covered" >            this.attributeSemantics[semantic] = {</span>
+                symbol: symbol,
+                type: uniformType
+            };
+        }
+        else if (matrixSemantics.indexOf(semantic) &gt;= 0) {
+            var isTranspose = false;
+            var semanticNoTranspose = semantic;
+            if (semantic.match(/TRANSPOSE$/)) {
+                isTranspose = true;
+                semanticNoTranspose = semantic.slice(0, -9);
+            }
+            this.matrixSemantics[semantic] = {
+                symbol: symbol,
+                type: uniformType,
+                isTranspose: isTranspose,
+                semanticNoTranspose: semanticNoTranspose
+            };
+        }
+        else <span class="missing-if-branch" title="else path not taken" >E</span>if (uniformSemantics.indexOf(semantic) &gt;= 0) {
+            this.uniformSemantics[semantic] = {
+                symbol: symbol,
+                type: uniformType
+            };
+        }
+    },
+&nbsp;
+    _addMaterialUniform: function (symbol, type, uniformType, defaultValueFunc, isArray, materialUniforms) {
+        materialUniforms[symbol] = {
+            type: uniformType,
+            value: isArray ? uniformValueConstructor['array'] : (defaultValueFunc || uniformValueConstructor[type]),
+            semantic: null
+        };
+    },
+&nbsp;
+    _parseUniforms: function () {
+        var uniforms = {};
+        var self = this;
+        var shaderType = 'vertex';
+        this._uniformList = [];
+&nbsp;
+        this._vertexCode = this._vertexCode.replace(uniformRegex, _uniformParser);
+        shaderType = 'fragment';
+        this._fragmentCode = this._fragmentCode.replace(uniformRegex, _uniformParser);
+&nbsp;
+        self.matrixSemanticKeys = Object.keys(this.matrixSemantics);
+&nbsp;
+        function makeDefaultValueFunc(value) {
+            return value != null ? function () { return value; } : null;
+        }
+&nbsp;
+        function _uniformParser(str, type, content) {
+            var declaredUniforms = parseDeclarations(type, content);
+            var uniformMainStr = [];
+            for (var symbol in declaredUniforms) {
+&nbsp;
+                var uniformInfo = declaredUniforms[symbol];
+                var semantic = uniformInfo.semantic;
+                var tmpStr = symbol;
+                var uniformType = uniformTypeMap[type];
+                var defaultValueFunc = makeDefaultValueFunc(declaredUniforms[symbol].value);
+                if (declaredUniforms[symbol].isArray) {
+                    tmpStr += '[' + declaredUniforms[symbol].arraySize + ']';
+                    uniformType += 'v';
+                }
+&nbsp;
+                uniformMainStr.push(tmpStr);
+&nbsp;
+                self._uniformList.push(symbol);
+&nbsp;
+                if (!uniformInfo.ignore) {
+                    if (type === 'sampler2D' || type === 'samplerCube') {
+                        // Texture is default disabled
+                        self.textures[symbol] = {
+                            shaderType: shaderType,
+                            type: type
+                        };
+                    }
+&nbsp;
+                    if (semantic) {
+                        // TODO Should not declare multiple symbols if have semantic.
+                        self._addSemanticUniform(symbol, uniformType, semantic);
+                    }
+                    else {
+                        self._addMaterialUniform(
+                            symbol, type, uniformType, defaultValueFunc,
+                            declaredUniforms[symbol].isArray, uniforms
+                        );
+                    }
+                }
+            }
+            return uniformMainStr.length &gt; 0
+                ? 'uniform ' + type + ' ' + uniformMainStr.join(',') + ';\n' : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        }
+&nbsp;
+        this.uniformTemplates = uniforms;
+    },
+&nbsp;
+    _parseAttributes: function () {
+        var attributes = {};
+        var self = this;
+        this._vertexCode = this._vertexCode.replace(attributeRegex, _attributeParser);
+&nbsp;
+        function _attributeParser(str, type, content) {
+            var declaredAttributes = parseDeclarations(type, content);
+&nbsp;
+            var size = attributeSizeMap[type] || <span class="branch-1 cbranch-no" title="branch not covered" >1;</span>
+            var attributeMainStr = [];
+            for (var symbol in declaredAttributes) {
+                var semantic = declaredAttributes[symbol].semantic;
+                attributes[symbol] = {
+                    // TODO Can only be float
+                    type: 'float',
+                    size: size,
+                    semantic: semantic || null
+                };
+                // TODO Should not declare multiple symbols if have semantic.
+                if (semantic) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (attributeSemantics.indexOf(semantic) &lt; 0) {
+<span class="cstat-no" title="statement not covered" >                        throw new Error('Unkown semantic "' + semantic + '"');</span>
+                    }
+                    else {
+                        self.attributeSemantics[semantic] = {
+                            symbol: symbol,
+                            type: type
+                        };
+                    }
+                }
+                attributeMainStr.push(symbol);
+            }
+&nbsp;
+            return 'attribute ' + type + ' ' + attributeMainStr.join(',') + ';\n';
+        }
+&nbsp;
+        this.attributes = attributes;
+    },
+&nbsp;
+    _parseDefines: function () {
+        var self = this;
+        var shaderType = 'vertex';
+        this._vertexCode = this._vertexCode.replace(defineRegex, _defineParser);
+        shaderType = 'fragment';
+        this._fragmentCode = this._fragmentCode.replace(defineRegex, _defineParser);
+&nbsp;
+        function _defineParser(str, symbol, value) {
+            var defines = shaderType === 'vertex' ? self.vertexDefines : self.fragmentDefines;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!defines[symbol]) { // Haven't been defined by user
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (value === 'false') {
+<span class="cstat-no" title="statement not covered" >                    defines[symbol] = false;</span>
+                }
+                else <span class="missing-if-branch" title="if path not taken" >I</span>if (value === 'true') {
+<span class="cstat-no" title="statement not covered" >                    defines[symbol] = true;</span>
+                }
+                else {
+                    defines[symbol] = value
+                        // If can parse to float
+                        ? (isNaN(parseFloat(value)) ? value.trim() : parseFloat(value))
+                        : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+                }
+            }
+            return '';
+        }
+    },
+&nbsp;
+    /**
+     * Clone a new shader
+     * @return {clay.Shader}
+     */
+    clone: function () {
+        var code = shaderCodeCache[this._shaderID];
+        var shader = new Shader(code.vertex, code.fragment);
+        return shader;
+    }
+};
+&nbsp;
+<span class="missing-if-branch" title="else path not taken" >E</span>if (Object.defineProperty) {
+    Object.defineProperty(Shader.prototype, 'shaderID', {
+        get: function () {
+            return this._shaderID;
+        }
+    });
+    Object.defineProperty(Shader.prototype, 'vertex', {
+        get: function () {
+            return this._vertexCode;
+        }
+    });
+    Object.defineProperty(Shader.prototype, 'fragment', {
+        get: function () {
+            return this._fragmentCode;
+        }
+    });
+    Object.defineProperty(Shader.prototype, 'uniforms', {
+        get: function () {
+            return this._uniformList;
+        }
+    });
+}
+&nbsp;
+var importRegex = /(@import)\s*([0-9a-zA-Z_\-\.]*)/g;
+Shader.parseImport = function (shaderStr) {
+    shaderStr = shaderStr.replace(importRegex, function (str, importSymbol, importName) {
+        var str = Shader.source(importName);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (str) {
+            // Recursively parse
+            return Shader.parseImport(str);
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            console.error('Shader chunk "' + importName + '" not existed in library');</span>
+<span class="cstat-no" title="statement not covered" >            return '';</span>
+        }
+    });
+    return shaderStr;
+};
+&nbsp;
+var exportRegex = /(@export)\s*([0-9a-zA-Z_\-\.]*)\s*\n([\s\S]*?)@end/g;
+&nbsp;
+/**
+ * Import shader source
+ * @param  {string} shaderStr
+ * @memberOf clay.Shader
+ */
+Shader['import'] = function (shaderStr) {
+    shaderStr.replace(exportRegex, function (str, exportSymbol, exportName, code) {
+        var code = code.replace(/(^[\s\t\xa0\u3000]+)|([\u3000\xa0\s\t]+\x24)/g, '');
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (code) {
+            var parts = exportName.split('.');
+            var obj = Shader.codes;
+            var i = 0;
+            var key;
+            while (i &lt; parts.length - 1) {
+                key = parts[i++];
+                if (!obj[key]) {
+                    obj[key] = {};
+                }
+                obj = obj[key];
+            }
+            key = parts[i];
+            obj[key] = code;
+        }
+        return code;
+    });
+};
+&nbsp;
+/**
+ * Library to store all the loaded shader codes
+ * @type {Object}
+ * @readOnly
+ * @memberOf clay.Shader
+ */
+Shader.codes = {};
+&nbsp;
+/**
+ * Get shader source
+ * @param  {string} name
+ * @return {string}
+ */
+Shader.source = function (name) {
+    var parts = name.split('.');
+    var obj = Shader.codes;
+    var i = 0;
+    while (obj &amp;&amp; i &lt; parts.length) {
+        var key = parts[i++];
+        obj = obj[key];
+    }
+    if (typeof obj !== 'string') {
+        // FIXME Use default instead
+        console.error('Shader "' + name + '" not existed in library');
+        return '';
+    }
+    return obj;
+};
+&nbsp;
+export default Shader;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

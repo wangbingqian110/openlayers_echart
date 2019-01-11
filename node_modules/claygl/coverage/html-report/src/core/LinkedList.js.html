@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/core/LinkedList.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/core/</a> LinkedList.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">36.7% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>40/109</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.76% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">36.7% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>40/109</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Simple double linked list. Compared with array, it has O(1) remove operation.
+ * @constructor
+ * @alias clay.core.LinkedList
+ */
+var LinkedList = function () {
+&nbsp;
+    /**
+     * @type {clay.core.LinkedList.Entry}
+     */
+    this.head = null;
+&nbsp;
+    /**
+     * @type {clay.core.LinkedList.Entry}
+     */
+    this.tail = null;
+&nbsp;
+    this._length = 0;
+};
+&nbsp;
+/**
+ * Insert a new value at the tail
+ * @param  {} val
+ * @return {clay.core.LinkedList.Entry}
+ */
+LinkedList.prototype.insert = function (val) {
+    var entry = new LinkedList.Entry(val);
+    this.insertEntry(entry);
+    return entry;
+};
+&nbsp;
+/**
+ * Insert a new value at idx
+ * @param {number} idx
+ * @param  {} val
+ * @return {clay.core.LinkedList.Entry}
+ */
+LinkedList.prototype.insertAt = function (idx, val) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (idx &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+    var next = <span class="cstat-no" title="statement not covered" >this.head;</span>
+    var cursor = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >    while (next &amp;&amp; cursor != idx) {</span>
+<span class="cstat-no" title="statement not covered" >        next = next.next;</span>
+<span class="cstat-no" title="statement not covered" >        cursor++;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (next) {</span>
+        var entry = <span class="cstat-no" title="statement not covered" >new LinkedList.Entry(val);</span>
+        var prev = <span class="cstat-no" title="statement not covered" >next.prev;</span>
+<span class="cstat-no" title="statement not covered" >        if (!prev) { //next is head</span>
+<span class="cstat-no" title="statement not covered" >            this.head = entry;</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            prev.next = entry;</span>
+<span class="cstat-no" title="statement not covered" >            entry.prev = prev;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        entry.next = next;</span>
+<span class="cstat-no" title="statement not covered" >        next.prev = entry;</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >        this.insert(val);</span>
+    }
+};
+&nbsp;
+LinkedList.prototype.insertBeforeEntry = function (val, next) <span class="fstat-no" title="function not covered" >{</span>
+    var entry = <span class="cstat-no" title="statement not covered" >new LinkedList.Entry(val);</span>
+    var prev = <span class="cstat-no" title="statement not covered" >next.prev;</span>
+<span class="cstat-no" title="statement not covered" >    if (!prev) { //next is head</span>
+<span class="cstat-no" title="statement not covered" >        this.head = entry;</span>
+    }
+    else {
+<span class="cstat-no" title="statement not covered" >        prev.next = entry;</span>
+<span class="cstat-no" title="statement not covered" >        entry.prev = prev;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    entry.next = next;</span>
+<span class="cstat-no" title="statement not covered" >    next.prev = entry;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._length++;</span>
+};
+&nbsp;
+/**
+ * Insert an entry at the tail
+ * @param  {clay.core.LinkedList.Entry} entry
+ */
+LinkedList.prototype.insertEntry = function (entry) {
+    if (!this.head) {
+        this.head = this.tail = entry;
+    }
+    else {
+        this.tail.next = entry;
+        entry.prev = this.tail;
+        this.tail = entry;
+    }
+    this._length++;
+};
+&nbsp;
+/**
+ * Remove entry.
+ * @param  {clay.core.LinkedList.Entry} entry
+ */
+LinkedList.prototype.remove = function (entry) {
+    var prev = entry.prev;
+    var next = entry.next;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (prev) {
+<span class="cstat-no" title="statement not covered" >        prev.next = next;</span>
+    }
+    else {
+        // Is head
+        this.head = next;
+    }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (next) {
+        next.prev = prev;
+    }
+    else {
+        // Is tail
+<span class="cstat-no" title="statement not covered" >        this.tail = prev;</span>
+    }
+    entry.next = entry.prev = null;
+    this._length--;
+};
+&nbsp;
+/**
+ * Remove entry at index.
+ * @param  {number} idx
+ * @return {}
+ */
+LinkedList.prototype.removeAt = function (idx) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (idx &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+    var curr = <span class="cstat-no" title="statement not covered" >this.head;</span>
+    var cursor = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >    while (curr &amp;&amp; cursor != idx) {</span>
+<span class="cstat-no" title="statement not covered" >        curr = curr.next;</span>
+<span class="cstat-no" title="statement not covered" >        cursor++;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (curr) {</span>
+<span class="cstat-no" title="statement not covered" >        this.remove(curr);</span>
+<span class="cstat-no" title="statement not covered" >        return curr.value;</span>
+    }
+};
+/**
+ * Get head value
+ * @return {}
+ */
+LinkedList.prototype.getHead = function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (this.head) {</span>
+<span class="cstat-no" title="statement not covered" >        return this.head.value;</span>
+    }
+};
+/**
+ * Get tail value
+ * @return {}
+ */
+LinkedList.prototype.getTail = function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (this.tail) {</span>
+<span class="cstat-no" title="statement not covered" >        return this.tail.value;</span>
+    }
+};
+/**
+ * Get value at idx
+ * @param {number} idx
+ * @return {}
+ */
+LinkedList.prototype.getAt = function (idx) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (idx &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+    var curr = <span class="cstat-no" title="statement not covered" >this.head;</span>
+    var cursor = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >    while (curr &amp;&amp; cursor != idx) {</span>
+<span class="cstat-no" title="statement not covered" >        curr = curr.next;</span>
+<span class="cstat-no" title="statement not covered" >        cursor++;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return curr.value;</span>
+};
+&nbsp;
+/**
+ * @param  {} value
+ * @return {number}
+ */
+LinkedList.prototype.indexOf = function (value) <span class="fstat-no" title="function not covered" >{</span>
+    var curr = <span class="cstat-no" title="statement not covered" >this.head;</span>
+    var cursor = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >    while (curr) {</span>
+<span class="cstat-no" title="statement not covered" >        if (curr.value === value) {</span>
+<span class="cstat-no" title="statement not covered" >            return cursor;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        curr = curr.next;</span>
+<span class="cstat-no" title="statement not covered" >        cursor++;</span>
+    }
+};
+&nbsp;
+/**
+ * @return {number}
+ */
+LinkedList.prototype.length = function () {
+    return this._length;
+};
+&nbsp;
+/**
+ * If list is empty
+ */
+LinkedList.prototype.isEmpty = function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return this._length === 0;</span>
+};
+&nbsp;
+/**
+ * @param  {Function} cb
+ * @param  {} context
+ */
+LinkedList.prototype.forEach = function (cb, context) <span class="fstat-no" title="function not covered" >{</span>
+    var curr = <span class="cstat-no" title="statement not covered" >this.head;</span>
+    var idx = <span class="cstat-no" title="statement not covered" >0;</span>
+    var haveContext = <span class="cstat-no" title="statement not covered" >typeof(context) != 'undefined';</span>
+<span class="cstat-no" title="statement not covered" >    while (curr) {</span>
+<span class="cstat-no" title="statement not covered" >        if (haveContext) {</span>
+<span class="cstat-no" title="statement not covered" >            cb.call(context, curr.value, idx);</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            cb(curr.value, idx);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        curr = curr.next;</span>
+<span class="cstat-no" title="statement not covered" >        idx++;</span>
+    }
+};
+&nbsp;
+/**
+ * Clear the list
+ */
+LinkedList.prototype.clear = function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    this.tail = this.head = null;</span>
+<span class="cstat-no" title="statement not covered" >    this._length = 0;</span>
+};
+&nbsp;
+/**
+ * @constructor
+ * @param {} val
+ */
+LinkedList.Entry = function (val) {
+    /**
+     * @type {}
+     */
+    this.value = val;
+&nbsp;
+    /**
+     * @type {clay.core.LinkedList.Entry}
+     */
+    this.next = null;
+&nbsp;
+    /**
+     * @type {clay.core.LinkedList.Entry}
+     */
+    this.prev = null;
+};
+&nbsp;
+export default LinkedList;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

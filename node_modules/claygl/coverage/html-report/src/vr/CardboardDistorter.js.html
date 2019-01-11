@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/vr/CardboardDistorter.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/vr/</a> CardboardDistorter.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.41% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.41% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/83</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// https://github.com/googlevr/webvr-polyfill/blob/master/src/cardboard-distorter.js
+&nbsp;
+// Use webvr may have scale problem.
+// https://github.com/googlevr/webvr-polyfill/issues/140
+// https://github.com/googlevr/webvr-polyfill/search?q=SCALE&amp;type=Issues&amp;utf8=%E2%9C%93
+// https://github.com/googlevr/webvr-polyfill/issues/147
+&nbsp;
+&nbsp;
+import Mesh from '../Mesh';
+import Material from '../Material';
+import Geometry from '../Geometry';
+import Shader from '../Shader';
+import Base from '../core/Base';
+import PerspectiveCamera from '../camera/Perspective';
+&nbsp;
+import outputEssl from './output.glsl.js';
+&nbsp;
+Shader.import(outputEssl);
+&nbsp;
+function lerp (a, b, t) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return a * (1 - t) + b * t;</span>
+}
+&nbsp;
+var CardboardDistorter = Base.extend(function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+&nbsp;
+        clearColor: [0, 0, 0, 1],
+&nbsp;
+        _mesh: new Mesh({
+            geometry: new Geometry({
+                dynamic: true
+            }),
+            culling: false,
+            material: new Material({
+                // FIXME Why disable depthMask will be wrong
+                // depthMask: false,
+                depthTest: false,
+                shader: new Shader({
+                    vertex: Shader.source('clay.vr.disorter.output.vertex'),
+                    fragment: Shader.source('clay.vr.disorter.output.fragment')
+                })
+            })
+        }),
+        _fakeCamera: new PerspectiveCamera()
+    };
+}, {
+&nbsp;
+    render: function (renderer, sourceTexture) <span class="fstat-no" title="function not covered" >{</span>
+        var clearColor = <span class="cstat-no" title="statement not covered" >this.clearColor;</span>
+        var gl = <span class="cstat-no" title="statement not covered" >renderer.gl;</span>
+<span class="cstat-no" title="statement not covered" >        gl.clearColor(clearColor[0], clearColor[1], clearColor[2], clearColor[3]);</span>
+<span class="cstat-no" title="statement not covered" >        gl.clear(gl.COLOR_BUFFER_BIT);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        gl.disable(gl.BLEND);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._mesh.material.set('texture', sourceTexture);</span>
+&nbsp;
+        // Full size?
+<span class="cstat-no" title="statement not covered" >        renderer.saveViewport();</span>
+<span class="cstat-no" title="statement not covered" >        renderer.setViewport(0, 0, renderer.getWidth(), renderer.getHeight());</span>
+<span class="cstat-no" title="statement not covered" >        renderer.renderPass([this._mesh], this._fakeCamera);</span>
+<span class="cstat-no" title="statement not covered" >        renderer.restoreViewport();</span>
+        // this._mesh.material.shader.bind(renderer);
+        // this._mesh.material.bind(renderer);
+        // this._mesh.render(renderer.gl);
+    },
+&nbsp;
+    updateFromVRDisplay: function (vrDisplay) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+        // FIXME
+<span class="cstat-no" title="statement not covered" >        if (vrDisplay.deviceInfo_) {</span>
+            // Hardcoded mesh size
+<span class="cstat-no" title="statement not covered" >            this._updateMesh(20, 20, vrDisplay.deviceInfo_);</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            console.warn('Cant get vrDisplay.deviceInfo_, seems code changed');</span>
+        }
+    },
+&nbsp;
+    _updateMesh: function (width, height, deviceInfo) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+        var positionAttr = <span class="cstat-no" title="statement not covered" >this._mesh.geometry.attributes.position;</span>
+        var texcoordAttr = <span class="cstat-no" title="statement not covered" >this._mesh.geometry.attributes.texcoord0;</span>
+<span class="cstat-no" title="statement not covered" >        positionAttr.init(2 * width * height);</span>
+<span class="cstat-no" title="statement not covered" >        texcoordAttr.init(2 * width * height);</span>
+&nbsp;
+        var lensFrustum = <span class="cstat-no" title="statement not covered" >deviceInfo.getLeftEyeVisibleTanAngles();</span>
+        var noLensFrustum = <span class="cstat-no" title="statement not covered" >deviceInfo.getLeftEyeNoLensTanAngles();</span>
+        var viewport = <span class="cstat-no" title="statement not covered" >deviceInfo.getLeftEyeVisibleScreenRect(noLensFrustum);</span>
+        var vidx = <span class="cstat-no" title="statement not covered" >0;</span>
+&nbsp;
+        var pos = <span class="cstat-no" title="statement not covered" >[];</span>
+        var uv = <span class="cstat-no" title="statement not covered" >[];</span>
+&nbsp;
+        // Vertices
+<span class="cstat-no" title="statement not covered" >        for (var e = 0; e &lt; 2; e++) {</span>
+<span class="cstat-no" title="statement not covered" >            for (var j = 0; j &lt; height; j++) {</span>
+<span class="cstat-no" title="statement not covered" >                for (var i = 0; i &lt; width; i++, vidx++) {</span>
+                    var u = <span class="cstat-no" title="statement not covered" >i / (width - 1);</span>
+                    var v = <span class="cstat-no" title="statement not covered" >j / (height - 1);</span>
+&nbsp;
+                    // Grid points regularly spaced in StreoScreen, and barrel distorted in
+                    // the mesh.
+                    var s = <span class="cstat-no" title="statement not covered" >u;</span>
+                    var t = <span class="cstat-no" title="statement not covered" >v;</span>
+                    var x = <span class="cstat-no" title="statement not covered" >lerp(lensFrustum[0], lensFrustum[2], u);</span>
+                    var y = <span class="cstat-no" title="statement not covered" >lerp(lensFrustum[3], lensFrustum[1], v);</span>
+                    var d = <span class="cstat-no" title="statement not covered" >Math.sqrt(x * x + y * y);</span>
+                    var r = <span class="cstat-no" title="statement not covered" >deviceInfo.distortion.distortInverse(d);</span>
+                    var p = <span class="cstat-no" title="statement not covered" >x * r / d;</span>
+                    var q = <span class="cstat-no" title="statement not covered" >y * r / d;</span>
+<span class="cstat-no" title="statement not covered" >                    u = (p - noLensFrustum[0]) / (noLensFrustum[2] - noLensFrustum[0]);</span>
+<span class="cstat-no" title="statement not covered" >                    v = (q - noLensFrustum[3]) / (noLensFrustum[1] - noLensFrustum[3]);</span>
+&nbsp;
+                    // Convert u,v to mesh screen coordinates.
+<span class="cstat-no" title="statement not covered" >                    var aspect = deviceInfo.device.widthMeters / deviceInfo.device.heightMeters;</span>
+&nbsp;
+                    // FIXME: The original Unity plugin multiplied U by the aspect ratio
+                    // and didn't multiply either value by 2, but that seems to get it
+                    // really close to correct looking for me. I hate this kind of "Don't
+                    // know why it works" code though, and wold love a more logical
+                    // explanation of what needs to happen here.
+                    u = (viewport.x + u * viewport.width - 0.5) * 2.0; //* aspect;
+<span class="cstat-no" title="statement not covered" >                    v = (viewport.y + v * viewport.height - 0.5) * 2.0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    pos[0] = u;</span>
+<span class="cstat-no" title="statement not covered" >                    pos[1] = v;</span>
+<span class="cstat-no" title="statement not covered" >                    pos[2] = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    uv[0] = s * 0.5 + e * 0.5;</span>
+<span class="cstat-no" title="statement not covered" >                    uv[1] = t;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    positionAttr.set(vidx, pos);</span>
+<span class="cstat-no" title="statement not covered" >                    texcoordAttr.set(vidx, uv);</span>
+                }
+            }
+&nbsp;
+            var w = <span class="cstat-no" title="statement not covered" >lensFrustum[2] - lensFrustum[0];</span>
+<span class="cstat-no" title="statement not covered" >            lensFrustum[0] = -(w + lensFrustum[0]);</span>
+<span class="cstat-no" title="statement not covered" >            lensFrustum[2] = w - lensFrustum[2];</span>
+<span class="cstat-no" title="statement not covered" >            w = noLensFrustum[2] - noLensFrustum[0];</span>
+<span class="cstat-no" title="statement not covered" >            noLensFrustum[0] = -(w + noLensFrustum[0]);</span>
+<span class="cstat-no" title="statement not covered" >            noLensFrustum[2] = w - noLensFrustum[2];</span>
+<span class="cstat-no" title="statement not covered" >            viewport.x = 1 - (viewport.x + viewport.width);</span>
+        }
+&nbsp;
+        // Indices
+        var indices = <span class="cstat-no" title="statement not covered" >new Uint16Array(2 * (width - 1) * (height - 1) * 6);</span>
+        var halfwidth = <span class="cstat-no" title="statement not covered" >width / 2;</span>
+        var halfheight = <span class="cstat-no" title="statement not covered" >height / 2;</span>
+        var vidx = <span class="cstat-no" title="statement not covered" >0;</span>
+        var iidx = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >        for (var e = 0; e &lt; 2; e++) {</span>
+<span class="cstat-no" title="statement not covered" >            for (var j = 0; j &lt; height; j++) {</span>
+<span class="cstat-no" title="statement not covered" >                for (var i = 0; i &lt; width; i++, vidx++) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (i === 0 || j === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        continue;</span>
+                    }
+                    // Build a quad.  Lower right and upper left quadrants have quads with
+                    // the triangle diagonal flipped to get the vignette to interpolate
+                    // correctly.
+<span class="cstat-no" title="statement not covered" >                    if ((i &lt;= halfwidth) == (j &lt;= halfheight)) {</span>
+                        // Quad diagonal lower left to upper right.
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - width - 1;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - width;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - width - 1;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - 1;</span>
+                    }
+                    else {
+                        // Quad diagonal upper left to lower right.
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - 1;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - width;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - width;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - 1;</span>
+<span class="cstat-no" title="statement not covered" >                        indices[iidx++] = vidx - width - 1;</span>
+                    }
+                }
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._mesh.geometry.indices = indices;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._mesh.geometry.dirty();</span>
+    }
+});
+&nbsp;
+export default CardboardDistorter;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

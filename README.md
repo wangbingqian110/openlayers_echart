@@ -4,6 +4,7 @@
 ---
 ![image](https://raw.githubusercontent.com/wangbingqian110/openlayers_echart/master/flight1.gif)
 ![image](https://raw.githubusercontent.com/wangbingqian110/openlayers_echart/master/flight2.gif)
+![image](https://raw.githubusercontent.com/wangbingqian110/openlayers_echart/master/windsgif.gif)
 ---
 
 - **npm使用**

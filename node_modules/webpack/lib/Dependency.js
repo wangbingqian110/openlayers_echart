@@ -4,25 +4,47 @@
 */
 "use strict";
 
+const util = require("util");
 const compareLocations = require("./compareLocations");
 const DependencyReference = require("./dependencies/DependencyReference");
 
-/** @typedef {Object} Position
- *  @property {number} column
- *  @property {number} line
+/** @typedef {import("./Module")} Module */
+/** @typedef {import("webpack-sources").Source} Source */
+/** @typedef {import("./RuntimeTemplate")} RuntimeTemplate */
+
+/**
+ * @typedef {Object} DependencyTemplate
+ * @property {function(Dependency, Source, RuntimeTemplate, Map<Function, DependencyTemplate>): void} apply
  */
 
-/** @typedef {Object} Loc
- *  @property {Position} start
- *  @property {Position} end
+/** @typedef {Object} SourcePosition
+ *  @property {number} line
+ *  @property {number=} column
  */
+
+/** @typedef {Object} RealDependencyLocation
+ *  @property {SourcePosition} start
+ *  @property {SourcePosition=} end
+ *  @property {number=} index
+ */
+
+/** @typedef {Object} SynteticDependencyLocation
+ *  @property {string} name
+ *  @property {number=} index
+ */
+
+/** @typedef {SynteticDependencyLocation|RealDependencyLocation} DependencyLocation */
 
 class Dependency {
 	constructor() {
+		/** @type {Module|null} */
 		this.module = null;
 		// TODO remove in webpack 5
+		/** @type {boolean} */
 		this.weak = false;
+		/** @type {boolean} */
 		this.optional = false;
+		/** @type {DependencyLocation} */
 		this.loc = undefined;
 	}
 
@@ -57,6 +79,11 @@ class Dependency {
 		this.module = null;
 	}
 }
-Dependency.compare = (a, b) => compareLocations(a.loc, b.loc);
+
+// TODO remove in webpack 5
+Dependency.compare = util.deprecate(
+	(a, b) => compareLocations(a.loc, b.loc),
+	"Dependency.compare is deprecated and will be removed in the next major version"
+);
 
 module.exports = Dependency;

@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/math/Frustum.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/math/</a> Frustum.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>111/111</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>99/99</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-yes">378×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-yes">504×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">147×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-yes">135×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Vector3 from './Vector3';
+import BoundingBox from './BoundingBox';
+import Plane from './Plane';
+&nbsp;
+import glMatrix from '../dep/glmatrix';
+var vec3 = glMatrix.vec3;
+&nbsp;
+var vec3Set = vec3.set;
+var vec3Copy = vec3.copy;
+var vec3TranformMat4 = vec3.transformMat4;
+var mathMin = Math.min;
+var mathMax = Math.max;
+/**
+ * @constructor
+ * @alias clay.Frustum
+ */
+var Frustum = function() {
+&nbsp;
+    /**
+     * Eight planes to enclose the frustum
+     * @type {clay.Plane[]}
+     */
+    this.planes = [];
+&nbsp;
+    for (var i = 0; i &lt; 6; i++) {
+        this.planes.push(new Plane());
+    }
+&nbsp;
+    /**
+     * Bounding box of frustum
+     * @type {clay.BoundingBox}
+     */
+    this.boundingBox = new BoundingBox();
+&nbsp;
+    /**
+     * Eight vertices of frustum
+     * @type {Float32Array[]}
+     */
+    this.vertices = [];
+    for (var i = 0; i &lt; 8; i++) {
+        this.vertices[i] = vec3.fromValues(0, 0, 0);
+    }
+};
+&nbsp;
+Frustum.prototype = {
+&nbsp;
+    // http://web.archive.org/web/20120531231005/http://crazyjoke.free.fr/doc/3D/plane%20extraction.pdf
+    /**
+     * Set frustum from a projection matrix
+     * @param {clay.Matrix4} projectionMatrix
+     */
+    setFromProjection: function(projectionMatrix) {
+&nbsp;
+        var planes = this.planes;
+        var m = projectionMatrix.array;
+        var m0 = m[0], m1 = m[1], m2 = m[2], m3 = m[3];
+        var m4 = m[4], m5 = m[5], m6 = m[6], m7 = m[7];
+        var m8 = m[8], m9 = m[9], m10 = m[10], m11 = m[11];
+        var m12 = m[12], m13 = m[13], m14 = m[14], m15 = m[15];
+&nbsp;
+        // Update planes
+        vec3Set(planes[0].normal.array, m3 - m0, m7 - m4, m11 - m8);
+        planes[0].distance = -(m15 - m12);
+        planes[0].normalize();
+&nbsp;
+        vec3Set(planes[1].normal.array, m3 + m0, m7 + m4, m11 + m8);
+        planes[1].distance = -(m15 + m12);
+        planes[1].normalize();
+&nbsp;
+        vec3Set(planes[2].normal.array, m3 + m1, m7 + m5, m11 + m9);
+        planes[2].distance = -(m15 + m13);
+        planes[2].normalize();
+&nbsp;
+        vec3Set(planes[3].normal.array, m3 - m1, m7 - m5, m11 - m9);
+        planes[3].distance = -(m15 - m13);
+        planes[3].normalize();
+&nbsp;
+        vec3Set(planes[4].normal.array, m3 - m2, m7 - m6, m11 - m10);
+        planes[4].distance = -(m15 - m14);
+        planes[4].normalize();
+&nbsp;
+        vec3Set(planes[5].normal.array, m3 + m2, m7 + m6, m11 + m10);
+        planes[5].distance = -(m15 + m14);
+        planes[5].normalize();
+&nbsp;
+        // Perspective projection
+        var boundingBox = this.boundingBox;
+        var vertices = this.vertices;
+        if (m15 === 0)  {
+            var aspect = m5 / m0;
+            var zNear = -m14 / (m10 - 1);
+            var zFar = -m14 / (m10 + 1);
+            var farY = -zFar / m5;
+            var nearY = -zNear / m5;
+            // Update bounding box
+            boundingBox.min.set(-farY * aspect, -farY, zFar);
+            boundingBox.max.set(farY * aspect, farY, zNear);
+            // update vertices
+            //--- min z
+            // min x
+            vec3Set(vertices[0], -farY * aspect, -farY, zFar);
+            vec3Set(vertices[1], -farY * aspect, farY, zFar);
+            // max x
+            vec3Set(vertices[2], farY * aspect, -farY, zFar);
+            vec3Set(vertices[3], farY * aspect, farY, zFar);
+            //-- max z
+            vec3Set(vertices[4], -nearY * aspect, -nearY, zNear);
+            vec3Set(vertices[5], -nearY * aspect, nearY, zNear);
+            vec3Set(vertices[6], nearY * aspect, -nearY, zNear);
+            vec3Set(vertices[7], nearY * aspect, nearY, zNear);
+        }
+        else { // Orthographic projection
+            var left = (-1 - m12) / m0;
+            var right = (1 - m12) / m0;
+            var top = (1 - m13) / m5;
+            var bottom = (-1 - m13) / m5;
+            var near = (-1 - m14) / m10;
+            var far = (1 - m14) / m10;
+&nbsp;
+&nbsp;
+            boundingBox.min.set(Math.min(left, right), Math.min(bottom, top), Math.min(far, near));
+            boundingBox.max.set(Math.max(right, left), Math.max(top, bottom), Math.max(near, far));
+&nbsp;
+            var min = boundingBox.min.array;
+            var max = boundingBox.max.array;
+            //--- min z
+            // min x
+            vec3Set(vertices[0], min[0], min[1], min[2]);
+            vec3Set(vertices[1], min[0], max[1], min[2]);
+            // max x
+            vec3Set(vertices[2], max[0], min[1], min[2]);
+            vec3Set(vertices[3], max[0], max[1], min[2]);
+            //-- max z
+            vec3Set(vertices[4], min[0], min[1], max[2]);
+            vec3Set(vertices[5], min[0], max[1], max[2]);
+            vec3Set(vertices[6], max[0], min[1], max[2]);
+            vec3Set(vertices[7], max[0], max[1], max[2]);
+        }
+    },
+&nbsp;
+    /**
+     * Apply a affine transform matrix and set to the given bounding box
+     * @function
+     * @param {clay.BoundingBox}
+     * @param {clay.Matrix4}
+     * @return {clay.BoundingBox}
+     */
+    getTransformedBoundingBox: (function() {
+&nbsp;
+        var tmpVec3 = vec3.create();
+&nbsp;
+        return function(bbox, matrix) {
+            var vertices = this.vertices;
+&nbsp;
+            var m4 = matrix.array;
+            var min = bbox.min;
+            var max = bbox.max;
+            var minArr = min.array;
+            var maxArr = max.array;
+            var v = vertices[0];
+            vec3TranformMat4(tmpVec3, v, m4);
+            vec3Copy(minArr, tmpVec3);
+            vec3Copy(maxArr, tmpVec3);
+&nbsp;
+            for (var i = 1; i &lt; 8; i++) {
+                v = vertices[i];
+                vec3TranformMat4(tmpVec3, v, m4);
+&nbsp;
+                minArr[0] = mathMin(tmpVec3[0], minArr[0]);
+                minArr[1] = mathMin(tmpVec3[1], minArr[1]);
+                minArr[2] = mathMin(tmpVec3[2], minArr[2]);
+&nbsp;
+                maxArr[0] = mathMax(tmpVec3[0], maxArr[0]);
+                maxArr[1] = mathMax(tmpVec3[1], maxArr[1]);
+                maxArr[2] = mathMax(tmpVec3[2], maxArr[2]);
+            }
+&nbsp;
+            min._dirty = true;
+            max._dirty = true;
+&nbsp;
+            return bbox;
+        };
+    }) ()
+};
+export default Frustum;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

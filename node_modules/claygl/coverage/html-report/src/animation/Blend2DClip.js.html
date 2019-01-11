@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/animation/Blend2DClip.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/animation/</a> Blend2DClip.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.64% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/66</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.64% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/66</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// 2D Blend clip of blend tree
+// http://docs.unity3d.com/Documentation/Manual/2DBlending.html
+import Clip from './Clip';
+import delaunay from '../util/delaunay';
+import Vector2 from '../math/Vector2';
+&nbsp;
+/**
+ * @typedef {Object} clay.animation.Blend2DClip.IClipInput
+ * @property {clay.Vector2} position
+ * @property {clay.animation.Clip} clip
+ * @property {number} offset
+ */
+&nbsp;
+/**
+ * 2d blending node in animation blend tree.
+ * output clip must have blend2D method
+ * @constructor
+ * @alias clay.animation.Blend2DClip
+ * @extends clay.animation.Clip
+ *
+ * @param {Object} [opts]
+ * @param {string} [opts.name]
+ * @param {Object} [opts.target]
+ * @param {number} [opts.life]
+ * @param {number} [opts.delay]
+ * @param {number} [opts.gap]
+ * @param {number} [opts.playbackRatio]
+ * @param {boolean|number} [opts.loop] If loop is a number, it indicate the loop count of animation
+ * @param {string|Function} [opts.easing]
+ * @param {Function} [opts.onframe]
+ * @param {Function} [opts.onfinish]
+ * @param {Function} [opts.onrestart]
+ * @param {object[]} [opts.inputs]
+ * @param {clay.Vector2} [opts.position]
+ * @param {clay.animation.Clip} [opts.output]
+ */
+var Blend2DClip = function (opts) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    opts = opts || {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    Clip.call(this, opts);</span>
+    /**
+     * Output clip must have blend2D method
+     * @type {clay.animation.Clip}
+     */
+<span class="cstat-no" title="statement not covered" >    this.output = opts.output || null;</span>
+    /**
+     * @type {clay.animation.Blend2DClip.IClipInput[]}
+     */
+<span class="cstat-no" title="statement not covered" >    this.inputs = opts.inputs || [];</span>
+    /**
+     * @type {clay.Vector2}
+     */
+<span class="cstat-no" title="statement not covered" >    this.position = new Vector2();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._cacheTriangle = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._triangles = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._updateTriangles();</span>
+};
+&nbsp;
+Blend2DClip.prototype = new Clip();
+Blend2DClip.prototype.constructor = Blend2DClip;
+/**
+ * @param {clay.Vector2} position
+ * @param {clay.animation.Clip} inputClip
+ * @param {number} [offset]
+ * @return {clay.animation.Blend2DClip.IClipInput}
+ */
+Blend2DClip.prototype.addInput = function (position, inputClip, offset) <span class="fstat-no" title="function not covered" >{</span>
+    var obj = <span class="cstat-no" title="statement not covered" >{</span>
+        position : position,
+        clip : inputClip,
+        offset : offset || 0
+    };
+<span class="cstat-no" title="statement not covered" >    this.inputs.push(obj);</span>
+<span class="cstat-no" title="statement not covered" >    this.life = Math.max(inputClip.life, this.life);</span>
+    // TODO Change to incrementally adding
+<span class="cstat-no" title="statement not covered" >    this._updateTriangles();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return obj;</span>
+};
+&nbsp;
+// Delaunay triangulate
+Blend2DClip.prototype._updateTriangles = function () <span class="fstat-no" title="function not covered" >{</span>
+    var inputs = <span class="cstat-no" title="statement not covered" >this.inputs.map(function (a) <span class="fstat-no" title="function not covered" >{</span></span>
+<span class="cstat-no" title="statement not covered" >        return a.position;</span>
+    });
+<span class="cstat-no" title="statement not covered" >    this._triangles = delaunay.triangulate(inputs, 'array');</span>
+};
+&nbsp;
+Blend2DClip.prototype.step = function (time, dTime, silent) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+    var ret = <span class="cstat-no" title="statement not covered" >Clip.prototype.step.call(this, time);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (ret !== 'finish') {</span>
+<span class="cstat-no" title="statement not covered" >        this.setTime(this.getElapsedTime());</span>
+    }
+&nbsp;
+    // PENDING Schedule
+<span class="cstat-no" title="statement not covered" >    if (!silent &amp;&amp; ret !== 'paused') {</span>
+<span class="cstat-no" title="statement not covered" >        this.fire('frame');</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+};
+&nbsp;
+Blend2DClip.prototype.setTime = function (time) <span class="fstat-no" title="function not covered" >{</span>
+    var res = <span class="cstat-no" title="statement not covered" >this._findTriangle(this.position);</span>
+<span class="cstat-no" title="statement not covered" >    if (!res) {</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+    // In Barycentric
+    var a = <span class="cstat-no" title="statement not covered" >res[1];</span> // Percent of clip2
+    var b = <span class="cstat-no" title="statement not covered" >res[2];</span> // Percent of clip3
+&nbsp;
+    var tri = <span class="cstat-no" title="statement not covered" >res[0];</span>
+&nbsp;
+    var in1 = <span class="cstat-no" title="statement not covered" >this.inputs[tri.indices[0]];</span>
+    var in2 = <span class="cstat-no" title="statement not covered" >this.inputs[tri.indices[1]];</span>
+    var in3 = <span class="cstat-no" title="statement not covered" >this.inputs[tri.indices[2]];</span>
+    var clip1 = <span class="cstat-no" title="statement not covered" >in1.clip;</span>
+    var clip2 = <span class="cstat-no" title="statement not covered" >in2.clip;</span>
+    var clip3 = <span class="cstat-no" title="statement not covered" >in3.clip;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    clip1.setTime((time + in1.offset) % clip1.life);</span>
+<span class="cstat-no" title="statement not covered" >    clip2.setTime((time + in2.offset) % clip2.life);</span>
+<span class="cstat-no" title="statement not covered" >    clip3.setTime((time + in3.offset) % clip3.life);</span>
+&nbsp;
+    var c1 = <span class="cstat-no" title="statement not covered" >clip1.output instanceof Clip ? clip1.output : clip1;</span>
+    var c2 = <span class="cstat-no" title="statement not covered" >clip2.output instanceof Clip ? clip2.output : clip2;</span>
+    var c3 = <span class="cstat-no" title="statement not covered" >clip3.output instanceof Clip ? clip3.output : clip3;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.output.blend2D(c1, c2, c3, a, b);</span>
+};
+&nbsp;
+/**
+ * Clone a new Blend2D clip
+ * @param {boolean} cloneInputs True if clone the input clips
+ * @return {clay.animation.Blend2DClip}
+ */
+Blend2DClip.prototype.clone = function (cloneInputs) <span class="fstat-no" title="function not covered" >{</span>
+    var clip = <span class="cstat-no" title="statement not covered" >Clip.prototype.clone.call(this);</span>
+<span class="cstat-no" title="statement not covered" >    clip.output = this.output.clone();</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.inputs.length; i++) {</span>
+        var inputClip = <span class="cstat-no" title="statement not covered" >cloneInputs ? this.inputs[i].clip.clone(true) : this.inputs[i].clip;</span>
+<span class="cstat-no" title="statement not covered" >        clip.addInput(this.inputs[i].position, inputClip, this.inputs[i].offset);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return clip;</span>
+};
+&nbsp;
+Blend2DClip.prototype._findTriangle = function (position) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (this._cacheTriangle) {</span>
+        var res = <span class="cstat-no" title="statement not covered" >delaunay.contains(this._cacheTriangle.vertices, position.array);</span>
+<span class="cstat-no" title="statement not covered" >        if (res) {</span>
+<span class="cstat-no" title="statement not covered" >            return [this._cacheTriangle, res[0], res[1]];</span>
+        }
+    }
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this._triangles.length; i++) {</span>
+        var tri = <span class="cstat-no" title="statement not covered" >this._triangles[i];</span>
+        var res = <span class="cstat-no" title="statement not covered" >delaunay.contains(tri.vertices, this.position.array);</span>
+<span class="cstat-no" title="statement not covered" >        if (res) {</span>
+<span class="cstat-no" title="statement not covered" >            this._cacheTriangle = tri;</span>
+<span class="cstat-no" title="statement not covered" >            return [tri, res[0], res[1]];</span>
+        }
+    }
+};
+&nbsp;
+export default Blend2DClip;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

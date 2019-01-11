@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/plugin/InfinitePlane.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/plugin/</a> InfinitePlane.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.06% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/72</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.06% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>13/72</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Mesh from '../Mesh';
+import Geometry from '../Geometry';
+import Plane from '../math/Plane';
+import Vector3 from '../math/Vector3';
+import Matrix4 from '../math/Matrix4';
+import Ray from '../math/Ray';
+&nbsp;
+import glMatrix from '../dep/glmatrix';
+var mat4 = glMatrix.mat4;
+var vec3 = glMatrix.vec3;
+var vec4 = glMatrix.vec4;
+&nbsp;
+var uvs = [[0, 0], [0, 1], [1, 1], [1, 0]];
+var tris = [0, 1, 2, 2, 3, 0];
+&nbsp;
+var InfinitePlane = Mesh.extend({
+&nbsp;
+    camera: null,
+&nbsp;
+    plane: null,
+&nbsp;
+    maxGrid: 0,
+&nbsp;
+    // TODO
+    frustumCulling: false
+&nbsp;
+}, function () <span class="fstat-no" title="function not covered" >{</span>
+    var geometry = <span class="cstat-no" title="statement not covered" >this.geometry = new Geometry({</span>
+        dynamic: true
+    });
+<span class="cstat-no" title="statement not covered" >    geometry.attributes.position.init(6);</span>
+<span class="cstat-no" title="statement not covered" >    geometry.attributes.normal.init(6);</span>
+<span class="cstat-no" title="statement not covered" >    geometry.attributes.texcoord0.init(6);</span>
+<span class="cstat-no" title="statement not covered" >    geometry.indices = new Uint16Array(6);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.plane = new Plane();</span>
+}, {
+&nbsp;
+    updateGeometry: function () <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+        var coords = <span class="cstat-no" title="statement not covered" >this._unProjectGrid();</span>
+<span class="cstat-no" title="statement not covered" >        if (!coords) {</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+        var positionAttr = <span class="cstat-no" title="statement not covered" >this.geometry.attributes.position;</span>
+        var normalAttr = <span class="cstat-no" title="statement not covered" >this.geometry.attributes.normal;</span>
+        var texcoords = <span class="cstat-no" title="statement not covered" >this.geometry.attributes.texcoord0;</span>
+        var indices = <span class="cstat-no" title="statement not covered" >this.geometry.indices;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; 6; i++) {</span>
+            var idx = <span class="cstat-no" title="statement not covered" >tris[i];</span>
+<span class="cstat-no" title="statement not covered" >            positionAttr.set(i, coords[idx].array);</span>
+<span class="cstat-no" title="statement not covered" >            normalAttr.set(i, this.plane.normal.array);</span>
+<span class="cstat-no" title="statement not covered" >            texcoords.set(i, uvs[idx]);</span>
+<span class="cstat-no" title="statement not covered" >            indices[i] = i;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.geometry.dirty();</span>
+    },
+&nbsp;
+    // http://fileadmin.cs.lth.se/graphics/theses/projects/projgrid/
+    _unProjectGrid: (function () {
+&nbsp;
+        var planeViewSpace = new Plane();
+        var lines = [
+            0, 1, 0, 2, 1, 3, 2, 3,
+            4, 5, 4, 6, 5, 7, 6, 7,
+            0, 4, 1, 5, 2, 6, 3, 7
+        ];
+&nbsp;
+        var start = new Vector3();
+        var end = new Vector3();
+&nbsp;
+        var points = [];
+&nbsp;
+        // 1----2
+        // |    |
+        // 0----3
+        var coords = [];
+        for (var i = 0; i &lt; 4; i++) {
+            coords[i] = new Vector3(0, 0);
+        }
+&nbsp;
+        var ray = new Ray();
+&nbsp;
+        return function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >            planeViewSpace.copy(this.plane);</span>
+<span class="cstat-no" title="statement not covered" >            planeViewSpace.applyTransform(this.camera.viewMatrix);</span>
+&nbsp;
+            var frustumVertices = <span class="cstat-no" title="statement not covered" >this.camera.frustum.vertices;</span>
+&nbsp;
+            var nPoints = <span class="cstat-no" title="statement not covered" >0;</span>
+            // Intersect with lines of frustum
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; 12; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                start.array = frustumVertices[lines[i * 2]];</span>
+<span class="cstat-no" title="statement not covered" >                end.array = frustumVertices[lines[i * 2 + 1]];</span>
+&nbsp;
+                var point = <span class="cstat-no" title="statement not covered" >planeViewSpace.intersectLine(start, end, points[nPoints]);</span>
+<span class="cstat-no" title="statement not covered" >                if (point) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (!points[nPoints]) {</span>
+<span class="cstat-no" title="statement not covered" >                        points[nPoints] = point;</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    nPoints++;</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            if (nPoints === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; nPoints; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                points[i].applyProjection(this.camera.projectionMatrix);</span>
+            }
+            var minX = <span class="cstat-no" title="statement not covered" >points[0].array[0];</span>
+            var minY = <span class="cstat-no" title="statement not covered" >points[0].array[1];</span>
+            var maxX = <span class="cstat-no" title="statement not covered" >points[0].array[0];</span>
+            var maxY = <span class="cstat-no" title="statement not covered" >points[0].array[1];</span>
+<span class="cstat-no" title="statement not covered" >            for (var i = 1; i &lt; nPoints; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                maxX = Math.max(maxX, points[i].array[0]);</span>
+<span class="cstat-no" title="statement not covered" >                maxY = Math.max(maxY, points[i].array[1]);</span>
+<span class="cstat-no" title="statement not covered" >                minX = Math.min(minX, points[i].array[0]);</span>
+<span class="cstat-no" title="statement not covered" >                minY = Math.min(minY, points[i].array[1]);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (minX == maxX || minY == maxY) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            coords[0].array[0] = minX;</span>
+<span class="cstat-no" title="statement not covered" >            coords[0].array[1] = minY;</span>
+<span class="cstat-no" title="statement not covered" >            coords[1].array[0] = minX;</span>
+<span class="cstat-no" title="statement not covered" >            coords[1].array[1] = maxY;</span>
+<span class="cstat-no" title="statement not covered" >            coords[2].array[0] = maxX;</span>
+<span class="cstat-no" title="statement not covered" >            coords[2].array[1] = maxY;</span>
+<span class="cstat-no" title="statement not covered" >            coords[3].array[0] = maxX;</span>
+<span class="cstat-no" title="statement not covered" >            coords[3].array[1] = minY;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; 4; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                this.camera.castRay(coords[i], ray);</span>
+<span class="cstat-no" title="statement not covered" >                ray.intersectPlane(this.plane, coords[i]);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return coords;</span>
+        };
+    })()
+});
+&nbsp;
+export default InfinitePlane;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

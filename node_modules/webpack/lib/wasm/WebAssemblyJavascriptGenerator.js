@@ -10,8 +10,20 @@ const { RawSource } = require("webpack-sources");
 const WebAssemblyImportDependency = require("../dependencies/WebAssemblyImportDependency");
 const WebAssemblyExportImportedDependency = require("../dependencies/WebAssemblyExportImportedDependency");
 
+/** @typedef {import("../NormalModule")} NormalModule */
+/** @typedef {import("../RuntimeTemplate")} RuntimeTemplate */
+/** @typedef {import("webpack-sources").Source} Source */
+/** @typedef {import("../Dependency").DependencyTemplate} DependencyTemplate */
+
 class WebAssemblyJavascriptGenerator extends Generator {
-	generate(module, dependencyTemplates, runtimeTemplate) {
+	/**
+	 * @param {NormalModule} module module for which the code should be generated
+	 * @param {Map<Function, DependencyTemplate>} dependencyTemplates mapping from dependencies to templates
+	 * @param {RuntimeTemplate} runtimeTemplate the runtime template
+	 * @param {string} type which kind of code should be generated
+	 * @returns {Source} generated code
+	 */
+	generate(module, dependencyTemplates, runtimeTemplate, type) {
 		const initIdentifer = Array.isArray(module.usedExports)
 			? Template.numberToIdentifer(module.usedExports.length)
 			: "__webpack_init__";
@@ -21,6 +33,7 @@ class WebAssemblyJavascriptGenerator extends Generator {
 		const initParams = [];
 		let index = 0;
 		for (const dep of module.dependencies) {
+			const depAsAny = /** @type {any} */ (dep);
 			if (dep.module) {
 				let importData = importedModules.get(dep.module);
 				if (importData === undefined) {
@@ -29,7 +42,8 @@ class WebAssemblyJavascriptGenerator extends Generator {
 						(importData = {
 							importVar: `m${index}`,
 							index,
-							request: dep.userRequest,
+							request:
+								"userRequest" in depAsAny ? depAsAny.userRequest : undefined,
 							names: new Set(),
 							reexports: []
 						})
@@ -64,10 +78,11 @@ class WebAssemblyJavascriptGenerator extends Generator {
 					importData.names.add(dep.name);
 					const usedName = module.isUsed(dep.exportName);
 					if (usedName) {
+						const exportProp = `${module.exportsArgument}[${JSON.stringify(
+							usedName
+						)}]`;
 						const defineStatement = Template.asString([
-							`${module.exportsArgument}[${JSON.stringify(
-								usedName
-							)}] = ${runtimeTemplate.exportFromImport({
+							`${exportProp} = ${runtimeTemplate.exportFromImport({
 								module: dep.module,
 								request: dep.request,
 								importVar: importData.importVar,
@@ -76,7 +91,11 @@ class WebAssemblyJavascriptGenerator extends Generator {
 								asiSafe: true,
 								isCall: false,
 								callContext: null
-							})};`
+							})};`,
+							`if(WebAssembly.Global) ${exportProp} = ` +
+								`new WebAssembly.Global({ value: ${JSON.stringify(
+									dep.valueType
+								)} }, ${exportProp});`
 						]);
 						importData.reexports.push(defineStatement);
 						needExportsCopy = true;

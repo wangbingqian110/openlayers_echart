@@ -1,0 +1,125 @@
+ ☐ Slot when multiple uniform use same texture.
+ ☐ clear, viewport 等属性移出来作为 render 参数，去掉 saveClear, restoreClear
+ ☐ Renderer 实现状态资源管理，GC？
+
+ ☐ SKINNING 应该跟 shader 和 material 无关？
+ ☐ Add a skinning demo, including split.
+ ☐ Add a mesh merge demo.
+ ☐ Add a PSSM demo
+ ☐ StaticGeometry => Geometry
+ ✔ Texture width, height 与 image 同步， 自动 mark dirty @done (17-06-28 10:48)
+ ☐ Shadow map alpha test
+ ☐ 所有 cache 放入 instance 中，比如 compositor 的 texturePool
+ ☐ directional shadow 摄像机裁剪计算有问题，skinned 的 mesh boundingbox 计算不正确
+    Fixed bounding box ?
+
+ ✔ getVertexNumber => vertexCount @done (16-08-18 13:04)
+ ✔ Shadow map in Directional light @done (13-07-01 18:26)
+ ✔ PCF @done (13-07-01 18:26)
+ ☐ Program cache
+ ☐ Remove attachShader, use shader setter instead
+ ☐ Texture leak from other materials if texture is null
+ ☐ normal and roughness texture sRGB
+ ☐ fbx2gltf 对 dae 好像会忽略最顶层对象的变换
+ ☐ fbx2gltf 对于在有变换的节点下的 joints 支持有问题
+ ☐ loose context handling
+ ☐ 参数统一都是 gl 或者 renderer？(现在是 gl，有些必须要是 renderer 的时候才是 renderer)
+ ☐ gbuffer binary search seems useless
+ ✔ buildin > qtek @done (16-09-07 20:06)
+ ☐ GLTF 只导入导出动画
+ ☐ 同步 qtek, zrender Clip 对象，单个 clip 继续和暂停
+ ✔ Dispose !!! @done (13-10-10 13:31)
+   ✔ Shadow Map Dispose @done (13-10-29 17:47)
+   ☐ Compositor dispose
+   ☐ Dispose the unused light shadow map
+   ☐ Shadow map handling after node disposed
+ ✔ Shadow map of point light (map distance to 0 - 1) @done (13-10-10 13:32)
+ ✔ Skinning 也有点问题 @done (13-09-20 21:44)
+ ✔ Quaternion to euler
+ ✔ slow in chrome !!!! @done (13-09-20 21:44)
+ ✔ transparent, depth test, depth write, @done (13-08-04 18:47)
+ ✔ skybox, reflection map @done (13-08-18 15:52)
+ ✔ frustum culling @done (13-11-13 21:15)
+ ✔ particle system @done (13-11-12 15:44)
+ ✔ Bounding Box @done (13-11-13 21:15)
+ ✔ Performance @done (13-11-22 16:33)
+ ✔ Texture load error handling @done (13-12-19 13:27)
+ ✔ Parse Defines @done (13-12-02 11:03)
+ ✔ Sphere noramls wrong @done (13-11-30 14:12)
+ ✔ Rewrite Skybox @done (13-11-30 14:11)
+ ✔ FX Loader auto fit width and height @done (13-12-19 13:27)
+ ✔ Orbit Control @done (13-12-11 10:56)
+ ✔ dds loader @done (13-12-19 13:27)
+ ✔ frustum culling problem @done (13-12-24 17:28)
+ ✔ !!!Eearly z culling @done (14-01-01 21:22)
+ ✔ !!!Physically based shading @done (14-01-01 21:22)
+ ✔ InstantGeometry needs to be removed @done (13-12-31 14:06)
+ ✔ Viewport get and set, clear push and pop @done (14-01-08 13:32)
+ ✔ Early z culling support skinning @done (14-01-08 13:32)
+    Directly skipped skinned mesh
+ ✔ Loader load multiple resources!!!!! @done (14-01-08 13:32)
+    Use promise on request
+    Decide one resource on loader
+ ✔ Cascade Shadow Map @done (14-01-08 13:33)
+ ✔ !!!fbx2gltf new spec @done (14-02-17 11:13)
+ ✔ GLTF Converter Split Mesh By Material and support deformer @done (14-02-17 11:14)
+ ✔ Ray Intersection @done (14-02-17 11:14)
+ ✔ !!!Hemisphere light @done (14-02-17 11:14)
+ ✔ !!!firefox some control bug, first person control and scroll in orbit control @done (14-02-17 11:14)
+ ✔ !!!!BLEND CLIP TEST @done (14-02-17 11:14)
+ ☐ GPU Morphing
+ ✔ Frustum culling 优化 （cubes demo) @done(18-04-21 16:08)
+ ☐ Environment map fresnel
+ ☐ EnvironmentMapPass problem in Window
+ ☐ Relative Viewport
+ ☐ Camera animation helper
+ ☐ qtek log
+ ☐ GL Parameters like MAX_TEXTURE_SIZE
+ ☐ ShadowMap Review, pass in scene, renderer, camera on create
+ ☐ Geometry attributes manipulation interface
+ ✔ Parallax corrected cubemap @done(18-04-21 16:08)
+ ☐ Sub mesh
+ ☐ Tessellation
+ ☐ TGA Loader
+ ✔ pcf kernel size and blur size, bleedBias @done (16-11-08 15:34)
+ ☐ Shader uniform parse:
+    uniform float a, b, c;
+ ☐ mirror
+ ☐ decals
+ ☐ !!!transparent shadow
+ ☐ Playback speed control
+ ☐ LOD
+ ☐ Handle the situation when mesh change from receive shadow to not receive
+ ☐ Compositor group rewrite
+ ✔ Renderer.disposeNode consider the sharing shader and material @done (15-01-02 13:22)
+ ☐ Particle dispose
+ ☐ Node.queryNode
+ ☐ Particle Loader
+ ☐ Resource package loader
+ ☐ Particle renderer can use billboard and point cloud
+ ☐ Animation memory cost
+ ☐ 完善的浏览器判断
+ ☐ !!!!在用 compositor 渲染的时候不要直接绑定 FrameBuffer
+ ☐ !!!!DDS loader test
+ ☐ TransparentMaterial
+ ☐ Emmisive texture
+ TEST:
+ ✔ Test util functions @done (14-02-17 11:15)
+ ✔ Ray.intersectPlane, Ray.mirrorAgainstPlane, Plane.applyTransform, Plane.projectPoint @done (14-02-25 11:17)
+ ☐ Compositor test on referenceence
+ ☐ Static methods of Vector and Matrix
+ ✔ Light, Camera, Renderable clone @done (15-01-02 13:21)
+ ✔ Async @done (14-05-28 09:43)
+ PENDING:
+ ☐ Blend Clip output ?????????
+ ☐ Point light and spot light attenuation
+ ☐ Transform pivot
+ ☐ enableAttributes ?????
+ ☐ 去掉多 context 支持？
+ Problems:
+ ✔ Material will use other texture when its texture is not renderable @done (14-02-10 15:15)
+ ✔ depth func @done (13-12-03 13:56)
+ ✔ face culling @done (13-11-13 21:16)
+ ✔ Frustum culling of plane @done (14-02-10 15:15)
+ ☐ Compositor : optimize the node not in the rendering chain, the reference will still be added and will not be removed
+ ☐ Unprojection ??????

@@ -3,11 +3,12 @@
 /**
  * A subset of Set that offers sorting functionality
  * @template T item type in set
+ * @extends {Set<T>}
  */
 class SortableSet extends Set {
 	/**
 	 * Create a new sortable set
-	 * @param {Array<T>=} initialIterable The initial iterable value
+	 * @param {Iterable<T>=} initialIterable The initial iterable value
 	 * @typedef {function(T, T): number} SortFunction
 	 * @param {SortFunction=} defaultSort Default sorting function
 	 */

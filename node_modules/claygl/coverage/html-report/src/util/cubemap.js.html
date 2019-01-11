@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/util/cubemap.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/util/</a> cubemap.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.91% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>94/97</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.88% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>23/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.91% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>94/97</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2526038×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">256×</span>
+<span class="cline-any cline-yes">256×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">256×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">256×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">256×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-yes">262144×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Cubemap prefilter utility
+// http://www.unrealengine.com/files/downloads/2013SiggraphPresentationsNotes.pdf
+// http://http.developer.nvidia.com/GPUGems3/gpugems3_ch20.html
+import Texture2D from '../Texture2D';
+import TextureCube from '../TextureCube';
+import Texture from '../Texture';
+import FrameBuffer from '../FrameBuffer';
+import Pass from '../compositor/Pass';
+import Material from '../Material';
+import Shader from '../Shader';
+import Skybox from '../plugin/Skybox';
+import Scene from '../Scene';
+import EnvironmentMapPass from '../prePass/EnvironmentMap';
+import vendor from '../core/vendor';
+import textureUtil from './texture';
+&nbsp;
+import integrateBRDFShaderCode from './shader/integrateBRDF.glsl.js';
+import prefilterFragCode from './shader/prefilter.glsl.js';
+&nbsp;
+var cubemapUtil = {};
+&nbsp;
+var targets = ['px', 'nx', 'py', 'ny', 'pz', 'nz'];
+&nbsp;
+/**
+ * @name clay.util.cubemap.prefilterEnvironmentMap
+ * @param  {clay.Renderer} renderer
+ * @param  {clay.Texture} envMap
+ * @param  {Object} [textureOpts]
+ * @param  {number} [textureOpts.width=64]
+ * @param  {number} [textureOpts.height=64]
+ * @param  {number} [textureOpts.type]
+ * @param  {boolean} [textureOpts.encodeRGBM=false]
+ * @param  {boolean} [textureOpts.decodeRGBM=false]
+ * @param  {clay.Texture2D} [normalDistribution]
+ * @param  {clay.Texture2D} [brdfLookup]
+ */
+cubemapUtil.prefilterEnvironmentMap = function (
+    renderer, envMap, textureOpts, normalDistribution, brdfLookup
+) {
+    // Not create other renderer, it is easy having issue of cross reference of resources like framebuffer
+    // PENDING preserveDrawingBuffer?
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!brdfLookup || !normalDistribution) {
+<span class="cstat-no" title="statement not covered" >        normalDistribution = cubemapUtil.generateNormalDistribution();</span>
+<span class="cstat-no" title="statement not covered" >        brdfLookup = cubemapUtil.integrateBRDF(renderer, normalDistribution);</span>
+    }
+    textureOpts = textureOpts || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+&nbsp;
+    var width = textureOpts.width || 64;
+    var height = textureOpts.height || 64;
+&nbsp;
+    var textureType = textureOpts.type || envMap.type;
+&nbsp;
+    // Use same type with given envMap
+    var prefilteredCubeMap = new TextureCube({
+        width: width,
+        height: height,
+        type: textureType,
+        flipY: false,
+        mipmaps: []
+    });
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!prefilteredCubeMap.isPowerOfTwo()) {
+<span class="cstat-no" title="statement not covered" >        console.warn('Width and height must be power of two to enable mipmap.');</span>
+    }
+&nbsp;
+    var size = Math.min(width, height);
+    var mipmapNum = Math.log(size) / Math.log(2) + 1;
+&nbsp;
+    var prefilterMaterial = new Material({
+        shader: new Shader({
+            vertex: Shader.source('clay.skybox.vertex'),
+            fragment: prefilterFragCode
+        })
+    });
+    prefilterMaterial.set('normalDistribution', normalDistribution);
+&nbsp;
+    textureOpts.encodeRGBM &amp;&amp; prefilterMaterial.define('fragment', 'RGBM_ENCODE');
+    textureOpts.decodeRGBM &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >prefilterMaterial.define('fragment', 'RGBM_DECODE');</span>
+&nbsp;
+    var dummyScene = new Scene();
+    var skyEnv;
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (envMap.textureType === 'texture2D') {
+        // Convert panorama to cubemap
+        var envCubemap = new TextureCube({
+            width: width,
+            height: height,
+            // FIXME FLOAT type will cause GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT error on iOS
+            type: textureType === Texture.FLOAT ?
+                    Texture.HALF_FLOAT : <span class="branch-1 cbranch-no" title="branch not covered" >textureType</span>
+        });
+        textureUtil.panoramaToCubeMap(renderer, envMap, envCubemap, {
+            // PENDING encodeRGBM so it can be decoded as RGBM
+            encodeRGBM: textureOpts.decodeRGBM
+        });
+        envMap = envCubemap;
+    }
+    skyEnv = new Skybox({
+        scene: dummyScene,
+        material: prefilterMaterial
+    });
+    skyEnv.material.set('environmentMap', envMap);
+&nbsp;
+    var envMapPass = new EnvironmentMapPass({
+        texture: prefilteredCubeMap
+    });
+&nbsp;
+    // Force to be UNSIGNED_BYTE
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (textureOpts.encodeRGBM) {
+        textureType = prefilteredCubeMap.type = Texture.UNSIGNED_BYTE;
+    }
+&nbsp;
+    var renderTargetTmp = new Texture2D({
+        width: width,
+        height: height,
+        type: textureType
+    });
+    var frameBuffer = new FrameBuffer({
+        depthBuffer: false
+    });
+    var ArrayCtor = vendor[textureType === Texture.UNSIGNED_BYTE ? 'Uint8Array' : <span class="branch-1 cbranch-no" title="branch not covered" >'Float32Array']</span>;
+    for (var i = 0; i &lt; mipmapNum; i++) {
+        prefilteredCubeMap.mipmaps[i] = {
+            pixels: {}
+        };
+        skyEnv.material.set('roughness', i / (targets.length - 1));
+&nbsp;
+        // Tweak fov
+        // http://the-witness.net/news/2012/02/seamless-cube-map-filtering/
+        var n = renderTargetTmp.width;
+        var fov = 2 * Math.atan(n / (n - 0.5)) / Math.PI * 180;
+&nbsp;
+        for (var j = 0; j &lt; targets.length; j++) {
+            var pixels = new ArrayCtor(renderTargetTmp.width * renderTargetTmp.height * 4);
+            frameBuffer.attach(renderTargetTmp);
+            frameBuffer.bind(renderer);
+&nbsp;
+            var camera = envMapPass.getCamera(targets[j]);
+            camera.fov = fov;
+            renderer.render(dummyScene, camera);
+            renderer.gl.readPixels(
+                0, 0, renderTargetTmp.width, renderTargetTmp.height,
+                Texture.RGBA, textureType, pixels
+            );
+&nbsp;
+            // var canvas = document.createElement('canvas');
+            // var ctx = canvas.getContext('2d');
+            // canvas.width = renderTargetTmp.width;
+            // canvas.height = renderTargetTmp.height;
+            // var imageData = ctx.createImageData(renderTargetTmp.width, renderTargetTmp.height);
+            // for (var k = 0; k &lt; pixels.length; k++) {
+            //     imageData.data[k] = pixels[k];
+            // }
+            // ctx.putImageData(imageData, 0, 0);
+            // document.body.appendChild(canvas);
+&nbsp;
+            frameBuffer.unbind(renderer);
+            prefilteredCubeMap.mipmaps[i].pixels[targets[j]] = pixels;
+        }
+&nbsp;
+        renderTargetTmp.width /= 2;
+        renderTargetTmp.height /= 2;
+        renderTargetTmp.dirty();
+    }
+&nbsp;
+    frameBuffer.dispose(renderer);
+    renderTargetTmp.dispose(renderer);
+    skyEnv.dispose(renderer);
+    // Remove gpu resource allucated in renderer
+    normalDistribution.dispose(renderer);
+&nbsp;
+    // renderer.dispose();
+&nbsp;
+    return {
+        environmentMap: prefilteredCubeMap,
+        brdfLookup: brdfLookup,
+        normalDistribution: normalDistribution,
+        maxMipmapLevel: mipmapNum
+    };
+};
+&nbsp;
+cubemapUtil.integrateBRDF = function (renderer, normalDistribution) {
+    normalDistribution = normalDistribution || <span class="branch-1 cbranch-no" title="branch not covered" >cubemapUtil.generateNormalDistribution();</span>
+    var framebuffer = new FrameBuffer({
+        depthBuffer: false
+    });
+    var pass = new Pass({
+        fragment: integrateBRDFShaderCode
+    });
+&nbsp;
+    var texture = new Texture2D({
+        width: 512,
+        height: 256,
+        type: Texture.HALF_FLOAT,
+        minFilter: Texture.NEAREST,
+        magFilter: Texture.NEAREST,
+        useMipmap: false
+    });
+    pass.setUniform('normalDistribution', normalDistribution);
+    pass.setUniform('viewportSize', [512, 256]);
+    pass.attachOutput(texture);
+    pass.render(renderer, framebuffer);
+&nbsp;
+    // FIXME Only chrome and firefox can readPixels with float type.
+    // framebuffer.bind(renderer);
+    // var pixels = new Float32Array(512 * 256 * 4);
+    // renderer.gl.readPixels(
+    //     0, 0, texture.width, texture.height,
+    //     Texture.RGBA, Texture.FLOAT, pixels
+    // );
+    // texture.pixels = pixels;
+    // texture.flipY = false;
+    // texture.dirty();
+    // framebuffer.unbind(renderer);
+&nbsp;
+    framebuffer.dispose(renderer);
+&nbsp;
+    return texture;
+};
+&nbsp;
+cubemapUtil.generateNormalDistribution = function (roughnessLevels, sampleSize) {
+&nbsp;
+    // http://holger.dammertz.org/stuff/notes_HammersleyOnHemisphere.html
+    // GLSL not support bit operation, use lookup instead
+    // V -&gt; i / N, U -&gt; roughness
+    var roughnessLevels = roughnessLevels || 256;
+    var sampleSize = sampleSize || 1024;
+&nbsp;
+    var normalDistribution = new Texture2D({
+        width: roughnessLevels,
+        height: sampleSize,
+        type: Texture.FLOAT,
+        minFilter: Texture.NEAREST,
+        magFilter: Texture.NEAREST,
+        wrapS: Texture.CLAMP_TO_EDGE,
+        wrapT: Texture.CLAMP_TO_EDGE,
+        useMipmap: false
+    });
+    var pixels = new Float32Array(sampleSize * roughnessLevels * 4);
+    var tmp = [];
+&nbsp;
+    function sortFunc(a, b) {
+        return Math.abs(b) - Math.abs(a);
+    }
+    for (var j = 0; j &lt; roughnessLevels; j++) {
+        var roughness = j / roughnessLevels;
+        var a = roughness * roughness;
+&nbsp;
+        for (var i = 0; i &lt; sampleSize; i++) {
+            // http://holger.dammertz.org/stuff/notes_HammersleyOnHemisphere.html
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators
+            // http://stackoverflow.com/questions/1908492/unsigned-integer-in-javascript
+            // http://stackoverflow.com/questions/1822350/what-is-the-javascript-operator-and-how-do-you-use-it
+            var y = (i &lt;&lt; 16 | i &gt;&gt;&gt; 16) &gt;&gt;&gt; 0;
+            y = ((y &amp; 1431655765) &lt;&lt; 1 | (y &amp; 2863311530) &gt;&gt;&gt; 1) &gt;&gt;&gt; 0;
+            y = ((y &amp; 858993459) &lt;&lt; 2 | (y &amp; 3435973836) &gt;&gt;&gt; 2) &gt;&gt;&gt; 0;
+            y = ((y &amp; 252645135) &lt;&lt; 4 | (y &amp; 4042322160) &gt;&gt;&gt; 4) &gt;&gt;&gt; 0;
+            y = (((y &amp; 16711935) &lt;&lt; 8 | (y &amp; 4278255360) &gt;&gt;&gt; 8) &gt;&gt;&gt; 0) / 4294967296;
+&nbsp;
+            // CDF
+            var cosTheta = Math.sqrt((1 - y) / (1 + (a * a - 1.0) * y));
+            tmp[i] = cosTheta;
+        }
+&nbsp;
+        tmp.sort(sortFunc);
+&nbsp;
+        for (var i = 0; i &lt; sampleSize; i++) {
+            var offset = (i * roughnessLevels + j) * 4;
+            var cosTheta = tmp[i];
+            var sinTheta = Math.sqrt(1.0 - cosTheta * cosTheta);
+            var x = i / sampleSize;
+            var phi = 2.0 * Math.PI * x;
+            pixels[offset] = sinTheta * Math.cos(phi);
+            pixels[offset + 1] = sinTheta * Math.sin(phi);
+            pixels[offset + 2] = cosTheta;
+            pixels[offset + 3] = 1.0;
+        }
+    }
+    normalDistribution.pixels = pixels;
+&nbsp;
+    return normalDistribution;
+};
+&nbsp;
+export default cubemapUtil;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

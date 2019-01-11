@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/picking/RayPicking.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/picking/</a> RayPicking.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/99</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/59</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/99</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Base from '../core/Base';
+import Ray from '../math/Ray';
+import Vector2 from '../math/Vector2';
+import Vector3 from '../math/Vector3';
+import Matrix4 from '../math/Matrix4';
+import Renderable from '../Renderable';
+import glenum from '../core/glenum';
+import glmatrix from '../dep/glmatrix';
+&nbsp;
+var vec3 = glmatrix.vec3;
+&nbsp;
+/**
+ * @constructor clay.picking.RayPicking
+ * @extends clay.core.Base
+ */
+var RayPicking = Base.extend(
+/** @lends clay.picking.RayPicking# */
+{
+    /**
+     * Target scene
+     * @type {clay.Scene}
+     */
+    scene: null,
+    /**
+     * Target camera
+     * @type {clay.Camera}
+     */
+    camera: null,
+    /**
+     * Target renderer
+     * @type {clay.Renderer}
+     */
+    renderer: null
+}, function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    this._ray = new Ray();</span>
+<span class="cstat-no" title="statement not covered" >    this._ndc = new Vector2();</span>
+},
+/** @lends clay.picking.RayPicking.prototype */
+{
+&nbsp;
+    /**
+     * Pick the nearest intersection object in the scene
+     * @param  {number} x Mouse position x
+     * @param  {number} y Mouse position y
+     * @param  {boolean} [forcePickAll=false] ignore ignorePicking
+     * @return {clay.picking.RayPicking~Intersection}
+     */
+    pick: function (x, y, forcePickAll) <span class="fstat-no" title="function not covered" >{</span>
+        var out = <span class="cstat-no" title="statement not covered" >this.pickAll(x, y, [], forcePickAll);</span>
+<span class="cstat-no" title="statement not covered" >        return out[0] || null;</span>
+    },
+&nbsp;
+    /**
+     * Pick all intersection objects, wich will be sorted from near to far
+     * @param  {number} x Mouse position x
+     * @param  {number} y Mouse position y
+     * @param  {Array} [output]
+     * @param  {boolean} [forcePickAll=false] ignore ignorePicking
+     * @return {Array.&lt;clay.picking.RayPicking~Intersection&gt;}
+     */
+    pickAll: function (x, y, output, forcePickAll) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this.renderer.screenToNDC(x, y, this._ndc);</span>
+<span class="cstat-no" title="statement not covered" >        this.camera.castRay(this._ndc, this._ray);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        output = output || [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._intersectNode(this.scene, output, forcePickAll || false);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        output.sort(this._intersectionCompareFunc);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return output;</span>
+    },
+&nbsp;
+    _intersectNode: function (node, out, forcePickAll) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        if ((node instanceof Renderable) &amp;&amp; node.isRenderable()) {</span>
+<span class="cstat-no" title="statement not covered" >            if ((!node.ignorePicking || forcePickAll)</span>
+                &amp;&amp; (
+                    // Only triangle mesh support ray picking
+                    (node.mode === glenum.TRIANGLES &amp;&amp; node.geometry.isUseIndices())
+                    // Or if geometry has it's own pickByRay, pick, implementation
+                    || node.geometry.pickByRay
+                    || node.geometry.pick
+                )
+            ) {
+<span class="cstat-no" title="statement not covered" >                this._intersectRenderable(node, out);</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; node._children.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            this._intersectNode(node._children[i], out, forcePickAll);</span>
+        }
+    },
+&nbsp;
+    _intersectRenderable: (function () {
+&nbsp;
+        var v1 = new Vector3();
+        var v2 = new Vector3();
+        var v3 = new Vector3();
+        var ray = new Ray();
+        var worldInverse = new Matrix4();
+&nbsp;
+        return function (renderable, out) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+            var isSkinnedMesh = <span class="cstat-no" title="statement not covered" >renderable.isSkinnedMesh();</span>
+<span class="cstat-no" title="statement not covered" >            ray.copy(this._ray);</span>
+<span class="cstat-no" title="statement not covered" >            Matrix4.invert(worldInverse, renderable.worldTransform);</span>
+&nbsp;
+            // Skinned mesh will ignore the world transform.
+<span class="cstat-no" title="statement not covered" >            if (!isSkinnedMesh) {</span>
+<span class="cstat-no" title="statement not covered" >                ray.applyTransform(worldInverse);</span>
+            }
+&nbsp;
+            var geometry = <span class="cstat-no" title="statement not covered" >renderable.geometry;</span>
+            // Ignore bounding box of skinned mesh?
+<span class="cstat-no" title="statement not covered" >            if (!isSkinnedMesh) {</span>
+<span class="cstat-no" title="statement not covered" >                if (geometry.boundingBox) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (!ray.intersectBoundingBox(geometry.boundingBox)) {</span>
+<span class="cstat-no" title="statement not covered" >                        return;</span>
+                    }
+                }
+            }
+            // Use user defined picking algorithm
+<span class="cstat-no" title="statement not covered" >            if (geometry.pick) {</span>
+<span class="cstat-no" title="statement not covered" >                geometry.pick(</span>
+                    this._ndc.x, this._ndc.y,
+                    this.renderer,
+                    this.camera,
+                    renderable, out
+                );
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+            // Use user defined ray picking algorithm
+            else <span class="cstat-no" title="statement not covered" >if (geometry.pickByRay) {</span>
+<span class="cstat-no" title="statement not covered" >                geometry.pickByRay(ray, renderable, out);</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+            var cullBack = <span class="cstat-no" title="statement not covered" >(renderable.cullFace === glenum.BACK &amp;&amp; renderable.frontFace === glenum.CCW)</span>
+                        || (renderable.cullFace === glenum.FRONT &amp;&amp; renderable.frontFace === glenum.CW);
+&nbsp;
+            var point;
+            var indices = <span class="cstat-no" title="statement not covered" >geometry.indices;</span>
+            var positionAttr = <span class="cstat-no" title="statement not covered" >geometry.attributes.position;</span>
+            var weightAttr = <span class="cstat-no" title="statement not covered" >geometry.attributes.weight;</span>
+            var jointAttr = <span class="cstat-no" title="statement not covered" >geometry.attributes.joint;</span>
+            var skinMatricesArray;
+            var skinMatrices = <span class="cstat-no" title="statement not covered" >[];</span>
+            // Check if valid.
+<span class="cstat-no" title="statement not covered" >            if (!positionAttr || !positionAttr.value || !indices) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (isSkinnedMesh) {</span>
+<span class="cstat-no" title="statement not covered" >                skinMatricesArray = renderable.skeleton.getSubSkinMatrices(renderable.__uid__, renderable.joints);</span>
+<span class="cstat-no" title="statement not covered" >                for (var i = 0; i &lt; renderable.joints.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    skinMatrices[i] = skinMatrices[i] || [];</span>
+<span class="cstat-no" title="statement not covered" >                    for (var k = 0; k &lt; 16; k++) {</span>
+<span class="cstat-no" title="statement not covered" >                        skinMatrices[i][k] = skinMatricesArray[i * 16 + k];</span>
+                    }
+                }
+                var pos = <span class="cstat-no" title="statement not covered" >[];</span>
+                var weight = <span class="cstat-no" title="statement not covered" >[];</span>
+                var joint = <span class="cstat-no" title="statement not covered" >[];</span>
+                var skinnedPos = <span class="cstat-no" title="statement not covered" >[];</span>
+                var tmp = <span class="cstat-no" title="statement not covered" >[];</span>
+                var skinnedPositionAttr = <span class="cstat-no" title="statement not covered" >geometry.attributes.skinnedPosition;</span>
+<span class="cstat-no" title="statement not covered" >                if (!skinnedPositionAttr || !skinnedPositionAttr.value) {</span>
+<span class="cstat-no" title="statement not covered" >                    geometry.createAttribute('skinnedPosition', 'f', 3);</span>
+<span class="cstat-no" title="statement not covered" >                    skinnedPositionAttr = geometry.attributes.skinnedPosition;</span>
+<span class="cstat-no" title="statement not covered" >                    skinnedPositionAttr.init(geometry.vertexCount);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                for (var i = 0; i &lt; geometry.vertexCount; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    positionAttr.get(i, pos);</span>
+<span class="cstat-no" title="statement not covered" >                    weightAttr.get(i, weight);</span>
+<span class="cstat-no" title="statement not covered" >                    jointAttr.get(i, joint);</span>
+<span class="cstat-no" title="statement not covered" >                    weight[3] = 1 - weight[0] - weight[1] - weight[2];</span>
+<span class="cstat-no" title="statement not covered" >                    vec3.set(skinnedPos, 0, 0, 0);</span>
+<span class="cstat-no" title="statement not covered" >                    for (var k = 0; k &lt; 4; k++) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (joint[k] &gt;= 0 &amp;&amp; weight[k] &gt; 1e-4) {</span>
+<span class="cstat-no" title="statement not covered" >                            vec3.transformMat4(tmp, pos, skinMatrices[joint[k]]);</span>
+<span class="cstat-no" title="statement not covered" >                            vec3.scaleAndAdd(skinnedPos, skinnedPos, tmp, weight[k]);</span>
+                        }
+                    }
+<span class="cstat-no" title="statement not covered" >                    skinnedPositionAttr.set(i, skinnedPos);</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; indices.length; i += 3) {</span>
+                var i1 = <span class="cstat-no" title="statement not covered" >indices[i];</span>
+                var i2 = <span class="cstat-no" title="statement not covered" >indices[i + 1];</span>
+                var i3 = <span class="cstat-no" title="statement not covered" >indices[i + 2];</span>
+                var finalPosAttr = <span class="cstat-no" title="statement not covered" >isSkinnedMesh</span>
+                    ? geometry.attributes.skinnedPosition
+                    : positionAttr;
+<span class="cstat-no" title="statement not covered" >                finalPosAttr.get(i1, v1.array);</span>
+<span class="cstat-no" title="statement not covered" >                finalPosAttr.get(i2, v2.array);</span>
+<span class="cstat-no" title="statement not covered" >                finalPosAttr.get(i3, v3.array);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (cullBack) {</span>
+<span class="cstat-no" title="statement not covered" >                    point = ray.intersectTriangle(v1, v2, v3, renderable.culling);</span>
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    point = ray.intersectTriangle(v1, v3, v2, renderable.culling);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (point) {</span>
+                    var pointW = <span class="cstat-no" title="statement not covered" >new Vector3();</span>
+<span class="cstat-no" title="statement not covered" >                    if (!isSkinnedMesh) {</span>
+<span class="cstat-no" title="statement not covered" >                        Vector3.transformMat4(pointW, point, renderable.worldTransform);</span>
+                    }
+                    else {
+                        // TODO point maybe not right.
+<span class="cstat-no" title="statement not covered" >                        Vector3.copy(pointW, point);</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    out.push(new RayPicking.Intersection(</span>
+                        point, pointW, renderable, [i1, i2, i3], i / 3,
+                        Vector3.dist(pointW, this._ray.origin)
+                    ));
+                }
+            }
+        };
+    })(),
+&nbsp;
+    _intersectionCompareFunc: function (a, b) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return a.distance - b.distance;</span>
+    }
+});
+&nbsp;
+/**
+ * @constructor clay.picking.RayPicking~Intersection
+ * @param {clay.Vector3} point
+ * @param {clay.Vector3} pointWorld
+ * @param {clay.Node} target
+ * @param {Array.&lt;number&gt;} triangle
+ * @param {number} triangleIndex
+ * @param {number} distance
+ */
+RayPicking.Intersection = function (point, pointWorld, target, triangle, triangleIndex, distance) <span class="fstat-no" title="function not covered" >{</span>
+    /**
+     * Intersection point in local transform coordinates
+     * @type {clay.Vector3}
+     */
+<span class="cstat-no" title="statement not covered" >    this.point = point;</span>
+    /**
+     * Intersection point in world transform coordinates
+     * @type {clay.Vector3}
+     */
+<span class="cstat-no" title="statement not covered" >    this.pointWorld = pointWorld;</span>
+    /**
+     * Intersection scene node
+     * @type {clay.Node}
+     */
+<span class="cstat-no" title="statement not covered" >    this.target = target;</span>
+    /**
+     * Intersection triangle, which is an array of vertex index
+     * @type {Array.&lt;number&gt;}
+     */
+<span class="cstat-no" title="statement not covered" >    this.triangle = triangle;</span>
+    /**
+     * Index of intersection triangle.
+     */
+<span class="cstat-no" title="statement not covered" >    this.triangleIndex = triangleIndex;</span>
+    /**
+     * Distance from intersection point to ray origin
+     * @type {number}
+     */
+<span class="cstat-no" title="statement not covered" >    this.distance = distance;</span>
+};
+&nbsp;
+export default RayPicking;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

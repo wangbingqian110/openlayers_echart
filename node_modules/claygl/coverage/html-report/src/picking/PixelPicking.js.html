@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/picking/PixelPicking.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/picking/</a> PixelPicking.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.86% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/70</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Base from '../core/Base';
+import FrameBuffer from '../FrameBuffer';
+import Texture2D from '../Texture2D';
+import Shader from '../Shader';
+import Material from '../Material';
+&nbsp;
+import colorEssl from './color.glsl.js';
+Shader.import(colorEssl);
+&nbsp;
+/**
+ * Pixel picking is gpu based picking, which is fast and accurate.
+ * But not like ray picking, it can't get the intersection point and triangle.
+ * @constructor clay.picking.PixelPicking
+ * @extends clay.core.Base
+ */
+var PixelPicking = Base.extend(function() <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return /** @lends clay.picking.PixelPicking# */ {</span>
+        /**
+         * Target renderer
+         * @type {clay.Renderer}
+         */
+        renderer: null,
+        /**
+         * Downsample ratio of hidden frame buffer
+         * @type {number}
+         */
+        downSampleRatio: 1,
+&nbsp;
+        width: 100,
+        height: 100,
+&nbsp;
+        lookupOffset: 1,
+&nbsp;
+        _frameBuffer: null,
+        _texture: null,
+        _shader: null,
+&nbsp;
+        _idMaterials: [],
+        _lookupTable: [],
+&nbsp;
+        _meshMaterials: [],
+&nbsp;
+        _idOffset: 0
+    };
+}, function() <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    if (this.renderer) {</span>
+<span class="cstat-no" title="statement not covered" >        this.width = this.renderer.getWidth();</span>
+<span class="cstat-no" title="statement not covered" >        this.height = this.renderer.getHeight();</span>
+    }
+<span class="cstat-no" title="statement not covered" >    this._init();</span>
+}, /** @lends clay.picking.PixelPicking.prototype */ {
+    _init: function() <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._texture = new Texture2D({</span>
+            width: this.width * this.downSampleRatio,
+            height: this.height * this.downSampleRatio
+        });
+<span class="cstat-no" title="statement not covered" >        this._frameBuffer = new FrameBuffer();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._shader = new Shader(Shader.source('clay.picking.color.vertex'), Shader.source('clay.picking.color.fragment'));</span>
+    },
+    /**
+     * Set picking presision
+     * @param {number} ratio
+     */
+    setPrecision: function(ratio) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._texture.width = this.width * ratio;</span>
+<span class="cstat-no" title="statement not covered" >        this._texture.height = this.height * ratio;</span>
+<span class="cstat-no" title="statement not covered" >        this.downSampleRatio = ratio;</span>
+    },
+    resize: function(width, height) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._texture.width = width * this.downSampleRatio;</span>
+<span class="cstat-no" title="statement not covered" >        this._texture.height = height * this.downSampleRatio;</span>
+<span class="cstat-no" title="statement not covered" >        this.width = width;</span>
+<span class="cstat-no" title="statement not covered" >        this.height = height;</span>
+<span class="cstat-no" title="statement not covered" >        this._texture.dirty();</span>
+    },
+    /**
+     * Update the picking framebuffer
+     * @param {number} ratio
+     */
+    update: function(scene, camera) <span class="fstat-no" title="function not covered" >{</span>
+        var renderer = <span class="cstat-no" title="statement not covered" >this.renderer;</span>
+<span class="cstat-no" title="statement not covered" >        if (renderer.getWidth() !== this.width || renderer.getHeight() !== this.height) {</span>
+<span class="cstat-no" title="statement not covered" >            this.resize(renderer.width, renderer.height);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._frameBuffer.attach(this._texture);</span>
+<span class="cstat-no" title="statement not covered" >        this._frameBuffer.bind(renderer);</span>
+<span class="cstat-no" title="statement not covered" >        this._idOffset = this.lookupOffset;</span>
+<span class="cstat-no" title="statement not covered" >        this._setMaterial(scene);</span>
+<span class="cstat-no" title="statement not covered" >        renderer.render(scene, camera);</span>
+<span class="cstat-no" title="statement not covered" >        this._restoreMaterial();</span>
+<span class="cstat-no" title="statement not covered" >        this._frameBuffer.unbind(renderer);</span>
+    },
+&nbsp;
+    _setMaterial: function(root) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        for (var i =0; i &lt; root._children.length; i++) {</span>
+            var child = <span class="cstat-no" title="statement not covered" >root._children[i];</span>
+<span class="cstat-no" title="statement not covered" >            if (child.geometry &amp;&amp; child.material &amp;&amp; child.material.shader) {</span>
+                var id = <span class="cstat-no" title="statement not covered" >this._idOffset++;</span>
+                var idx = <span class="cstat-no" title="statement not covered" >id - this.lookupOffset;</span>
+                var material = <span class="cstat-no" title="statement not covered" >this._idMaterials[idx];</span>
+<span class="cstat-no" title="statement not covered" >                if (!material) {</span>
+<span class="cstat-no" title="statement not covered" >                    material = new Material({</span>
+                        shader: this._shader
+                    });
+                    var color = <span class="cstat-no" title="statement not covered" >packID(id);</span>
+<span class="cstat-no" title="statement not covered" >                    color[0] /= 255;</span>
+<span class="cstat-no" title="statement not covered" >                    color[1] /= 255;</span>
+<span class="cstat-no" title="statement not covered" >                    color[2] /= 255;</span>
+<span class="cstat-no" title="statement not covered" >                    color[3] = 1.0;</span>
+<span class="cstat-no" title="statement not covered" >                    material.set('color', color);</span>
+<span class="cstat-no" title="statement not covered" >                    this._idMaterials[idx] = material;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                this._meshMaterials[idx] = child.material;</span>
+<span class="cstat-no" title="statement not covered" >                this._lookupTable[idx] = child;</span>
+<span class="cstat-no" title="statement not covered" >                child.material = material;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (child._children.length) {</span>
+<span class="cstat-no" title="statement not covered" >                this._setMaterial(child);</span>
+            }
+        }
+    },
+&nbsp;
+    /**
+     * Pick the object
+     * @param  {number} x Mouse position x
+     * @param  {number} y Mouse position y
+     * @return {clay.Node}
+     */
+    pick: function(x, y) <span class="fstat-no" title="function not covered" >{</span>
+        var renderer = <span class="cstat-no" title="statement not covered" >this.renderer;</span>
+&nbsp;
+        var ratio = <span class="cstat-no" title="statement not covered" >this.downSampleRatio;</span>
+<span class="cstat-no" title="statement not covered" >        x = Math.ceil(ratio * x);</span>
+<span class="cstat-no" title="statement not covered" >        y = Math.ceil(ratio * (this.height - y));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._frameBuffer.bind(renderer);</span>
+        var pixel = <span class="cstat-no" title="statement not covered" >new Uint8Array(4);</span>
+        var _gl = <span class="cstat-no" title="statement not covered" >renderer.gl;</span>
+        // TODO out of bounds ?
+        // preserveDrawingBuffer ?
+<span class="cstat-no" title="statement not covered" >        _gl.readPixels(x, y, 1, 1, _gl.RGBA, _gl.UNSIGNED_BYTE, pixel);</span>
+<span class="cstat-no" title="statement not covered" >        this._frameBuffer.unbind(renderer);</span>
+        // Skip interpolated pixel because of anti alias
+<span class="cstat-no" title="statement not covered" >        if (pixel[3] === 255) {</span>
+            var id = <span class="cstat-no" title="statement not covered" >unpackID(pixel[0], pixel[1], pixel[2]);</span>
+<span class="cstat-no" title="statement not covered" >            if (id) {</span>
+                var el = <span class="cstat-no" title="statement not covered" >this._lookupTable[id - this.lookupOffset];</span>
+<span class="cstat-no" title="statement not covered" >                return el;</span>
+            }
+        }
+    },
+&nbsp;
+    _restoreMaterial: function() <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this._lookupTable.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            this._lookupTable[i].material = this._meshMaterials[i];</span>
+        }
+    },
+&nbsp;
+    dispose: function(renderer) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._frameBuffer.dispose(renderer);</span>
+    }
+});
+&nbsp;
+function packID(id)<span class="fstat-no" title="function not covered" >{</span>
+    var r = <span class="cstat-no" title="statement not covered" >id &gt;&gt; 16;</span>
+    var g = <span class="cstat-no" title="statement not covered" >(id - (r &lt;&lt; 8)) &gt;&gt; 8;</span>
+    var b = <span class="cstat-no" title="statement not covered" >id - (r &lt;&lt; 16) - (g&lt;&lt;8);</span>
+<span class="cstat-no" title="statement not covered" >    return [r, g, b];</span>
+}
+&nbsp;
+function unpackID(r, g, b)<span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return (r &lt;&lt; 16) + (g&lt;&lt;8) + b;</span>
+}
+&nbsp;
+export default PixelPicking;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Skeleton.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> Skeleton.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/105</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.14% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/105</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Base from './core/Base';
+import Joint from './Joint';
+&nbsp;
+import glMatrix from './dep/glmatrix';
+var quat = glMatrix.quat;
+var vec3 = glMatrix.vec3;
+var mat4 = glMatrix.mat4;
+&nbsp;
+/**
+ * @constructor clay.Skeleton
+ */
+var Skeleton = Base.extend(function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return /** @lends clay.Skeleton# */{</span>
+&nbsp;
+        /**
+         * Relative root node that not affect transform of joint.
+         * @type {clay.Node}
+         */
+        relativeRootNode: null,
+        /**
+         * @type {string}
+         */
+        name: '',
+&nbsp;
+        /**
+         * joints
+         * @type {Array.&lt;clay.Joint&gt;}
+         */
+        joints: [],
+&nbsp;
+        _clips: [],
+&nbsp;
+        // Matrix to joint space (relative to root joint)
+        _invBindPoseMatricesArray: null,
+&nbsp;
+        // Use subarray instead of copy back each time computing matrix
+        // http://jsperf.com/subarray-vs-copy-for-array-transform/5
+        _jointMatricesSubArrays: [],
+&nbsp;
+        // jointMatrix * currentPoseMatrix
+        // worldTransform is relative to the root bone
+        // still in model space not world space
+        _skinMatricesArray: null,
+&nbsp;
+        _skinMatricesSubArrays: [],
+&nbsp;
+        _subSkinMatricesArray: {}
+    };
+},
+/** @lends clay.Skeleton.prototype */
+{
+&nbsp;
+    /**
+     * Add a skinning clip and create a map between clip and skeleton
+     * @param {clay.animation.SkinningClip} clip
+     * @param {Object} [mapRule] Map between joint name in skeleton and joint name in clip
+     */
+    addClip: function (clip, mapRule) <span class="fstat-no" title="function not covered" >{</span>
+        // Clip have been exists in
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this._clips.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            if (this._clips[i].clip === clip) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+        }
+        // Map the joint index in skeleton to joint pose index in clip
+        var maps = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this.joints.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            maps[i] = -1;</span>
+        }
+        // Create avatar
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; clip.tracks.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            for (var j = 0; j &lt; this.joints.length; j++) {</span>
+                var joint = <span class="cstat-no" title="statement not covered" >this.joints[j];</span>
+                var track = <span class="cstat-no" title="statement not covered" >clip.tracks[i];</span>
+                var jointName = <span class="cstat-no" title="statement not covered" >joint.name;</span>
+<span class="cstat-no" title="statement not covered" >                if (mapRule) {</span>
+<span class="cstat-no" title="statement not covered" >                    jointName = mapRule[jointName];</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (track.name === jointName) {</span>
+<span class="cstat-no" title="statement not covered" >                    maps[j] = i;</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._clips.push({</span>
+            maps: maps,
+            clip: clip
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this._clips.length - 1;</span>
+    },
+&nbsp;
+    /**
+     * @param {clay.animation.SkinningClip} clip
+     */
+    removeClip: function (clip) <span class="fstat-no" title="function not covered" >{</span>
+        var idx = <span class="cstat-no" title="statement not covered" >-1;</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this._clips.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            if (this._clips[i].clip === clip) {</span>
+<span class="cstat-no" title="statement not covered" >                idx = i;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        if (idx &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            this._clips.splice(idx, 1);</span>
+        }
+    },
+    /**
+     * Remove all clips
+     */
+    removeClipsAll: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._clips = [];</span>
+    },
+&nbsp;
+    /**
+     * Get clip by index
+     * @param  {number} index
+     */
+    getClip: function (index) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        if (this._clips[index]) {</span>
+<span class="cstat-no" title="statement not covered" >            return this._clips[index].clip;</span>
+        }
+    },
+&nbsp;
+    /**
+     * @return {number}
+     */
+    getClipNumber: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return this._clips.length;</span>
+    },
+&nbsp;
+    /**
+     * Calculate joint matrices from node transform
+     * @function
+     */
+    updateJointMatrices: (function () {
+&nbsp;
+        var m4 = mat4.create();
+&nbsp;
+        return function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >            this._invBindPoseMatricesArray = new Float32Array(this.joints.length * 16);</span>
+<span class="cstat-no" title="statement not covered" >            this._skinMatricesArray = new Float32Array(this.joints.length * 16);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; this.joints.length; i++) {</span>
+                var joint = <span class="cstat-no" title="statement not covered" >this.joints[i];</span>
+<span class="cstat-no" title="statement not covered" >                mat4.copy(m4, joint.node.worldTransform.array);</span>
+<span class="cstat-no" title="statement not covered" >                mat4.invert(m4, m4);</span>
+&nbsp;
+                var offset = <span class="cstat-no" title="statement not covered" >i * 16;</span>
+<span class="cstat-no" title="statement not covered" >                for (var j = 0; j &lt; 16; j++) {</span>
+<span class="cstat-no" title="statement not covered" >                    this._invBindPoseMatricesArray[offset + j] = m4[j];</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.updateMatricesSubArrays();</span>
+        };
+    })(),
+&nbsp;
+    setJointMatricesArray: function (arr) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._invBindPoseMatricesArray = arr;</span>
+<span class="cstat-no" title="statement not covered" >        this._skinMatricesArray = new Float32Array(arr.length);</span>
+<span class="cstat-no" title="statement not covered" >        this.updateMatricesSubArrays();</span>
+    },
+&nbsp;
+    updateMatricesSubArrays: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this.joints.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            this._jointMatricesSubArrays[i] = this._invBindPoseMatricesArray.subarray(i * 16, (i+1) * 16);</span>
+<span class="cstat-no" title="statement not covered" >            this._skinMatricesSubArrays[i] = this._skinMatricesArray.subarray(i * 16, (i+1) * 16);</span>
+        }
+    },
+&nbsp;
+    /**
+     * Update skinning matrices
+     */
+    update: function () <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._setPose();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this.joints.length; i++) {</span>
+            var joint = <span class="cstat-no" title="statement not covered" >this.joints[i];</span>
+<span class="cstat-no" title="statement not covered" >            mat4.multiply(</span>
+                this._skinMatricesSubArrays[i],
+                joint.node.worldTransform.array,
+                this._jointMatricesSubArrays[i]
+            );
+        }
+    },
+&nbsp;
+    getSubSkinMatrices: function (meshId, joints) <span class="fstat-no" title="function not covered" >{</span>
+        var subArray = <span class="cstat-no" title="statement not covered" >this._subSkinMatricesArray[meshId];</span>
+<span class="cstat-no" title="statement not covered" >        if (!subArray) {</span>
+<span class="cstat-no" title="statement not covered" >            subArray</span>
+                = this._subSkinMatricesArray[meshId]
+                = new Float32Array(joints.length * 16);
+        }
+        var cursor = <span class="cstat-no" title="statement not covered" >0;</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; joints.length; i++) {</span>
+            var idx = <span class="cstat-no" title="statement not covered" >joints[i];</span>
+<span class="cstat-no" title="statement not covered" >            for (var j = 0; j &lt; 16; j++) {</span>
+<span class="cstat-no" title="statement not covered" >                subArray[cursor++] = this._skinMatricesArray[idx * 16 + j];</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        return subArray;</span>
+    },
+&nbsp;
+    _setPose: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        if (this._clips[0]) {</span>
+            var clip = <span class="cstat-no" title="statement not covered" >this._clips[0].clip;</span>
+            var maps = <span class="cstat-no" title="statement not covered" >this._clips[0].maps;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; this.joints.length; i++) {</span>
+                var joint = <span class="cstat-no" title="statement not covered" >this.joints[i];</span>
+<span class="cstat-no" title="statement not covered" >                if (maps[i] === -1) {</span>
+<span class="cstat-no" title="statement not covered" >                    continue;</span>
+                }
+                var pose = <span class="cstat-no" title="statement not covered" >clip.tracks[maps[i]];</span>
+&nbsp;
+                // Not update if there is no data.
+                // PENDING If sync pose.position, pose.rotation, pose.scale
+<span class="cstat-no" title="statement not covered" >                if (pose.channels.position) {</span>
+<span class="cstat-no" title="statement not covered" >                    vec3.copy(joint.node.position.array, pose.position);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (pose.channels.rotation) {</span>
+<span class="cstat-no" title="statement not covered" >                    quat.copy(joint.node.rotation.array, pose.rotation);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (pose.channels.scale) {</span>
+<span class="cstat-no" title="statement not covered" >                    vec3.copy(joint.node.scale.array, pose.scale);</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                joint.node.position._dirty = true;</span>
+<span class="cstat-no" title="statement not covered" >                joint.node.rotation._dirty = true;</span>
+<span class="cstat-no" title="statement not covered" >                joint.node.scale._dirty = true;</span>
+            }
+        }
+    },
+&nbsp;
+    clone: function (clonedNodesMap) <span class="fstat-no" title="function not covered" >{</span>
+        var skeleton = <span class="cstat-no" title="statement not covered" >new Skeleton();</span>
+<span class="cstat-no" title="statement not covered" >        skeleton.name = this.name;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; this.joints.length; i++) {</span>
+            var newJoint = <span class="cstat-no" title="statement not covered" >new Joint();</span>
+            var joint = <span class="cstat-no" title="statement not covered" >this.joints[i];</span>
+<span class="cstat-no" title="statement not covered" >            newJoint.name = joint.name;</span>
+<span class="cstat-no" title="statement not covered" >            newJoint.index = joint.index;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (clonedNodesMap) {</span>
+                var newNode = <span class="cstat-no" title="statement not covered" >clonedNodesMap[joint.node.__uid__];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (!newNode) {</span>
+                    // PENDING
+<span class="cstat-no" title="statement not covered" >                    console.warn('Can\'t find node');</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                newJoint.node = newNode || joint.node;</span>
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                newJoint.node = joint.node;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            skeleton.joints.push(newJoint);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this._invBindPoseMatricesArray) {</span>
+            var len = <span class="cstat-no" title="statement not covered" >this._invBindPoseMatricesArray.length;</span>
+<span class="cstat-no" title="statement not covered" >            skeleton._invBindPoseMatricesArray = new Float32Array(len);</span>
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                skeleton._invBindPoseMatricesArray[i] = this._invBindPoseMatricesArray[i];</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            skeleton._skinMatricesArray = new Float32Array(len);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            skeleton.updateMatricesSubArrays();</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        skeleton.update();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return skeleton;</span>
+    }
+});
+&nbsp;
+export default Skeleton;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

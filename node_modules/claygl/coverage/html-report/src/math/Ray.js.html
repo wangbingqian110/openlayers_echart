@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/math/Ray.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/math/</a> Ray.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10.56% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>15/142</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.19% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/77</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.77% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10.56% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/142</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Vector3 from './Vector3';
+import glMatrix from '../dep/glmatrix';
+var vec3 = glMatrix.vec3;
+&nbsp;
+var EPSILON = 1e-5;
+&nbsp;
+/**
+ * @constructor
+ * @alias clay.Ray
+ * @param {clay.Vector3} [origin]
+ * @param {clay.Vector3} [direction]
+ */
+var Ray = function (origin, direction) {
+    /**
+     * @type {clay.Vector3}
+     */
+    this.origin = origin || new Vector3();
+    /**
+     * @type {clay.Vector3}
+     */
+    this.direction = direction || new Vector3();
+};
+&nbsp;
+Ray.prototype = {
+&nbsp;
+    constructor: Ray,
+&nbsp;
+    // http://www.siggraph.org/education/materials/HyperGraph/raytrace/rayplane_intersection.htm
+    /**
+     * Calculate intersection point between ray and a give plane
+     * @param  {clay.Plane} plane
+     * @param  {clay.Vector3} [out]
+     * @return {clay.Vector3}
+     */
+    intersectPlane: function (plane, out) <span class="fstat-no" title="function not covered" >{</span>
+        var pn = <span class="cstat-no" title="statement not covered" >plane.normal.array;</span>
+        var d = <span class="cstat-no" title="statement not covered" >plane.distance;</span>
+        var ro = <span class="cstat-no" title="statement not covered" >this.origin.array;</span>
+        var rd = <span class="cstat-no" title="statement not covered" >this.direction.array;</span>
+&nbsp;
+        var divider = <span class="cstat-no" title="statement not covered" >vec3.dot(pn, rd);</span>
+        // ray is parallel to the plane
+<span class="cstat-no" title="statement not covered" >        if (divider === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (!out) {</span>
+<span class="cstat-no" title="statement not covered" >            out = new Vector3();</span>
+        }
+        var t = <span class="cstat-no" title="statement not covered" >(vec3.dot(pn, ro) - d) / divider;</span>
+<span class="cstat-no" title="statement not covered" >        vec3.scaleAndAdd(out.array, ro, rd, -t);</span>
+<span class="cstat-no" title="statement not covered" >        out._dirty = true;</span>
+<span class="cstat-no" title="statement not covered" >        return out;</span>
+    },
+&nbsp;
+    /**
+     * Mirror the ray against plane
+     * @param  {clay.Plane} plane
+     */
+    mirrorAgainstPlane: function (plane) <span class="fstat-no" title="function not covered" >{</span>
+        // Distance to plane
+        var d = <span class="cstat-no" title="statement not covered" >vec3.dot(plane.normal.array, this.direction.array);</span>
+<span class="cstat-no" title="statement not covered" >        vec3.scaleAndAdd(this.direction.array, this.direction.array, plane.normal.array, -d * 2);</span>
+<span class="cstat-no" title="statement not covered" >        this.direction._dirty = true;</span>
+    },
+&nbsp;
+    distanceToPoint: (function () {
+        var v = vec3.create();
+        return function (point) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >            vec3.sub(v, point, this.origin.array);</span>
+            // Distance from projection point to origin
+            var b = <span class="cstat-no" title="statement not covered" >vec3.dot(v, this.direction.array);</span>
+<span class="cstat-no" title="statement not covered" >            if (b &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                return vec3.distance(this.origin.array, point);</span>
+            }
+            // Squared distance from center to origin
+            var c2 = <span class="cstat-no" title="statement not covered" >vec3.lenSquared(v);</span>
+            // Squared distance from center to projection point
+<span class="cstat-no" title="statement not covered" >            return Math.sqrt(c2 - b * b);</span>
+        };
+    })(),
+&nbsp;
+    /**
+     * Calculate intersection point between ray and sphere
+     * @param  {clay.Vector3} center
+     * @param  {number} radius
+     * @param  {clay.Vector3} out
+     * @return {clay.Vector3}
+     */
+    intersectSphere: (function () {
+        var v = vec3.create();
+        return function (center, radius, out) <span class="fstat-no" title="function not covered" >{</span>
+            var origin = <span class="cstat-no" title="statement not covered" >this.origin.array;</span>
+            var direction = <span class="cstat-no" title="statement not covered" >this.direction.array;</span>
+<span class="cstat-no" title="statement not covered" >            center = center.array;</span>
+<span class="cstat-no" title="statement not covered" >            vec3.sub(v, center, origin);</span>
+            // Distance from projection point to origin
+            var b = <span class="cstat-no" title="statement not covered" >vec3.dot(v, direction);</span>
+            // Squared distance from center to origin
+            var c2 = <span class="cstat-no" title="statement not covered" >vec3.squaredLength(v);</span>
+            // Squared distance from center to projection point
+            var d2 = <span class="cstat-no" title="statement not covered" >c2 - b * b;</span>
+&nbsp;
+            var r2 = <span class="cstat-no" title="statement not covered" >radius * radius;</span>
+            // No intersection
+<span class="cstat-no" title="statement not covered" >            if (d2 &gt; r2) {</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+            var a = <span class="cstat-no" title="statement not covered" >Math.sqrt(r2 - d2);</span>
+            // First intersect point
+            var t0 = <span class="cstat-no" title="statement not covered" >b - a;</span>
+            // Second intersect point
+            var t1 = <span class="cstat-no" title="statement not covered" >b + a;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!out) {</span>
+<span class="cstat-no" title="statement not covered" >                out = new Vector3();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (t0 &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                if (t1 &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    return null;</span>
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    vec3.scaleAndAdd(out.array, origin, direction, t1);</span>
+<span class="cstat-no" title="statement not covered" >                    return out;</span>
+                }
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                vec3.scaleAndAdd(out.array, origin, direction, t0);</span>
+<span class="cstat-no" title="statement not covered" >                return out;</span>
+            }
+        };
+    })(),
+&nbsp;
+    // http://www.scratchapixel.com/lessons/3d-basic-lessons/lesson-7-intersecting-simple-shapes/ray-box-intersection/
+    /**
+     * Calculate intersection point between ray and bounding box
+     * @param {clay.BoundingBox} bbox
+     * @param {clay.Vector3}
+     * @return {clay.Vector3}
+     */
+    intersectBoundingBox: function (bbox, out) <span class="fstat-no" title="function not covered" >{</span>
+        var dir = <span class="cstat-no" title="statement not covered" >this.direction.array;</span>
+        var origin = <span class="cstat-no" title="statement not covered" >this.origin.array;</span>
+        var min = <span class="cstat-no" title="statement not covered" >bbox.min.array;</span>
+        var max = <span class="cstat-no" title="statement not covered" >bbox.max.array;</span>
+&nbsp;
+        var invdirx = <span class="cstat-no" title="statement not covered" >1 / dir[0];</span>
+        var invdiry = <span class="cstat-no" title="statement not covered" >1 / dir[1];</span>
+        var invdirz = <span class="cstat-no" title="statement not covered" >1 / dir[2];</span>
+&nbsp;
+        var tmin, tmax, tymin, tymax, tzmin, tzmax;
+<span class="cstat-no" title="statement not covered" >        if (invdirx &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >            tmin = (min[0] - origin[0]) * invdirx;</span>
+<span class="cstat-no" title="statement not covered" >            tmax = (max[0] - origin[0]) * invdirx;</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            tmax = (min[0] - origin[0]) * invdirx;</span>
+<span class="cstat-no" title="statement not covered" >            tmin = (max[0] - origin[0]) * invdirx;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (invdiry &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >            tymin = (min[1] - origin[1]) * invdiry;</span>
+<span class="cstat-no" title="statement not covered" >            tymax = (max[1] - origin[1]) * invdiry;</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            tymax = (min[1] - origin[1]) * invdiry;</span>
+<span class="cstat-no" title="statement not covered" >            tymin = (max[1] - origin[1]) * invdiry;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if ((tmin &gt; tymax) || (tymin &gt; tmax)) {</span>
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (tymin &gt; tmin || tmin !== tmin) {</span>
+<span class="cstat-no" title="statement not covered" >            tmin = tymin;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (tymax &lt; tmax || tmax !== tmax) {</span>
+<span class="cstat-no" title="statement not covered" >            tmax = tymax;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (invdirz &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >            tzmin = (min[2] - origin[2]) * invdirz;</span>
+<span class="cstat-no" title="statement not covered" >            tzmax = (max[2] - origin[2]) * invdirz;</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            tzmax = (min[2] - origin[2]) * invdirz;</span>
+<span class="cstat-no" title="statement not covered" >            tzmin = (max[2] - origin[2]) * invdirz;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if ((tmin &gt; tzmax) || (tzmin &gt; tmax)) {</span>
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (tzmin &gt; tmin || tmin !== tmin) {</span>
+<span class="cstat-no" title="statement not covered" >            tmin = tzmin;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (tzmax &lt; tmax || tmax !== tmax) {</span>
+<span class="cstat-no" title="statement not covered" >            tmax = tzmax;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (tmax &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+        var t = <span class="cstat-no" title="statement not covered" >tmin &gt;= 0 ? tmin : tmax;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!out) {</span>
+<span class="cstat-no" title="statement not covered" >            out = new Vector3();</span>
+        }
+<span class="cstat-no" title="statement not covered" >        vec3.scaleAndAdd(out.array, origin, dir, t);</span>
+<span class="cstat-no" title="statement not covered" >        return out;</span>
+    },
+&nbsp;
+    // http://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm
+    /**
+     * Calculate intersection point between ray and three triangle vertices
+     * @param {clay.Vector3} a
+     * @param {clay.Vector3} b
+     * @param {clay.Vector3} c
+     * @param {boolean}           singleSided, CW triangle will be ignored
+     * @param {clay.Vector3} [out]
+     * @param {clay.Vector3} [barycenteric] barycentric coords
+     * @return {clay.Vector3}
+     */
+    intersectTriangle: (function () {
+&nbsp;
+        var eBA = vec3.create();
+        var eCA = vec3.create();
+        var AO = vec3.create();
+        var vCross = vec3.create();
+&nbsp;
+        return function (a, b, c, singleSided, out, barycenteric) <span class="fstat-no" title="function not covered" >{</span>
+            var dir = <span class="cstat-no" title="statement not covered" >this.direction.array;</span>
+            var origin = <span class="cstat-no" title="statement not covered" >this.origin.array;</span>
+<span class="cstat-no" title="statement not covered" >            a = a.array;</span>
+<span class="cstat-no" title="statement not covered" >            b = b.array;</span>
+<span class="cstat-no" title="statement not covered" >            c = c.array;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            vec3.sub(eBA, b, a);</span>
+<span class="cstat-no" title="statement not covered" >            vec3.sub(eCA, c, a);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            vec3.cross(vCross, eCA, dir);</span>
+&nbsp;
+            var det = <span class="cstat-no" title="statement not covered" >vec3.dot(eBA, vCross);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (singleSided) {</span>
+<span class="cstat-no" title="statement not covered" >                if (det &gt; -EPSILON) {</span>
+<span class="cstat-no" title="statement not covered" >                    return null;</span>
+                }
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                if (det &gt; -EPSILON &amp;&amp; det &lt; EPSILON) {</span>
+<span class="cstat-no" title="statement not covered" >                    return null;</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            vec3.sub(AO, origin, a);</span>
+            var u = <span class="cstat-no" title="statement not covered" >vec3.dot(vCross, AO) / det;</span>
+<span class="cstat-no" title="statement not covered" >            if (u &lt; 0 || u &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >                return null;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            vec3.cross(vCross, eBA, AO);</span>
+            var v = <span class="cstat-no" title="statement not covered" >vec3.dot(dir, vCross) / det;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (v &lt; 0 || v &gt; 1 || (u + v &gt; 1)) {</span>
+<span class="cstat-no" title="statement not covered" >                return null;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            vec3.cross(vCross, eBA, eCA);</span>
+            var t = <span class="cstat-no" title="statement not covered" >-vec3.dot(AO, vCross) / det;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (t &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >                return null;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!out) {</span>
+<span class="cstat-no" title="statement not covered" >                out = new Vector3();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (barycenteric) {</span>
+<span class="cstat-no" title="statement not covered" >                Vector3.set(barycenteric, (1 - u - v), u, v);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            vec3.scaleAndAdd(out.array, origin, dir, t);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return out;</span>
+        };
+    })(),
+&nbsp;
+    /**
+     * Apply an affine transform matrix to the ray
+     * @return {clay.Matrix4} matrix
+     */
+    applyTransform: function (matrix) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        Vector3.add(this.direction, this.direction, this.origin);</span>
+<span class="cstat-no" title="statement not covered" >        Vector3.transformMat4(this.origin, this.origin, matrix);</span>
+<span class="cstat-no" title="statement not covered" >        Vector3.transformMat4(this.direction, this.direction, matrix);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        Vector3.sub(this.direction, this.direction, this.origin);</span>
+<span class="cstat-no" title="statement not covered" >        Vector3.normalize(this.direction, this.direction);</span>
+    },
+&nbsp;
+    /**
+     * Copy values from another ray
+     * @param {clay.Ray} ray
+     */
+    copy: function (ray) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        Vector3.copy(this.origin, ray.origin);</span>
+<span class="cstat-no" title="statement not covered" >        Vector3.copy(this.direction, ray.direction);</span>
+    },
+&nbsp;
+    /**
+     * Clone a new ray
+     * @return {clay.Ray}
+     */
+    clone: function () <span class="fstat-no" title="function not covered" >{</span>
+        var ray = <span class="cstat-no" title="statement not covered" >new Ray();</span>
+<span class="cstat-no" title="statement not covered" >        ray.copy(this);</span>
+<span class="cstat-no" title="statement not covered" >        return ray;</span>
+    }
+};
+&nbsp;
+export default Ray;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

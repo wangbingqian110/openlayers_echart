@@ -1,11 +1,17 @@
 const fs = require("fs");
+const path = require("path");
+const mkdirp = require("mkdirp");
 const { Tracer } = require("chrome-trace-event");
 const validateOptions = require("schema-utils");
 const schema = require("../../schemas/plugins/debug/ProfilingPlugin.json");
+
+/** @typedef {import("../../declarations/plugins/debug/ProfilingPlugin").ProfilingPluginOptions} ProfilingPluginOptions */
+
 let inspector = undefined;
 
 try {
-	inspector = require("inspector"); // eslint-disable-line node/no-missing-require
+	// eslint-disable-next-line node/no-unsupported-features/node-builtins
+	inspector = require("inspector");
 } catch (e) {
 	console.log("Unable to CPU profile in < node 8.0");
 }
@@ -84,11 +90,15 @@ class Profiler {
  * @param {string} outputPath The location where to write the log.
  * @returns {Trace} The trace object
  */
-function createTrace(outputPath) {
+const createTrace = outputPath => {
 	const trace = new Tracer({
 		noStream: true
 	});
 	const profiler = new Profiler(inspector);
+	if (/\/|\\/.test(outputPath)) {
+		const dirPath = path.dirname(outputPath);
+		mkdirp.sync(dirPath);
+	}
 	const fsStream = fs.createWriteStream(outputPath);
 
 	let counter = 0;
@@ -136,14 +146,17 @@ function createTrace(outputPath) {
 				callback();
 			});
 			// Tear down the readable trace stream.
-			trace.destroy();
+			trace.push(null);
 		}
 	};
-}
+};
 
 const pluginName = "ProfilingPlugin";
 
 class ProfilingPlugin {
+	/**
+	 * @param {ProfilingPluginOptions=} opts options object
+	 */
 	constructor(opts) {
 		validateOptions(schema, opts || {}, "Profiling plugin");
 		opts = opts || {};
@@ -354,7 +367,6 @@ const makeNewProfiledTapFn = (hookName, tracer, { name, type, fn }) => {
 	switch (type) {
 		case "promise":
 			return (...args) => {
-				// eslint-disable-line
 				const id = ++tracer.counter;
 				tracer.trace.begin({
 					name,
@@ -373,7 +385,6 @@ const makeNewProfiledTapFn = (hookName, tracer, { name, type, fn }) => {
 			};
 		case "async":
 			return (...args) => {
-				// eslint-disable-line
 				const id = ++tracer.counter;
 				tracer.trace.begin({
 					name,
@@ -392,7 +403,6 @@ const makeNewProfiledTapFn = (hookName, tracer, { name, type, fn }) => {
 			};
 		case "sync":
 			return (...args) => {
-				// eslint-disable-line
 				const id = ++tracer.counter;
 				// Do not instrument ourself due to the CPU
 				// profile needing to be the last event in the trace.

@@ -172,7 +172,7 @@ class WebWorkerMainTemplatePlugin {
 					)}];\n` +
 					`${globalObject}[${JSON.stringify(hotUpdateFunction)}] = ` +
 					Template.getFunctionContent(
-						require("./WebWorkerMainTemplate.runtime.js")
+						require("./WebWorkerMainTemplate.runtime")
 					)
 						.replace(/\/\/\$semicolon/g, ";")
 						.replace(/\$require\$/g, mainTemplate.requireFn)
@@ -184,12 +184,7 @@ class WebWorkerMainTemplatePlugin {
 		);
 		mainTemplate.hooks.hash.tap("WebWorkerMainTemplatePlugin", hash => {
 			hash.update("webworker");
-			hash.update("3");
-			hash.update(`${mainTemplate.outputOptions.publicPath}`);
-			hash.update(`${mainTemplate.outputOptions.filename}`);
-			hash.update(`${mainTemplate.outputOptions.chunkFilename}`);
-			hash.update(`${mainTemplate.outputOptions.chunkCallbackName}`);
-			hash.update(`${mainTemplate.outputOptions.globalObject}`);
+			hash.update("4");
 		});
 	}
 }

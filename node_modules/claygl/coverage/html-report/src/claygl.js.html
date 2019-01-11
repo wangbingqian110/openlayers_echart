@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/claygl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> claygl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>18/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/18</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** @namespace clay */
+/** @namespace clay.math */
+/** @namespace clay.animation */
+/** @namespace clay.async */
+/** @namespace clay.camera */
+/** @namespace clay.compositor */
+/** @namespace clay.core */
+/** @namespace clay.geometry */
+/** @namespace clay.helper */
+/** @namespace clay.light */
+/** @namespace clay.loader */
+/** @namespace clay.particle */
+/** @namespace clay.plugin */
+/** @namespace clay.prePass */
+/** @namespace clay.shader */
+/** @namespace clay.texture */
+/** @namespace clay.util */
+&nbsp;
+import Animator$0 from './animation/Animator';
+import Blend1DClip$1 from './animation/Blend1DClip';
+import Blend2DClip$2 from './animation/Blend2DClip';
+import Clip$3 from './animation/Clip';
+import easing$4 from './animation/easing';
+import SamplerTrack$5 from './animation/SamplerTrack';
+import Timeline$6 from './animation/Timeline';
+import TrackClip$7 from './animation/TrackClip';
+import application$8 from './application';
+import Task$9 from './async/Task';
+import TaskGroup$10 from './async/TaskGroup';
+import Camera$11 from './Camera';
+import Orthographic$12 from './camera/Orthographic';
+import Perspective$13 from './camera/Perspective';
+import Compositor$14 from './compositor/Compositor';
+import CompositorNode$15 from './compositor/CompositorNode';
+import createCompositor$16 from './compositor/createCompositor';
+import FilterNode$17 from './compositor/FilterNode';
+import Graph$18 from './compositor/Graph';
+import Pass$19 from './compositor/Pass';
+import SceneNode$20 from './compositor/SceneNode';
+import TextureNode$21 from './compositor/TextureNode';
+import TexturePool$22 from './compositor/TexturePool';
+import Base$23 from './core/Base';
+import Cache$24 from './core/Cache';
+import color$25 from './core/color';
+import glenum$26 from './core/glenum';
+import GLInfo$27 from './core/GLInfo';
+import LinkedList$28 from './core/LinkedList';
+import LRU$29 from './core/LRU';
+import extend$30 from './core/mixin/extend';
+import notifier$31 from './core/mixin/notifier';
+import request$32 from './core/request';
+import util$33 from './core/util';
+import vendor$34 from './core/vendor';
+import createCompositor$35 from './createCompositor';
+import GBuffer$36 from './deferred/GBuffer';
+import Renderer$37 from './deferred/Renderer';
+import glmatrix$38 from './dep/glmatrix';
+import FrameBuffer$39 from './FrameBuffer';
+import Geometry$40 from './Geometry';
+import Cone$41 from './geometry/Cone';
+import Cube$42 from './geometry/Cube';
+import Cylinder$43 from './geometry/Cylinder';
+import ParametricSurface$44 from './geometry/ParametricSurface';
+import Plane$45 from './geometry/Plane';
+import Sphere$46 from './geometry/Sphere';
+import Joint$47 from './Joint';
+import Light$48 from './Light';
+import Ambient$49 from './light/Ambient';
+import AmbientCubemap$50 from './light/AmbientCubemap';
+import AmbientSH$51 from './light/AmbientSH';
+import Directional$52 from './light/Directional';
+import Point$53 from './light/Point';
+import Sphere$54 from './light/Sphere';
+import Spot$55 from './light/Spot';
+import Tube$56 from './light/Tube';
+import FX$57 from './loader/FX';
+import GLTF$58 from './loader/GLTF';
+import Material$59 from './Material';
+import BoundingBox$60 from './math/BoundingBox';
+import Frustum$61 from './math/Frustum';
+import Matrix2$62 from './math/Matrix2';
+import Matrix2d$63 from './math/Matrix2d';
+import Matrix3$64 from './math/Matrix3';
+import Matrix4$65 from './math/Matrix4';
+import Plane$66 from './math/Plane';
+import Quaternion$67 from './math/Quaternion';
+import Ray$68 from './math/Ray';
+import util$69 from './math/util';
+import Value$70 from './math/Value';
+import Vector2$71 from './math/Vector2';
+import Vector3$72 from './math/Vector3';
+import Vector4$73 from './math/Vector4';
+import Mesh$74 from './Mesh';
+import Node$75 from './Node';
+import Emitter$76 from './particle/Emitter';
+import Field$77 from './particle/Field';
+import ForceField$78 from './particle/ForceField';
+import Particle$79 from './particle/Particle';
+import ParticleRenderable$80 from './particle/ParticleRenderable';
+import PixelPicking$81 from './picking/PixelPicking';
+import RayPicking$82 from './picking/RayPicking';
+import FreeControl$83 from './plugin/FreeControl';
+import GestureMgr$84 from './plugin/GestureMgr';
+import InfinitePlane$85 from './plugin/InfinitePlane';
+import OrbitControl$86 from './plugin/OrbitControl';
+import Skybox$87 from './plugin/Skybox';
+import Skydome$88 from './plugin/Skydome';
+import EnvironmentMap$89 from './prePass/EnvironmentMap';
+import ShadowMap$90 from './prePass/ShadowMap';
+import Renderable$91 from './Renderable';
+import Renderer$92 from './Renderer';
+import Scene$93 from './Scene';
+import Shader$94 from './Shader';
+import library$95 from './shader/library';
+import light$96 from './shader/source/header/light';
+import Skeleton$97 from './Skeleton';
+import StandardMaterial$98 from './StandardMaterial';
+import StaticGeometry$99 from './StaticGeometry';
+import Texture$100 from './Texture';
+import Texture2D$101 from './Texture2D';
+import TextureCube$102 from './TextureCube';
+import Timeline$103 from './Timeline';
+import cubemap$104 from './util/cubemap';
+import dds$105 from './util/dds';
+import delaunay$106 from './util/delaunay';
+import hdr$107 from './util/hdr';
+import mesh$108 from './util/mesh';
+import sh$109 from './util/sh';
+import texture$110 from './util/texture';
+import transferable$111 from './util/transferable';
+import version$112 from './version';
+import CardboardDistorter$113 from './vr/CardboardDistorter';
+import StereoCamera$114 from './vr/StereoCamera';
+&nbsp;
+&nbsp;
+var animation = {
+    Animator : Animator$0,
+    Blend1DClip : Blend1DClip$1,
+    Blend2DClip : Blend2DClip$2,
+    Clip : Clip$3,
+    easing : easing$4,
+    SamplerTrack : SamplerTrack$5,
+    Timeline : Timeline$6,
+    TrackClip : TrackClip$7
+};
+export { animation };
+&nbsp;
+export { application$8 as application };
+&nbsp;
+var async = {
+    Task : Task$9,
+    TaskGroup : TaskGroup$10
+};
+export { async };
+&nbsp;
+export { Camera$11 as Camera };
+&nbsp;
+var camera = {
+    Orthographic : Orthographic$12,
+    Perspective : Perspective$13
+};
+export { camera };
+&nbsp;
+&nbsp;
+var compositor = {
+    Compositor : Compositor$14,
+    CompositorNode : CompositorNode$15,
+    createCompositor : createCompositor$16,
+    FilterNode : FilterNode$17,
+    Graph : Graph$18,
+    Pass : Pass$19,
+    SceneNode : SceneNode$20,
+    TextureNode : TextureNode$21,
+    TexturePool : TexturePool$22
+};
+export { compositor };
+&nbsp;
+&nbsp;
+var core = {
+    Base : Base$23,
+    Cache : Cache$24,
+    color : color$25,
+    glenum : glenum$26,
+    GLInfo : GLInfo$27,
+    LinkedList : LinkedList$28,
+    LRU : LRU$29,
+    mixin : {
+        extend : extend$30,
+        notifier : notifier$31
+    },
+    request : request$32,
+    util : util$33,
+    vendor : vendor$34
+};
+export { core };
+&nbsp;
+export { createCompositor$35 as createCompositor };
+&nbsp;
+var deferred = {
+    GBuffer : GBuffer$36,
+    Renderer : Renderer$37
+};
+export { deferred };
+&nbsp;
+&nbsp;
+var dep = {
+    glmatrix : glmatrix$38
+};
+export { dep };
+&nbsp;
+export { FrameBuffer$39 as FrameBuffer };
+export { Geometry$40 as Geometry };
+&nbsp;
+var geometry = {
+    Cone : Cone$41,
+    Cube : Cube$42,
+    Cylinder : Cylinder$43,
+    ParametricSurface : ParametricSurface$44,
+    Plane : Plane$45,
+    Sphere : Sphere$46
+};
+export { geometry };
+&nbsp;
+export { Joint$47 as Joint };
+export { Light$48 as Light };
+&nbsp;
+var light = {
+    Ambient : Ambient$49,
+    AmbientCubemap : AmbientCubemap$50,
+    AmbientSH : AmbientSH$51,
+    Directional : Directional$52,
+    Point : Point$53,
+    Sphere : Sphere$54,
+    Spot : Spot$55,
+    Tube : Tube$56
+};
+export { light };
+&nbsp;
+&nbsp;
+var loader = {
+    FX : FX$57,
+    GLTF : GLTF$58
+};
+export { loader };
+&nbsp;
+export { Material$59 as Material };
+&nbsp;
+var math = {
+    BoundingBox : BoundingBox$60,
+    Frustum : Frustum$61,
+    Matrix2 : Matrix2$62,
+    Matrix2d : Matrix2d$63,
+    Matrix3 : Matrix3$64,
+    Matrix4 : Matrix4$65,
+    Plane : Plane$66,
+    Quaternion : Quaternion$67,
+    Ray : Ray$68,
+    util : util$69,
+    Value : Value$70,
+    Vector2 : Vector2$71,
+    Vector3 : Vector3$72,
+    Vector4 : Vector4$73
+};
+export { math };
+export { BoundingBox$60 as BoundingBox };
+export { Frustum$61 as Frustum };
+export { Matrix2$62 as Matrix2 };
+export { Matrix2d$63 as Matrix2d };
+export { Matrix3$64 as Matrix3 };
+export { Matrix4$65 as Matrix4 };
+export { Plane$66 as Plane };
+export { Quaternion$67 as Quaternion };
+export { Ray$68 as Ray };
+export { Value$70 as Value };
+export { Vector2$71 as Vector2 };
+export { Vector3$72 as Vector3 };
+export { Vector4$73 as Vector4 };
+&nbsp;
+export { Mesh$74 as Mesh };
+export { Node$75 as Node };
+&nbsp;
+var particle = {
+    Emitter : Emitter$76,
+    Field : Field$77,
+    ForceField : ForceField$78,
+    Particle : Particle$79,
+    ParticleRenderable : ParticleRenderable$80
+};
+export { particle };
+&nbsp;
+&nbsp;
+var picking = {
+    PixelPicking : PixelPicking$81,
+    RayPicking : RayPicking$82
+};
+export { picking };
+&nbsp;
+&nbsp;
+var plugin = {
+    FreeControl : FreeControl$83,
+    GestureMgr : GestureMgr$84,
+    InfinitePlane : InfinitePlane$85,
+    OrbitControl : OrbitControl$86,
+    Skybox : Skybox$87,
+    Skydome : Skydome$88
+};
+export { plugin };
+&nbsp;
+&nbsp;
+var prePass = {
+    EnvironmentMap : EnvironmentMap$89,
+    ShadowMap : ShadowMap$90
+};
+export { prePass };
+&nbsp;
+export { Renderable$91 as Renderable };
+export { Renderer$92 as Renderer };
+export { Scene$93 as Scene };
+export { Shader$94 as Shader };
+&nbsp;
+var shader = {
+    library : library$95,
+    source : {
+    header : {
+        light : light$96
+    }
+    }
+};
+export { shader };
+&nbsp;
+export { Skeleton$97 as Skeleton };
+export { StandardMaterial$98 as StandardMaterial };
+export { StaticGeometry$99 as StaticGeometry };
+export { Texture$100 as Texture };
+export { Texture2D$101 as Texture2D };
+export { TextureCube$102 as TextureCube };
+export { Timeline$103 as Timeline };
+&nbsp;
+var util = {
+    cubemap : cubemap$104,
+    dds : dds$105,
+    delaunay : delaunay$106,
+    hdr : hdr$107,
+    mesh : mesh$108,
+    sh : sh$109,
+    texture : texture$110,
+    transferable : transferable$111
+};
+export { util };
+&nbsp;
+export { version$112 as version };
+&nbsp;
+var vr = {
+    CardboardDistorter : CardboardDistorter$113,
+    StereoCamera : StereoCamera$114
+};
+export { vr };
+;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

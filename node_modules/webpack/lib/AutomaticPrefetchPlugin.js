@@ -8,7 +8,7 @@ const asyncLib = require("neo-async");
 const PrefetchDependency = require("./dependencies/PrefetchDependency");
 const NormalModule = require("./NormalModule");
 
-/** @typedef {import("./Compiler.js")} Compiler */
+/** @typedef {import("./Compiler")} Compiler */
 
 class AutomaticPrefetchPlugin {
 	/**
@@ -30,7 +30,7 @@ class AutomaticPrefetchPlugin {
 		compiler.hooks.afterCompile.tap("AutomaticPrefetchPlugin", compilation => {
 			lastModules = compilation.modules
 				.filter(m => m instanceof NormalModule)
-				.map(m => ({
+				.map((/** @type {NormalModule} */ m) => ({
 					context: m.context,
 					request: m.request
 				}));

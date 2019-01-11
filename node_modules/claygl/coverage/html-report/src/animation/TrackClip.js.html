@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/animation/TrackClip.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/animation/</a> TrackClip.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20.69% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>18/87</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20.69% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/87</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Clip from './Clip';
+&nbsp;
+import glMatrix from '../dep/glmatrix';
+var quat = glMatrix.quat;
+var vec3 = glMatrix.vec3;
+&nbsp;
+/**
+ *
+ * Animation clip that manage a collection of {@link clay.animation.SamplerTrack}
+ * @constructor
+ * @alias clay.animation.TrackClip
+ *
+ * @extends clay.animation.Clip
+ * @param {Object} [opts]
+ * @param {string} [opts.name]
+ * @param {Object} [opts.target]
+ * @param {number} [opts.life]
+ * @param {number} [opts.delay]
+ * @param {number} [opts.gap]
+ * @param {number} [opts.playbackRatio]
+ * @param {boolean|number} [opts.loop] If loop is a number, it indicate the loop count of animation
+ * @param {string|Function} [opts.easing]
+ * @param {Function} [opts.onframe]
+ * @param {Function} [opts.onfinish]
+ * @param {Function} [opts.onrestart]
+ * @param {Array.&lt;clay.animation.SamplerTrack&gt;} [opts.tracks]
+ */
+var TrackClip = function (opts) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    opts = opts || {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    Clip.call(this, opts);</span>
+&nbsp;
+    /**
+     *
+     * @type {clay.animation.SamplerTrack[]}
+     */
+<span class="cstat-no" title="statement not covered" >    this.tracks = opts.tracks || [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.calcLifeFromTracks();</span>
+};
+&nbsp;
+TrackClip.prototype = Object.create(Clip.prototype);
+&nbsp;
+TrackClip.prototype.constructor = TrackClip;
+&nbsp;
+TrackClip.prototype.step = function (time, dTime, silent) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+    var ret = <span class="cstat-no" title="statement not covered" >Clip.prototype.step.call(this, time, dTime, true);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (ret !== 'finish') {</span>
+        var time = <span class="cstat-no" title="statement not covered" >this.getElapsedTime();</span>
+        // TODO life may be changed.
+<span class="cstat-no" title="statement not covered" >        if (this._range) {</span>
+<span class="cstat-no" title="statement not covered" >            time = this._range[0] + time;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.setTime(time);</span>
+    }
+&nbsp;
+    // PENDING Schedule
+<span class="cstat-no" title="statement not covered" >    if (!silent &amp;&amp; ret !== 'paused') {</span>
+<span class="cstat-no" title="statement not covered" >        this.fire('frame');</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return ret;</span>
+};
+&nbsp;
+/**
+ * @param {Array.&lt;number&gt;} range
+ */
+TrackClip.prototype.setRange = function (range) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    this.calcLifeFromTracks();</span>
+<span class="cstat-no" title="statement not covered" >    this._range = range;</span>
+<span class="cstat-no" title="statement not covered" >    if (range) {</span>
+<span class="cstat-no" title="statement not covered" >        range[1] = Math.min(range[1], this.life);</span>
+<span class="cstat-no" title="statement not covered" >        range[0] = Math.min(range[0], this.life);</span>
+<span class="cstat-no" title="statement not covered" >        this.life = (range[1] - range[0]);</span>
+    }
+};
+&nbsp;
+TrackClip.prototype.setTime = function (time) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        this.tracks[i].setTime(time);</span>
+    }
+};
+&nbsp;
+TrackClip.prototype.calcLifeFromTracks = function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    this.life = 0;</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        this.life = Math.max(this.life, this.tracks[i].getMaxTime());</span>
+    }
+};
+&nbsp;
+/**
+ * @param {clay.animation.SamplerTrack} track
+ */
+TrackClip.prototype.addTrack = function (track) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    this.tracks.push(track);</span>
+<span class="cstat-no" title="statement not covered" >    this.calcLifeFromTracks();</span>
+};
+&nbsp;
+/**
+ * @param {clay.animation.SamplerTrack} track
+ */
+TrackClip.prototype.removeTarck = function (track) <span class="fstat-no" title="function not covered" >{</span>
+    var idx = <span class="cstat-no" title="statement not covered" >this.tracks.indexOf(track);</span>
+<span class="cstat-no" title="statement not covered" >    if (idx &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >        this.tracks.splice(idx, 1);</span>
+    }
+};
+&nbsp;
+/**
+ * @param {number} startTime
+ * @param {number} endTime
+ * @param {boolean} isLoop
+ * @return {clay.animation.TrackClip}
+ */
+TrackClip.prototype.getSubClip = function (startTime, endTime, isLoop) <span class="fstat-no" title="function not covered" >{</span>
+    var subClip = <span class="cstat-no" title="statement not covered" >new TrackClip({</span>
+        name: this.name
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+        var subTrack = <span class="cstat-no" title="statement not covered" >this.tracks[i].getSubTrack(startTime, endTime);</span>
+<span class="cstat-no" title="statement not covered" >        subClip.addTrack(subTrack);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isLoop !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        subClip.setLoop(isLoop);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    subClip.life = endTime - startTime;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return subClip;</span>
+};
+&nbsp;
+/**
+ * 1d blending from two skinning clips
+ * @param  {clay.animation.TrackClip} clip1
+ * @param  {clay.animation.TrackClip} clip2
+ * @param  {number} w
+ */
+TrackClip.prototype.blend1D = function (clip1, clip2, w) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+        var c1 = <span class="cstat-no" title="statement not covered" >clip1.tracks[i];</span>
+        var c2 = <span class="cstat-no" title="statement not covered" >clip2.tracks[i];</span>
+        var tClip = <span class="cstat-no" title="statement not covered" >this.tracks[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        tClip.blend1D(c1, c2, w);</span>
+    }
+};
+&nbsp;
+/**
+ * Additive blending from two skinning clips
+ * @param  {clay.animation.TrackClip} clip1
+ * @param  {clay.animation.TrackClip} clip2
+ */
+TrackClip.prototype.additiveBlend = function (clip1, clip2) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+        var c1 = <span class="cstat-no" title="statement not covered" >clip1.tracks[i];</span>
+        var c2 = <span class="cstat-no" title="statement not covered" >clip2.tracks[i];</span>
+        var tClip = <span class="cstat-no" title="statement not covered" >this.tracks[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        tClip.additiveBlend(c1, c2);</span>
+    }
+};
+&nbsp;
+/**
+ * Subtractive blending from two skinning clips
+ * @param  {clay.animation.TrackClip} clip1
+ * @param  {clay.animation.TrackClip} clip2
+ */
+TrackClip.prototype.subtractiveBlend = function (clip1, clip2) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+        var c1 = <span class="cstat-no" title="statement not covered" >clip1.tracks[i];</span>
+        var c2 = <span class="cstat-no" title="statement not covered" >clip2.tracks[i];</span>
+        var tClip = <span class="cstat-no" title="statement not covered" >this.tracks[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        tClip.subtractiveBlend(c1, c2);</span>
+    }
+};
+&nbsp;
+/**
+ * 2D blending from three skinning clips
+ * @param  {clay.animation.TrackClip} clip1
+ * @param  {clay.animation.TrackClip} clip2
+ * @param  {clay.animation.TrackClip} clip3
+ * @param  {number} f
+ * @param  {number} g
+ */
+TrackClip.prototype.blend2D = function (clip1, clip2, clip3, f, g) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+        var c1 = <span class="cstat-no" title="statement not covered" >clip1.tracks[i];</span>
+        var c2 = <span class="cstat-no" title="statement not covered" >clip2.tracks[i];</span>
+        var c3 = <span class="cstat-no" title="statement not covered" >clip3.tracks[i];</span>
+        var tClip = <span class="cstat-no" title="statement not covered" >this.tracks[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        tClip.blend2D(c1, c2, c3, f, g);</span>
+    }
+};
+&nbsp;
+/**
+ * Copy SRT of all joints clips from another TrackClip
+ * @param  {clay.animation.TrackClip} clip
+ */
+TrackClip.prototype.copy = function (clip) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+        var sTrack = <span class="cstat-no" title="statement not covered" >clip.tracks[i];</span>
+        var tTrack = <span class="cstat-no" title="statement not covered" >this.tracks[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        vec3.copy(tTrack.position, sTrack.position);</span>
+<span class="cstat-no" title="statement not covered" >        vec3.copy(tTrack.scale, sTrack.scale);</span>
+<span class="cstat-no" title="statement not covered" >        quat.copy(tTrack.rotation, sTrack.rotation);</span>
+    }
+};
+&nbsp;
+TrackClip.prototype.clone = function () <span class="fstat-no" title="function not covered" >{</span>
+    var clip = <span class="cstat-no" title="statement not covered" >Clip.prototype.clone.call(this);</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.tracks.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        clip.addTrack(this.tracks[i].clone());</span>
+    }
+<span class="cstat-no" title="statement not covered" >    clip.life = this.life;</span>
+<span class="cstat-no" title="statement not covered" >    return clip;</span>
+};
+&nbsp;
+export default TrackClip;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

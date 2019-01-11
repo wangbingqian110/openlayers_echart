@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/core/Cache.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/core/</a> Cache.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.34% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>34/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.64% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>14/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.34% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>34/47</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">307×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">307×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">307×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">377×</span>
+<span class="cline-any cline-yes">377×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">377×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">377×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">354×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">640×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-yes">168×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">173×</span>
+<span class="cline-any cline-yes">173×</span>
+<span class="cline-any cline-yes">173×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">355×</span>
+<span class="cline-any cline-yes">355×</span>
+<span class="cline-any cline-yes">355×</span>
+<span class="cline-any cline-yes">355×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">283×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var DIRTY_PREFIX = '__dt__';
+&nbsp;
+var Cache = function () {
+&nbsp;
+    this._contextId = 0;
+&nbsp;
+    this._caches = [];
+&nbsp;
+    this._context = {};
+};
+&nbsp;
+Cache.prototype = {
+&nbsp;
+    use: function (contextId, documentSchema) {
+        var caches = this._caches;
+        if (!caches[contextId]) {
+            caches[contextId] = {};
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (documentSchema) {
+<span class="cstat-no" title="statement not covered" >                caches[contextId] = documentSchema();</span>
+            }
+        }
+        this._contextId = contextId;
+&nbsp;
+        this._context = caches[contextId];
+    },
+&nbsp;
+    put: function (key, value) {
+        this._context[key] = value;
+    },
+&nbsp;
+    get: function (key) {
+        return this._context[key];
+    },
+&nbsp;
+    dirty: function (field) {
+        field = field || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        var key = DIRTY_PREFIX + field;
+        this.put(key, true);
+    },
+&nbsp;
+    dirtyAll: function (field) {
+        field = field || '';
+        var key = DIRTY_PREFIX + field;
+        var caches = this._caches;
+        for (var i = 0; i &lt; caches.length; i++) {
+            if (caches[i]) {
+                caches[i][key] = true;
+            }
+        }
+    },
+&nbsp;
+    fresh: function (field) {
+        field = field || '';
+        var key = DIRTY_PREFIX + field;
+        this.put(key, false);
+    },
+&nbsp;
+    freshAll: function (field) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        field = field || '';</span>
+        var key = <span class="cstat-no" title="statement not covered" >DIRTY_PREFIX + field;</span>
+        var caches = <span class="cstat-no" title="statement not covered" >this._caches;</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; caches.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            if (caches[i]) {</span>
+<span class="cstat-no" title="statement not covered" >                caches[i][key] = false;</span>
+            }
+        }
+    },
+&nbsp;
+    isDirty: function (field) {
+        field = field || '';
+        var key = DIRTY_PREFIX + field;
+        var context = this._context;
+        return  !context.hasOwnProperty(key)
+            || context[key] === true;
+    },
+&nbsp;
+    deleteContext: function (contextId) {
+        delete this._caches[contextId];
+        this._context = {};
+    },
+&nbsp;
+    delete: function (key) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        delete this._context[key];</span>
+    },
+&nbsp;
+    clearAll: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._caches = {};</span>
+    },
+&nbsp;
+    getContext: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return this._context;</span>
+    },
+&nbsp;
+    eachContext : function (cb, context) <span class="fstat-no" title="function not covered" >{</span>
+        var keys = <span class="cstat-no" title="statement not covered" >Object.keys(this._caches);</span>
+<span class="cstat-no" title="statement not covered" >        keys.forEach(function (key) <span class="fstat-no" title="function not covered" >{</span></span>
+<span class="cstat-no" title="statement not covered" >            cb &amp;&amp; cb.call(context, key);</span>
+        });
+    },
+&nbsp;
+    miss: function (key) {
+        return ! this._context.hasOwnProperty(key);
+    }
+};
+&nbsp;
+Cache.prototype.constructor = Cache;
+&nbsp;
+export default Cache;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

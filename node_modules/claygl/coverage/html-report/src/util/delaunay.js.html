@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/util/delaunay.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/util/</a> delaunay.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.65% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/121</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/62</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/117</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Delaunay Triangulation
+// Modified from https://github.com/ironwallaby/delaunay
+var EPSILON = 1.0 / 1048576.0;
+&nbsp;
+function supertriangle(vertices) <span class="fstat-no" title="function not covered" >{</span>
+    var xmin = <span class="cstat-no" title="statement not covered" >Number.POSITIVE_INFINITY;</span>
+    var ymin = <span class="cstat-no" title="statement not covered" >Number.POSITIVE_INFINITY;</span>
+    var xmax = <span class="cstat-no" title="statement not covered" >Number.NEGATIVE_INFINITY;</span>
+    var ymax = <span class="cstat-no" title="statement not covered" >Number.NEGATIVE_INFINITY;</span>
+    var i, dx, dy, dmax, xmid, ymid;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (i = vertices.length; i--; ) {</span>
+<span class="cstat-no" title="statement not covered" >        if (vertices[i][0] &lt; xmin) { <span class="cstat-no" title="statement not covered" >xmin = vertices[i][0]; </span>}</span>
+<span class="cstat-no" title="statement not covered" >        if (vertices[i][0] &gt; xmax) { <span class="cstat-no" title="statement not covered" >xmax = vertices[i][0]; </span>}</span>
+<span class="cstat-no" title="statement not covered" >        if (vertices[i][1] &lt; ymin) { <span class="cstat-no" title="statement not covered" >ymin = vertices[i][1]; </span>}</span>
+<span class="cstat-no" title="statement not covered" >        if (vertices[i][1] &gt; ymax) { <span class="cstat-no" title="statement not covered" >ymax = vertices[i][1]; </span>}</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    dx = xmax - xmin;</span>
+<span class="cstat-no" title="statement not covered" >    dy = ymax - ymin;</span>
+<span class="cstat-no" title="statement not covered" >    dmax = Math.max(dx, dy);</span>
+<span class="cstat-no" title="statement not covered" >    xmid = xmin + dx * 0.5;</span>
+<span class="cstat-no" title="statement not covered" >    ymid = ymin + dy * 0.5;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return [</span>
+        [xmid - 20 * dmax, ymid -      dmax],
+        [xmid            , ymid + 20 * dmax],
+        [xmid + 20 * dmax, ymid -      dmax]
+    ];
+}
+&nbsp;
+function circumcircle(vertices, i, j, k) <span class="fstat-no" title="function not covered" >{</span>
+    var x1 = <span class="cstat-no" title="statement not covered" >vertices[i][0],</span>
+            y1 = <span class="cstat-no" title="statement not covered" >vertices[i][1],</span>
+            x2 = <span class="cstat-no" title="statement not covered" >vertices[j][0],</span>
+            y2 = <span class="cstat-no" title="statement not covered" >vertices[j][1],</span>
+            x3 = <span class="cstat-no" title="statement not covered" >vertices[k][0],</span>
+            y3 = <span class="cstat-no" title="statement not covered" >vertices[k][1],</span>
+            fabsy1y2 = <span class="cstat-no" title="statement not covered" >Math.abs(y1 - y2),</span>
+            fabsy2y3 = <span class="cstat-no" title="statement not covered" >Math.abs(y2 - y3),</span>
+            xc, yc, m1, m2, mx1, mx2, my1, my2, dx, dy;
+&nbsp;
+    /* Check for coincident points */
+<span class="cstat-no" title="statement not covered" >    if (fabsy1y2 &lt; EPSILON &amp;&amp; fabsy2y3 &lt; EPSILON) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('Eek! Coincident points!');</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (fabsy1y2 &lt; EPSILON) {</span>
+<span class="cstat-no" title="statement not covered" >        m2  = -((x3 - x2) / (y3 - y2));</span>
+<span class="cstat-no" title="statement not covered" >        mx2 = (x2 + x3) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        my2 = (y2 + y3) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        xc  = (x2 + x1) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        yc  = m2 * (xc - mx2) + my2;</span>
+    }
+&nbsp;
+    else <span class="cstat-no" title="statement not covered" >if (fabsy2y3 &lt; EPSILON) {</span>
+<span class="cstat-no" title="statement not covered" >        m1  = -((x2 - x1) / (y2 - y1));</span>
+<span class="cstat-no" title="statement not covered" >        mx1 = (x1 + x2) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        my1 = (y1 + y2) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        xc  = (x3 + x2) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        yc  = m1 * (xc - mx1) + my1;</span>
+    }
+&nbsp;
+    else {
+<span class="cstat-no" title="statement not covered" >        m1  = -((x2 - x1) / (y2 - y1));</span>
+<span class="cstat-no" title="statement not covered" >        m2  = -((x3 - x2) / (y3 - y2));</span>
+<span class="cstat-no" title="statement not covered" >        mx1 = (x1 + x2) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        mx2 = (x2 + x3) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        my1 = (y1 + y2) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        my2 = (y2 + y3) / 2.0;</span>
+<span class="cstat-no" title="statement not covered" >        xc  = (m1 * mx1 - m2 * mx2 + my2 - my1) / (m1 - m2);</span>
+<span class="cstat-no" title="statement not covered" >        yc  = (fabsy1y2 &gt; fabsy2y3) ?</span>
+            m1 * (xc - mx1) + my1 :
+            m2 * (xc - mx2) + my2;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    dx = x2 - xc;</span>
+<span class="cstat-no" title="statement not covered" >    dy = y2 - yc;</span>
+<span class="cstat-no" title="statement not covered" >    return {i: i, j: j, k: k, x: xc, y: yc, r: dx * dx + dy * dy};</span>
+}
+&nbsp;
+function dedup(edges) <span class="fstat-no" title="function not covered" >{</span>
+    var i, j, a, b, m, n;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (j = edges.length; j; ) {</span>
+<span class="cstat-no" title="statement not covered" >        b = edges[--j];</span>
+<span class="cstat-no" title="statement not covered" >        a = edges[--j];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (i = j; i; ) {</span>
+<span class="cstat-no" title="statement not covered" >            n = edges[--i];</span>
+<span class="cstat-no" title="statement not covered" >            m = edges[--i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ((a === m &amp;&amp; b === n) || (a === n &amp;&amp; b === m)) {</span>
+<span class="cstat-no" title="statement not covered" >                edges.splice(j, 2);</span>
+<span class="cstat-no" title="statement not covered" >                edges.splice(i, 2);</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+        }
+    }
+}
+&nbsp;
+var delaunay = {
+    triangulate: function(vertices, key) <span class="fstat-no" title="function not covered" >{</span>
+        var n = <span class="cstat-no" title="statement not covered" >vertices.length;</span>
+        var i, j, indices, st, open, closed, edges, dx, dy, a, b, c;
+&nbsp;
+        /* Bail if there aren't enough vertices to form any triangles. */
+<span class="cstat-no" title="statement not covered" >        if (n &lt; 3) {</span>
+<span class="cstat-no" title="statement not covered" >            return [];</span>
+        }
+&nbsp;
+        /* Slice out the actual vertices from the passed objects. (Duplicate the
+            * array even if we don't, though, since we need to make a supertriangle
+            * later on!) */
+<span class="cstat-no" title="statement not covered" >        vertices = vertices.slice(0);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (key) {</span>
+<span class="cstat-no" title="statement not covered" >            for (i = n; i--; ) {</span>
+<span class="cstat-no" title="statement not covered" >                vertices[i] = vertices[i][key];</span>
+            }
+        }
+&nbsp;
+        /* Make an array of indices into the vertex array, sorted by the
+            * vertices' x-position. Force stable sorting by comparing indices if
+            * the x-positions are equal. */
+<span class="cstat-no" title="statement not covered" >        indices = new Array(n);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (i = n; i--; ) {</span>
+<span class="cstat-no" title="statement not covered" >            indices[i] = i;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        indices.sort(function(i, j) <span class="fstat-no" title="function not covered" >{</span></span>
+            var diff = <span class="cstat-no" title="statement not covered" >vertices[j][0] - vertices[i][0];</span>
+<span class="cstat-no" title="statement not covered" >            return diff !== 0 ? diff : i - j;</span>
+        });
+&nbsp;
+        /* Next, find the vertices of the supertriangle (which contains all other
+            * triangles), and append them onto the end of a (copy of) the vertex
+            * array. */
+<span class="cstat-no" title="statement not covered" >        st = supertriangle(vertices);</span>
+<span class="cstat-no" title="statement not covered" >        vertices.push(st[0], st[1], st[2]);</span>
+&nbsp;
+        /* Initialize the open list (containing the supertriangle and nothing
+            * else) and the closed list (which is empty since we havn't processed
+            * any triangles yet). */
+<span class="cstat-no" title="statement not covered" >        open   = [circumcircle(vertices, n + 0, n + 1, n + 2)];</span>
+<span class="cstat-no" title="statement not covered" >        closed = [];</span>
+<span class="cstat-no" title="statement not covered" >        edges  = [];</span>
+&nbsp;
+        /* Incrementally add each vertex to the mesh. */
+<span class="cstat-no" title="statement not covered" >        for (i = indices.length; i--; edges.length = 0) {</span>
+<span class="cstat-no" title="statement not covered" >            c = indices[i];</span>
+&nbsp;
+            /* For each open triangle, check to see if the current point is
+                * inside it's circumcircle. If it is, remove the triangle and add
+                * it's edges to an edge list. */
+<span class="cstat-no" title="statement not covered" >            for (j = open.length; j--; ) {</span>
+                /* If this point is to the right of this triangle's circumcircle,
+                    * then this triangle should never get checked again. Remove it
+                    * from the open list, add it to the closed list, and skip. */
+<span class="cstat-no" title="statement not covered" >                dx = vertices[c][0] - open[j].x;</span>
+<span class="cstat-no" title="statement not covered" >                if (dx &gt; 0.0 &amp;&amp; dx * dx &gt; open[j].r) {</span>
+<span class="cstat-no" title="statement not covered" >                    closed.push(open[j]);</span>
+<span class="cstat-no" title="statement not covered" >                    open.splice(j, 1);</span>
+<span class="cstat-no" title="statement not covered" >                    continue;</span>
+                }
+&nbsp;
+                /* If we're outside the circumcircle, skip this triangle. */
+<span class="cstat-no" title="statement not covered" >                dy = vertices[c][1] - open[j].y;</span>
+<span class="cstat-no" title="statement not covered" >                if (dx * dx + dy * dy - open[j].r &gt; EPSILON) {</span>
+<span class="cstat-no" title="statement not covered" >                    continue;</span>
+                }
+&nbsp;
+                /* Remove the triangle and add it's edges to the edge list. */
+<span class="cstat-no" title="statement not covered" >                edges.push(</span>
+                    open[j].i, open[j].j,
+                    open[j].j, open[j].k,
+                    open[j].k, open[j].i
+                );
+<span class="cstat-no" title="statement not covered" >                open.splice(j, 1);</span>
+            }
+&nbsp;
+            /* Remove any doubled edges. */
+<span class="cstat-no" title="statement not covered" >            dedup(edges);</span>
+&nbsp;
+            /* Add a new triangle for each edge. */
+<span class="cstat-no" title="statement not covered" >            for (j = edges.length; j; ) {</span>
+<span class="cstat-no" title="statement not covered" >                b = edges[--j];</span>
+<span class="cstat-no" title="statement not covered" >                a = edges[--j];</span>
+<span class="cstat-no" title="statement not covered" >                open.push(circumcircle(vertices, a, b, c));</span>
+            }
+        }
+&nbsp;
+        /* Copy any remaining open triangles to the closed list, and then
+            * remove any triangles that share a vertex with the supertriangle,
+            * building a list of triplets that represent triangles. */
+<span class="cstat-no" title="statement not covered" >        for (i = open.length; i--; ) {</span>
+<span class="cstat-no" title="statement not covered" >            closed.push(open[i]);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        open.length = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (i = closed.length; i--; ) {</span>
+<span class="cstat-no" title="statement not covered" >            if (closed[i].i &lt; n &amp;&amp; closed[i].j &lt; n &amp;&amp; closed[i].k &lt; n) {</span>
+<span class="cstat-no" title="statement not covered" >                open.push(closed[i].i, closed[i].j, closed[i].k);</span>
+            }
+        }
+&nbsp;
+        /* Yay, we're done! */
+<span class="cstat-no" title="statement not covered" >        return open;</span>
+    },
+    contains: function(tri, p) <span class="fstat-no" title="function not covered" >{</span>
+        /* Bounding box test first, for quick rejections. */
+<span class="cstat-no" title="statement not covered" >        if ((p[0] &lt; tri[0][0] &amp;&amp; p[0] &lt; tri[1][0] &amp;&amp; p[0] &lt; tri[2][0]) ||</span>
+                (p[0] &gt; tri[0][0] &amp;&amp; p[0] &gt; tri[1][0] &amp;&amp; p[0] &gt; tri[2][0]) ||
+                (p[1] &lt; tri[0][1] &amp;&amp; p[1] &lt; tri[1][1] &amp;&amp; p[1] &lt; tri[2][1]) ||
+                (p[1] &gt; tri[0][1] &amp;&amp; p[1] &gt; tri[1][1] &amp;&amp; p[1] &gt; tri[2][1])) {
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+        var a = <span class="cstat-no" title="statement not covered" >tri[1][0] - tri[0][0];</span>
+        var b = <span class="cstat-no" title="statement not covered" >tri[2][0] - tri[0][0];</span>
+        var c = <span class="cstat-no" title="statement not covered" >tri[1][1] - tri[0][1];</span>
+        var d = <span class="cstat-no" title="statement not covered" >tri[2][1] - tri[0][1];</span>
+        var i = <span class="cstat-no" title="statement not covered" >a * d - b * c;</span>
+&nbsp;
+        /* Degenerate tri. */
+<span class="cstat-no" title="statement not covered" >        if (i === 0.0) {</span>
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+        var u = <span class="cstat-no" title="statement not covered" >(d * (p[0] - tri[0][0]) - b * (p[1] - tri[0][1])) / i,</span>
+                v = <span class="cstat-no" title="statement not covered" >(a * (p[1] - tri[0][1]) - c * (p[0] - tri[0][0])) / i;</span>
+&nbsp;
+        /* If we're outside the tri, fail. */
+<span class="cstat-no" title="statement not covered" >        if (u &lt; 0.0 || v &lt; 0.0 || (u + v) &gt; 1.0) {</span>
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return [u, v];</span>
+    }
+};
+&nbsp;
+export default delaunay;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

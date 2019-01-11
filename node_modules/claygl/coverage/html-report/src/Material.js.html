@@ -1,0 +1,1565 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Material.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> Material.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>134/164</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>65/100</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.46% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>23/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>134/164</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-yes">134×</span>
+<span class="cline-any cline-yes">134×</span>
+<span class="cline-any cline-yes">134×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">128×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">94×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">94×</span>
+<span class="cline-any cline-yes">94×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">125×</span>
+<span class="cline-any cline-yes">125×</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">991×</span>
+<span class="cline-any cline-yes">991×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-yes">337×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-yes">106×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">131×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">131×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">411×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">89×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">89×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Base from './core/Base';
+import Texture from './Texture';
+import util from './core/util';
+import colorUtil from './core/color';
+var parseColor = colorUtil.parseToFloat;
+&nbsp;
+var programKeyCache = {};
+&nbsp;
+function getDefineCode(defines) {
+    var defineKeys = Object.keys(defines);
+    defineKeys.sort();
+    var defineStr = [];
+    // Custom Defines
+    for (var i = 0; i &lt; defineKeys.length; i++) {
+        var key = defineKeys[i];
+        var value = defines[key];
+        if (value === null) {
+            defineStr.push(key);
+        }
+        else{
+            defineStr.push(key + ' ' + value.toString());
+        }
+    }
+    return defineStr.join('\n');
+}
+&nbsp;
+function getProgramKey(vertexDefines, fragmentDefines, enabledTextures) {
+    enabledTextures.sort();
+    var defineStr = [];
+    for (var i = 0; i &lt; enabledTextures.length; i++) {
+        var symbol = enabledTextures[i];
+        defineStr.push(symbol);
+    }
+    var key = getDefineCode(vertexDefines) + '\n'
+        + getDefineCode(fragmentDefines) + '\n'
+        + defineStr.join('\n');
+&nbsp;
+    if (programKeyCache[key]) {
+        return programKeyCache[key];
+    }
+&nbsp;
+    var id = util.genGUID();
+    programKeyCache[key] = id;
+    return id;
+}
+&nbsp;
+/**
+ * Material defines the appearance of mesh surface, like `color`, `roughness`, `metalness`, etc.
+ * It contains a {@link clay.Shader} and corresponding uniforms.
+ *
+ * Here is a basic example to create a standard material
+```js
+var material = new clay.Material({
+    shader: new clay.Shader(
+        clay.Shader.source('clay.vertex'),
+        clay.Shader.source('clay.fragment')
+    )
+});
+```
+ * @constructor clay.Material
+ * @extends clay.core.Base
+ */
+var Material = Base.extend(function () {
+    return /** @lends clay.Material# */ {
+        /**
+         * @type {string}
+         */
+        name: '',
+&nbsp;
+        /**
+         * @type {Object}
+         */
+        // uniforms: null,
+&nbsp;
+        /**
+         * @type {clay.Shader}
+         */
+        // shader: null,
+&nbsp;
+        /**
+         * @type {boolean}
+         */
+        depthTest: true,
+&nbsp;
+        /**
+         * @type {boolean}
+         */
+        depthMask: true,
+&nbsp;
+        /**
+         * @type {boolean}
+         */
+        transparent: false,
+        /**
+         * Blend func is a callback function when the material
+         * have custom blending
+         * The gl context will be the only argument passed in tho the
+         * blend function
+         * Detail of blend function in WebGL:
+         * http://www.khronos.org/registry/gles/specs/2.0/es_full_spec_2.0.25.pdf
+         *
+         * Example :
+         * function(_gl) {
+         *  _gl.blendEquation(_gl.FUNC_ADD);
+         *  _gl.blendFunc(_gl.SRC_ALPHA, _gl.ONE_MINUS_SRC_ALPHA);
+         * }
+         */
+        blend: null,
+&nbsp;
+        /**
+         * If update texture status automatically.
+         */
+        autoUpdateTextureStatus: true,
+&nbsp;
+        uniforms: {},
+        vertexDefines: {},
+        fragmentDefines: {},
+        _textureStatus: {},
+&nbsp;
+        // shadowTransparentMap : null
+&nbsp;
+        // PENDING enable the uniform that only used in shader.
+        _enabledUniforms: null,
+    };
+}, function () {
+    if (!this.name) {
+        this.name = 'MATERIAL_' + this.__uid__;
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this.shader) {
+        // Keep status, mainly preset uniforms, vertexDefines and fragmentDefines
+        this.attachShader(this.shader, true);
+    }
+},
+/** @lends clay.Material.prototype */
+{
+    precision: 'highp',
+&nbsp;
+    /**
+     * Set material uniform
+     * @example
+     *  mat.setUniform('color', [1, 1, 1, 1]);
+     * @param {string} symbol
+     * @param {number|array|clay.Texture|ArrayBufferView} value
+     */
+    setUniform: function (symbol, value) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (value === undefined) {
+<span class="cstat-no" title="statement not covered" >            console.warn('Uniform value "' + symbol + '" is undefined');</span>
+        }
+        var uniform = this.uniforms[symbol];
+        if (uniform) {
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof value === 'string') {
+                // Try to parse as a color. Invalid color string will return null.
+<span class="cstat-no" title="statement not covered" >                value = parseColor(value) || value;</span>
+            }
+&nbsp;
+            uniform.value = value;
+&nbsp;
+            if (this.autoUpdateTextureStatus &amp;&amp; uniform.type === 't') {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (value) {
+                    this.enableTexture(symbol);
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    this.disableTexture(symbol);</span>
+                }
+            }
+        }
+    },
+&nbsp;
+    /**
+     * @param {Object} obj
+     */
+    setUniforms: function(obj) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        for (var key in obj) {</span>
+            var val = <span class="cstat-no" title="statement not covered" >obj[key];</span>
+<span class="cstat-no" title="statement not covered" >            this.setUniform(key, val);</span>
+        }
+    },
+&nbsp;
+    /**
+     * @param  {string}  symbol
+     * @return {boolean}
+     */
+    isUniformEnabled: function (symbol) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return this._enabledUniforms.indexOf(symbol) &gt;= 0;</span>
+    },
+&nbsp;
+    getEnabledUniforms: function () {
+        return this._enabledUniforms;
+    },
+    getTextureUniforms: function () {
+        return this._textureUniforms;
+    },
+&nbsp;
+    /**
+     * Alias of setUniform and setUniforms
+     * @param {object|string} symbol
+     * @param {number|array|clay.Texture|ArrayBufferView} [value]
+     */
+    set: function (symbol, value) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof(symbol) === 'object') {
+<span class="cstat-no" title="statement not covered" >            for (var key in symbol) {</span>
+                var val = <span class="cstat-no" title="statement not covered" >symbol[key];</span>
+<span class="cstat-no" title="statement not covered" >                this.setUniform(key, val);</span>
+            }
+        }
+        else {
+            this.setUniform(symbol, value);
+        }
+    },
+    /**
+     * Get uniform value
+     * @param  {string} symbol
+     * @return {number|array|clay.Texture|ArrayBufferView}
+     */
+    get: function (symbol) {
+        var uniform = this.uniforms[symbol];
+        if (uniform) {
+            return uniform.value;
+        }
+    },
+    /**
+     * Attach a shader instance
+     * @param  {clay.Shader} shader
+     * @param  {boolean} keepStatus If try to keep uniform and texture
+     */
+    attachShader: function(shader, keepStatus) {
+        var originalUniforms = this.uniforms;
+&nbsp;
+        // Ignore if uniform can use in shader.
+        this.uniforms = shader.createUniforms();
+        this.shader = shader;
+&nbsp;
+        var uniforms = this.uniforms;
+        this._enabledUniforms = Object.keys(uniforms);
+        // Make sure uniforms are set in same order to avoid texture slot wrong
+        this._enabledUniforms.sort();
+        this._textureUniforms = this._enabledUniforms.filter(function (uniformName) {
+            var type = this.uniforms[uniformName].type;
+            return type === 't' || type === 'tv';
+        }, this);
+&nbsp;
+        var originalVertexDefines = this.vertexDefines;
+        var originalFragmentDefines = this.fragmentDefines;
+&nbsp;
+        this.vertexDefines = util.clone(shader.vertexDefines);
+        this.fragmentDefines = util.clone(shader.fragmentDefines);
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (keepStatus) {
+            for (var symbol in originalUniforms) {
+<span class="cstat-no" title="statement not covered" >                if (uniforms[symbol]) {</span>
+<span class="cstat-no" title="statement not covered" >                    uniforms[symbol].value = originalUniforms[symbol].value;</span>
+                }
+            }
+&nbsp;
+            util.defaults(this.vertexDefines, originalVertexDefines);
+            util.defaults(this.fragmentDefines, originalFragmentDefines);
+        }
+&nbsp;
+        var textureStatus = {};
+        for (var key in shader.textures) {
+            textureStatus[key] = {
+                shaderType: shader.textures[key].shaderType,
+                type: shader.textures[key].type,
+                enabled: (keepStatus &amp;&amp; this._textureStatus[key]) ? <span class="branch-0 cbranch-no" title="branch not covered" >this._textureStatus[key].enabled </span>: false
+            };
+        }
+&nbsp;
+        this._textureStatus = textureStatus;
+&nbsp;
+        this._programKey = '';
+    },
+&nbsp;
+    /**
+     * Clone a new material and keep uniforms, shader will not be cloned
+     * @return {clay.Material}
+     */
+    clone: function () {
+        var material = new this.constructor({
+            name: this.name,
+            shader: this.shader
+        });
+        for (var symbol in this.uniforms) {
+            material.uniforms[symbol].value = this.uniforms[symbol].value;
+        }
+        material.depthTest = this.depthTest;
+        material.depthMask = this.depthMask;
+        material.transparent = this.transparent;
+        material.blend = this.blend;
+&nbsp;
+        material.vertexDefines = util.clone(this.vertexDefines);
+        material.fragmentDefines = util.clone(this.fragmentDefines);
+        material.enableTexture(this.getEnabledTextures());
+        material.precision = this.precision;
+&nbsp;
+        return material;
+    },
+&nbsp;
+    /**
+     * Add a #define macro in shader code
+     * @param  {string} shaderType Can be vertex, fragment or both
+     * @param  {string} symbol
+     * @param  {number} [val]
+     */
+    define: function (shaderType, symbol, val) {
+        var vertexDefines = this.vertexDefines;
+        var fragmentDefines = this.fragmentDefines;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (shaderType !== 'vertex' &amp;&amp; shaderType !== 'fragment' &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >shaderType !== 'both'</span>
+            &amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >arguments.length &lt; 3</span>
+        ) {
+            // shaderType default to be 'both'
+<span class="cstat-no" title="statement not covered" >            val = symbol;</span>
+<span class="cstat-no" title="statement not covered" >            symbol = shaderType;</span>
+<span class="cstat-no" title="statement not covered" >            shaderType = 'both';</span>
+        }
+        val = val != null ? val : null;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (shaderType === 'vertex' || shaderType === 'both') {
+<span class="cstat-no" title="statement not covered" >            if (vertexDefines[symbol] !== val) {</span>
+<span class="cstat-no" title="statement not covered" >                vertexDefines[symbol] = val;</span>
+                // Mark as dirty
+<span class="cstat-no" title="statement not covered" >                this._programKey = '';</span>
+            }
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (shaderType === 'fragment' || <span class="branch-1 cbranch-no" title="branch not covered" >shaderType === 'both')</span> {
+            if (fragmentDefines[symbol] !== val) {
+                fragmentDefines[symbol] = val;
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (shaderType !== 'both') {
+                    this._programKey = '';
+                }
+            }
+        }
+    },
+&nbsp;
+    /**
+     * Remove a #define macro in shader code
+     * @param  {string} shaderType Can be vertex, fragment or both
+     * @param  {string} symbol
+     */
+    undefine: function (shaderType, symbol) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (shaderType !== 'vertex' &amp;&amp; shaderType !== 'fragment' &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >shaderType !== 'both'</span>
+            &amp;&amp; <span class="branch-3 cbranch-no" title="branch not covered" >arguments.length &lt; 2</span>
+        ) {
+            // shaderType default to be 'both'
+<span class="cstat-no" title="statement not covered" >            symbol = shaderType;</span>
+<span class="cstat-no" title="statement not covered" >            shaderType = 'both';</span>
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (shaderType === 'vertex' || shaderType === 'both') {
+<span class="cstat-no" title="statement not covered" >            if (this.isDefined('vertex', symbol)) {</span>
+<span class="cstat-no" title="statement not covered" >                delete this.vertexDefines[symbol];</span>
+                // Mark as dirty
+<span class="cstat-no" title="statement not covered" >                this._programKey = '';</span>
+            }
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (shaderType === 'fragment' || <span class="branch-1 cbranch-no" title="branch not covered" >shaderType === 'both')</span> {
+            if (this.isDefined('fragment', symbol)) {
+                delete this.fragmentDefines[symbol];
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (shaderType !== 'both') {
+                    this._programKey = '';
+                }
+            }
+        }
+    },
+&nbsp;
+    /**
+     * If macro is defined in shader.
+     * @param  {string} shaderType Can be vertex, fragment or both
+     * @param  {string} symbol
+     */
+    isDefined: function (shaderType, symbol) {
+        // PENDING hasOwnProperty ?
+        switch (shaderType) {
+<span class="branch-0 cbranch-no" title="branch not covered" >            case 'vertex':</span>
+<span class="cstat-no" title="statement not covered" >                return this.vertexDefines[symbol] !== undefined;</span>
+            case 'fragment':
+                return this.fragmentDefines[symbol] !== undefined;
+        }
+    },
+    /**
+     * Get macro value defined in shader.
+     * @param  {string} shaderType Can be vertex, fragment or both
+     * @param  {string} symbol
+     */
+    getDefine: function (shaderType, symbol) {
+        switch(shaderType) {
+<span class="branch-0 cbranch-no" title="branch not covered" >            case 'vertex':</span>
+<span class="cstat-no" title="statement not covered" >                return this.vertexDefines[symbol];</span>
+            case 'fragment':
+                return this.fragmentDefines[symbol];
+        }
+    },
+    /**
+     * Enable a texture, actually it will add a #define macro in the shader code
+     * For example, if texture symbol is diffuseMap, it will add a line `#define DIFFUSEMAP_ENABLED` in the shader code
+     * @param  {string} symbol
+     */
+    enableTexture: function (symbol) {
+        if (Array.isArray(symbol)) {
+            for (var i = 0; i &lt; symbol.length; i++) {
+<span class="cstat-no" title="statement not covered" >                this.enableTexture(symbol[i]);</span>
+            }
+            return;
+        }
+&nbsp;
+        var status = this._textureStatus[symbol];
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (status) {
+            var isEnabled = status.enabled;
+            if (!isEnabled) {
+                status.enabled = true;
+                this._programKey = '';
+            }
+        }
+    },
+    /**
+     * Enable all textures used in the shader
+     */
+    enableTexturesAll: function () {
+        var textureStatus = this._textureStatus;
+        for (var symbol in textureStatus) {
+            textureStatus[symbol].enabled = true;
+        }
+&nbsp;
+        this._programKey = '';
+    },
+    /**
+     * Disable a texture, it remove a #define macro in the shader
+     * @param  {string} symbol
+     */
+    disableTexture: function (symbol) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (Array.isArray(symbol)) {
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; symbol.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                this.disableTexture(symbol[i]);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+        var status = this._textureStatus[symbol];
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (status) {
+            var isDisabled = ! status.enabled;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!isDisabled) {
+                status.enabled = false;
+                this._programKey = '';
+            }
+        }
+    },
+    /**
+     * Disable all textures used in the shader
+     */
+    disableTexturesAll: function () {
+        var textureStatus = this._textureStatus;
+        for (var symbol in textureStatus) {
+            textureStatus[symbol].enabled = false;
+        }
+&nbsp;
+        this._programKey = '';
+    },
+    /**
+     * If texture of given type is enabled.
+     * @param  {string}  symbol
+     * @return {boolean}
+     */
+    isTextureEnabled: function (symbol) {
+        var textureStatus = this._textureStatus;
+        return !!textureStatus[symbol]
+            &amp;&amp; textureStatus[symbol].enabled;
+    },
+&nbsp;
+    /**
+     * Get all enabled textures
+     * @return {string[]}
+     */
+    getEnabledTextures: function () {
+        var enabledTextures = [];
+        var textureStatus = this._textureStatus;
+        for (var symbol in textureStatus) {
+            if (textureStatus[symbol].enabled) {
+                enabledTextures.push(symbol);
+            }
+        }
+        return enabledTextures;
+    },
+&nbsp;
+    /**
+     * Mark defines are updated.
+     */
+    dirtyDefines: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._programKey = '';</span>
+    },
+&nbsp;
+    getProgramKey: function () {
+        if (!this._programKey) {
+            this._programKey = getProgramKey(
+                this.vertexDefines, this.fragmentDefines, this.getEnabledTextures()
+            );
+        }
+        return this._programKey;
+    }
+});
+&nbsp;
+export default Material;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

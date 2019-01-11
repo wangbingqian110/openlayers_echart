@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/animation/Clip.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/animation/</a> Clip.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>45/82</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>36/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">35.71% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.88% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>45/82</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-yes">63×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Easing from './easing';
+&nbsp;
+function noop () <span class="fstat-no" title="function not covered" >{}</span>
+/**
+ * @constructor
+ * @alias clay.animation.Clip
+ * @param {Object} [opts]
+ * @param {Object} [opts.target]
+ * @param {number} [opts.life]
+ * @param {number} [opts.delay]
+ * @param {number} [opts.gap]
+ * @param {number} [opts.playbackRate]
+ * @param {boolean|number} [opts.loop] If loop is a number, it indicate the loop count of animation
+ * @param {string|Function} [opts.easing]
+ * @param {Function} [opts.onframe]
+ * @param {Function} [opts.onfinish]
+ * @param {Function} [opts.onrestart]
+ */
+var Clip = function (opts) {
+&nbsp;
+    opts = opts || {};
+&nbsp;
+    /**
+     * @type {string}
+     */
+    this.name = opts.name || '';
+&nbsp;
+    /**
+     * @type {Object}
+     */
+    this.target = opts.target;
+&nbsp;
+    /**
+     * @type {number}
+     */
+    this.life = opts.life || 1000;
+&nbsp;
+    /**
+     * @type {number}
+     */
+    this.delay = opts.delay || 0;
+&nbsp;
+    /**
+     * @type {number}
+     */
+    this.gap = opts.gap || 0;
+&nbsp;
+    /**
+     * @type {number}
+     */
+    this.playbackRate = opts.playbackRate || 1;
+&nbsp;
+&nbsp;
+    this._initialized = false;
+&nbsp;
+    this._elapsedTime = 0;
+&nbsp;
+    this._loop = opts.loop == null ? false : opts.loop;
+    this.setLoop(this._loop);
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (opts.easing != null) {
+<span class="cstat-no" title="statement not covered" >        this.setEasing(opts.easing);</span>
+    }
+&nbsp;
+    /**
+     * @type {Function}
+     */
+    this.onframe = opts.onframe || noop;
+&nbsp;
+    /**
+     * @type {Function}
+     */
+    this.onfinish = opts.onfinish || noop;
+&nbsp;
+    /**
+     * @type {Function}
+     */
+    this.onrestart = opts.onrestart || noop;
+&nbsp;
+    this._paused = false;
+};
+&nbsp;
+Clip.prototype = {
+&nbsp;
+    gap: 0,
+&nbsp;
+    life: 0,
+&nbsp;
+    delay: 0,
+&nbsp;
+    /**
+     * @param {number|boolean} loop
+     */
+    setLoop: function (loop) {
+        this._loop = loop;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (loop) {
+<span class="cstat-no" title="statement not covered" >            if (typeof(loop) == 'number') {</span>
+<span class="cstat-no" title="statement not covered" >                this._loopRemained = loop;</span>
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                this._loopRemained = 1e8;</span>
+            }
+        }
+    },
+&nbsp;
+    /**
+     * @param {string|Function} easing
+     */
+    setEasing: function (easing) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof(easing) === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >            easing = Easing[easing];</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.easing = easing;</span>
+    },
+&nbsp;
+    /**
+     * @param  {number} time
+     * @return {string}
+     */
+    step: function (time, deltaTime, silent) {
+        if (!this._initialized) {
+            this._startTime = time + this.delay;
+            this._initialized = true;
+        }
+        if (this._currentTime != null) {
+            deltaTime = time - this._currentTime;
+        }
+        this._currentTime = time;
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this._paused) {
+<span class="cstat-no" title="statement not covered" >            return 'paused';</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (time &lt; this._startTime) {
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+        // PENDIGN Sync ?
+        this._elapse(time, deltaTime);
+&nbsp;
+        var percent = Math.min(this._elapsedTime / this.life, 1);
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (percent &lt; 0) {
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+        var schedule;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.easing) {
+<span class="cstat-no" title="statement not covered" >            schedule = this.easing(percent);</span>
+        }
+        else {
+            schedule = percent;
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (!silent) {
+            this.fire('frame', schedule);
+        }
+&nbsp;
+        if (percent === 1) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (this._loop &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this._loopRemained &gt; 0)</span> {
+<span class="cstat-no" title="statement not covered" >                this._restartInLoop(time);</span>
+<span class="cstat-no" title="statement not covered" >                this._loopRemained--;</span>
+<span class="cstat-no" title="statement not covered" >                return 'restart';</span>
+            }
+            else {
+                // Mark this clip to be deleted
+                // In the animation.update
+                this._needsRemove = true;
+&nbsp;
+                return 'finish';
+            }
+        }
+        else {
+            return null;
+        }
+    },
+&nbsp;
+    /**
+     * @param  {number} time
+     * @return {string}
+     */
+    setTime: function (time) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return this.step(time + this._startTime);</span>
+    },
+&nbsp;
+    restart: function (time) <span class="fstat-no" title="function not covered" >{</span>
+        // If user leave the page for a while, when he gets back
+        // All clips may be expired and all start from the beginning value(position)
+        // It is clearly wrong, so we use remainder to add a offset
+&nbsp;
+        var remainder = <span class="cstat-no" title="statement not covered" >0;</span>
+        // Remainder ignored if restart is invoked manually
+<span class="cstat-no" title="statement not covered" >        if (time) {</span>
+<span class="cstat-no" title="statement not covered" >            this._elapse(time);</span>
+<span class="cstat-no" title="statement not covered" >            remainder = this._elapsedTime % this.life;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        time = time || Date.now();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._startTime = time - remainder + this.delay;</span>
+<span class="cstat-no" title="statement not covered" >        this._elapsedTime = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._needsRemove = false;</span>
+<span class="cstat-no" title="statement not covered" >        this._paused = false;</span>
+    },
+&nbsp;
+    getElapsedTime: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return this._elapsedTime;</span>
+    },
+&nbsp;
+    _restartInLoop: function (time) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._startTime = time + this.gap;</span>
+<span class="cstat-no" title="statement not covered" >        this._elapsedTime = 0;</span>
+    },
+&nbsp;
+    _elapse: function (time, deltaTime) {
+        this._elapsedTime += deltaTime * this.playbackRate;
+    },
+&nbsp;
+    fire: function (eventType, arg) {
+        var eventName = 'on' + eventType;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this[eventName]) {
+            this[eventName](this.target, arg);
+        }
+    },
+&nbsp;
+    clone: function () <span class="fstat-no" title="function not covered" >{</span>
+        var clip = <span class="cstat-no" title="statement not covered" >new this.constructor();</span>
+<span class="cstat-no" title="statement not covered" >        clip.name = this.name;</span>
+<span class="cstat-no" title="statement not covered" >        clip._loop = this._loop;</span>
+<span class="cstat-no" title="statement not covered" >        clip._loopRemained = this._loopRemained;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        clip.life = this.life;</span>
+<span class="cstat-no" title="statement not covered" >        clip.gap = this.gap;</span>
+<span class="cstat-no" title="statement not covered" >        clip.delay = this.delay;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return clip;</span>
+    },
+    /**
+     * Pause the clip.
+     */
+    pause: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._paused = true;</span>
+    },
+&nbsp;
+    /**
+     * Resume the clip.
+     */
+    resume: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._paused = false;</span>
+    }
+};
+Clip.prototype.constructor = Clip;
+&nbsp;
+export default Clip;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

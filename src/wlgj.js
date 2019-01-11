@@ -9,6 +9,7 @@ import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import {transform} from 'ol/proj'
+import XYZ from 'ol/source/XYZ.js';
 
 //导入ECharts
 import echarts from 'echarts'
@@ -20,7 +21,10 @@ const map = new Map({
 	target: 'map',
 	layers: [
 	new TileLayer({
-		source: new OSM()
+		// source: new OSM()
+		source: new XYZ({
+			url: 'http://wprd0{1-4}.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scl=1&style=7'
+		  })
 	})
 	],
 	view: new View({

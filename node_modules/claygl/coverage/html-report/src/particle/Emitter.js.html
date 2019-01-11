@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/particle/Emitter.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/particle/</a> Emitter.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.14% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">17.14% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/35</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Base from '../core/Base';
+import Vector3 from '../math/Vector3';
+import Particle from './Particle';
+import Value from '../math/Value';
+import glMatrix from '../dep/glmatrix';
+var vec3 =  glMatrix.vec3;
+&nbsp;
+/**
+ * @constructor clay.particle.Emitter
+ * @extends clay.core.Base
+ */
+var Emitter = Base.extend(
+/** @lends clay.particle.Emitter# */
+{
+    /**
+     * Maximum number of particles created by this emitter
+     * @type {number}
+     */
+    max: 1000,
+    /**
+     * Number of particles created by this emitter each shot
+     * @type {number}
+     */
+    amount: 20,
+&nbsp;
+    // Init status for each particle
+    /**
+     * Particle life generator
+     * @type {?clay.Value.&lt;number&gt;}
+     */
+    life: null,
+    /**
+     * Particle position generator
+     * @type {?clay.Value.&lt;clay.Vector3&gt;}
+     */
+    position: null,
+    /**
+     * Particle rotation generator
+     * @type {?clay.Value.&lt;clay.Vector3&gt;}
+     */
+    rotation: null,
+    /**
+     * Particle velocity generator
+     * @type {?clay.Value.&lt;clay.Vector3&gt;}
+     */
+    velocity: null,
+    /**
+     * Particle angular velocity generator
+     * @type {?clay.Value.&lt;clay.Vector3&gt;}
+     */
+    angularVelocity: null,
+    /**
+     * Particle sprite size generator
+     * @type {?clay.Value.&lt;number&gt;}
+     */
+    spriteSize: null,
+    /**
+     * Particle weight generator
+     * @type {?clay.Value.&lt;number&gt;}
+     */
+    weight: null,
+&nbsp;
+    _particlePool: null
+&nbsp;
+}, function() <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._particlePool = [];</span>
+&nbsp;
+    // TODO Reduce heap memory
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; this.max; i++) {</span>
+        var particle = <span class="cstat-no" title="statement not covered" >new Particle();</span>
+<span class="cstat-no" title="statement not covered" >        particle.emitter = this;</span>
+<span class="cstat-no" title="statement not covered" >        this._particlePool.push(particle);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.velocity) {</span>
+<span class="cstat-no" title="statement not covered" >            particle.velocity = new Vector3();</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (this.angularVelocity) {</span>
+<span class="cstat-no" title="statement not covered" >            particle.angularVelocity = new Vector3();</span>
+        }
+    }
+},
+/** @lends clay.particle.Emitter.prototype */
+{
+    /**
+     * Emitter number of particles and push them to a given particle list. Emmit number is defined by amount property
+     * @param  {Array.&lt;clay.particle.Particle&gt;} out
+     */
+    emit: function(out) <span class="fstat-no" title="function not covered" >{</span>
+        var amount = <span class="cstat-no" title="statement not covered" >Math.min(this._particlePool.length, this.amount);</span>
+&nbsp;
+        var particle;
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; amount; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            particle = this._particlePool.pop();</span>
+            // Initialize particle status
+<span class="cstat-no" title="statement not covered" >            if (this.position) {</span>
+<span class="cstat-no" title="statement not covered" >                this.position.get(particle.position);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.rotation) {</span>
+<span class="cstat-no" title="statement not covered" >                this.rotation.get(particle.rotation);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.velocity) {</span>
+<span class="cstat-no" title="statement not covered" >                this.velocity.get(particle.velocity);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.angularVelocity) {</span>
+<span class="cstat-no" title="statement not covered" >                this.angularVelocity.get(particle.angularVelocity);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.life) {</span>
+<span class="cstat-no" title="statement not covered" >                particle.life = this.life.get();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.spriteSize) {</span>
+<span class="cstat-no" title="statement not covered" >                particle.spriteSize = this.spriteSize.get();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (this.weight) {</span>
+<span class="cstat-no" title="statement not covered" >                particle.weight = this.weight.get();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            particle.age = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            out.push(particle);</span>
+        }
+    },
+    /**
+     * Kill a dead particle and put it back in the pool
+     * @param  {clay.particle.Particle} particle
+     */
+    kill: function(particle) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        this._particlePool.push(particle);</span>
+    }
+});
+&nbsp;
+/**
+ * Create a constant 1d value generator. Alias for {@link clay.Value.constant}
+ * @function clay.particle.Emitter.constant
+ */
+Emitter.constant = Value.constant;
+&nbsp;
+/**
+ * Create a constant vector value(2d or 3d) generator. Alias for {@link clay.Value.vector}
+ * @function clay.particle.Emitter.vector
+ */
+Emitter.vector = Value.vector;
+&nbsp;
+/**
+ * Create a random 1d value generator. Alias for {@link clay.Value.random1D}
+ * @function clay.particle.Emitter.random1D
+ */
+Emitter.random1D = Value.random1D;
+&nbsp;
+/**
+ * Create a random 2d value generator. Alias for {@link clay.Value.random2D}
+ * @function clay.particle.Emitter.random2D
+ */
+Emitter.random2D = Value.random2D;
+&nbsp;
+/**
+ * Create a random 3d value generator. Alias for {@link clay.Value.random3D}
+ * @function clay.particle.Emitter.random3D
+ */
+Emitter.random3D = Value.random3D;
+&nbsp;
+export default Emitter;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

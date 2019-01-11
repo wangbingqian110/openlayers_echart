@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/Texture2D.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> Texture2D.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.11% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>64/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.55% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>38/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.11% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>64/83</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">269×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">264×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">219×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">214×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Texture from './Texture';
+import glenum from './core/glenum';
+import mathUtil from './math/util';
+var isPowerOfTwo = mathUtil.isPowerOfTwo;
+&nbsp;
+/**
+ * @constructor clay.Texture2D
+ * @extends clay.Texture
+ *
+ * @example
+ *     ...
+ *     var mat = new clay.Material({
+ *         shader: clay.shader.library.get('clay.phong', 'diffuseMap')
+ *     });
+ *     var diffuseMap = new clay.Texture2D();
+ *     diffuseMap.load('assets/textures/diffuse.jpg');
+ *     mat.set('diffuseMap', diffuseMap);
+ *     ...
+ *     diffuseMap.success(function () {
+ *         // Wait for the diffuse texture loaded
+ *         animation.on('frame', function (frameTime) {
+ *             renderer.render(scene, camera);
+ *         });
+ *     });
+ */
+var Texture2D = Texture.extend(function () {
+    return /** @lends clay.Texture2D# */ {
+        /**
+         * @type {?HTMLImageElement|HTMLCanvasElemnet}
+         */
+        image: null,
+        /**
+         * Pixels data. Will be ignored if image is set.
+         * @type {?Uint8Array|Float32Array}
+         */
+        pixels: null,
+        /**
+         * @type {Array.&lt;Object&gt;}
+         * @example
+         *     [{
+         *         image: mipmap0,
+         *         pixels: null
+         *     }, {
+         *         image: mipmap1,
+         *         pixels: null
+         *     }, ....]
+         */
+        mipmaps: []
+    };
+}, {
+&nbsp;
+    textureType: 'texture2D',
+&nbsp;
+    update: function (renderer) {
+&nbsp;
+        var _gl = renderer.gl;
+        _gl.bindTexture(_gl.TEXTURE_2D, this._cache.get('webgl_texture'));
+&nbsp;
+        this.updateCommon(renderer);
+&nbsp;
+        var glFormat = this.format;
+        var glType = this.type;
+&nbsp;
+        _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_WRAP_S, this.getAvailableWrapS());
+        _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_WRAP_T, this.getAvailableWrapT());
+&nbsp;
+        _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_MAG_FILTER, this.getAvailableMagFilter());
+        _gl.texParameteri(_gl.TEXTURE_2D, _gl.TEXTURE_MIN_FILTER, this.getAvailableMinFilter());
+&nbsp;
+        var anisotropicExt = renderer.getGLExtension('EXT_texture_filter_anisotropic');
+        if (anisotropicExt &amp;&amp; this.anisotropic &gt; 1) {
+            _gl.texParameterf(_gl.TEXTURE_2D, anisotropicExt.TEXTURE_MAX_ANISOTROPY_EXT, this.anisotropic);
+        }
+&nbsp;
+        // Fallback to float type if browser don't have half float extension
+        if (glType === 36193) {
+            var halfFloatExt = renderer.getGLExtension('OES_texture_half_float');
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!halfFloatExt) {
+<span class="cstat-no" title="statement not covered" >                glType = glenum.FLOAT;</span>
+            }
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.mipmaps.length) {
+            var width = <span class="cstat-no" title="statement not covered" >this.width;</span>
+            var height = <span class="cstat-no" title="statement not covered" >this.height;</span>
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; this.mipmaps.length; i++) {</span>
+                var mipmap = <span class="cstat-no" title="statement not covered" >this.mipmaps[i];</span>
+<span class="cstat-no" title="statement not covered" >                this._updateTextureData(_gl, mipmap, i, width, height, glFormat, glType);</span>
+<span class="cstat-no" title="statement not covered" >                width /= 2;</span>
+<span class="cstat-no" title="statement not covered" >                height /= 2;</span>
+            }
+        }
+        else {
+            this._updateTextureData(_gl, this, 0, this.width, this.height, glFormat, glType);
+&nbsp;
+            if (this.useMipmap &amp;&amp; !this.NPOT) {
+                _gl.generateMipmap(_gl.TEXTURE_2D);
+            }
+        }
+&nbsp;
+        _gl.bindTexture(_gl.TEXTURE_2D, null);
+    },
+&nbsp;
+    _updateTextureData: function (_gl, data, level, width, height, glFormat, glType) {
+        if (data.image) {
+            _gl.texImage2D(_gl.TEXTURE_2D, level, glFormat, glFormat, glType, data.image);
+        }
+        else {
+            // Can be used as a blank texture when writing render to texture(RTT)
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (
+                glFormat &lt;= Texture.COMPRESSED_RGBA_S3TC_DXT5_EXT
+                &amp;&amp; glFormat &gt;= Texture.COMPRESSED_RGB_S3TC_DXT1_EXT
+            ) {
+<span class="cstat-no" title="statement not covered" >                _gl.compressedTexImage2D(_gl.TEXTURE_2D, level, glFormat, width, height, 0, data.pixels);</span>
+            }
+            else {
+                // Is a render target if pixels is null
+                _gl.texImage2D(_gl.TEXTURE_2D, level, glFormat, width, height, 0, glFormat, glType, data.pixels);
+            }
+        }
+    },
+&nbsp;
+    /**
+     * @param  {clay.Renderer} renderer
+     * @memberOf clay.Texture2D.prototype
+     */
+    generateMipmap: function (renderer) <span class="fstat-no" title="function not covered" >{</span>
+        var _gl = <span class="cstat-no" title="statement not covered" >renderer.gl;</span>
+<span class="cstat-no" title="statement not covered" >        if (this.useMipmap &amp;&amp; !this.NPOT) {</span>
+<span class="cstat-no" title="statement not covered" >            _gl.bindTexture(_gl.TEXTURE_2D, this._cache.get('webgl_texture'));</span>
+<span class="cstat-no" title="statement not covered" >            _gl.generateMipmap(_gl.TEXTURE_2D);</span>
+        }
+    },
+&nbsp;
+    isPowerOfTwo: function () {
+        var width;
+        var height;
+        if (this.image) {
+            width = this.image.width;
+            height = this.image.height;
+        }
+        else {
+            width = this.width;
+            height = this.height;
+        }
+        return isPowerOfTwo(width) &amp;&amp; isPowerOfTwo(height);
+    },
+&nbsp;
+    isRenderable: function () {
+        if (this.image) {
+            return this.image.nodeName === 'CANVAS'
+                || this.image.nodeName === 'VIDEO'
+                || this.image.complete;
+        }
+        else {
+            return !!(this.width &amp;&amp; this.height);
+        }
+    },
+&nbsp;
+    bind: function (renderer) {
+        renderer.gl.bindTexture(renderer.gl.TEXTURE_2D, this.getWebGLTexture(renderer));
+    },
+&nbsp;
+    unbind: function (renderer) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        renderer.gl.bindTexture(renderer.gl.TEXTURE_2D, null);</span>
+    },
+&nbsp;
+    load: function (src, crossOrigin) {
+        var image = new Image();
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (crossOrigin) {
+<span class="cstat-no" title="statement not covered" >            image.crossOrigin = crossOrigin;</span>
+        }
+        var self = this;
+        image.onload = function () {
+            self.dirty();
+            self.trigger('success', self);
+            image.onload = null;
+        };
+        image.onerror = function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >            self.trigger('error', self);</span>
+<span class="cstat-no" title="statement not covered" >            image.onerror = null;</span>
+        };
+&nbsp;
+        image.src = src;
+        this.image = image;
+&nbsp;
+        return this;
+    }
+});
+&nbsp;
+Object.defineProperty(Texture2D.prototype, 'width', {
+    get: function () {
+        if (this.image) {
+            return this.image.width;
+        }
+        return this._width;
+    },
+    set: function (value) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.image) {
+<span class="cstat-no" title="statement not covered" >            console.warn('Texture from image can\'t set width');</span>
+        }
+        else {
+            if (this._width !== value) {
+                this.dirty();
+            }
+            this._width = value;
+        }
+    }
+});
+Object.defineProperty(Texture2D.prototype, 'height', {
+    get: function () {
+        if (this.image) {
+            return this.image.height;
+        }
+        return this._height;
+    },
+    set: function (value) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (this.image) {
+<span class="cstat-no" title="statement not covered" >            console.warn('Texture from image can\'t set height');</span>
+        }
+        else {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (this._height !== value) {
+                this.dirty();
+            }
+            this._height = value;
+        }
+    }
+});
+&nbsp;
+export default Texture2D;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

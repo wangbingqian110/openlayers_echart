@@ -71,7 +71,7 @@ module.exports = class NodeSourcePlugin {
 							.tap("NodeSourcePlugin", () => {
 								const retrieveGlobalModule = ParserHelpers.requireFileAsExpression(
 									parser.state.module.context,
-									require.resolve("../../buildin/global.js")
+									require.resolve("../../buildin/global")
 								);
 								return ParserHelpers.addParsedVariableToModule(
 									parser,
@@ -115,9 +115,6 @@ module.exports = class NodeSourcePlugin {
 					.tap("NodeSourcePlugin", handler);
 				normalModuleFactory.hooks.parser
 					.for("javascript/dynamic")
-					.tap("NodeSourcePlugin", handler);
-				normalModuleFactory.hooks.parser
-					.for("javascript/esm")
 					.tap("NodeSourcePlugin", handler);
 			}
 		);

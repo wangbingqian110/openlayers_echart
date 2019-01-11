@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/vr/StereoCamera.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/vr/</a> StereoCamera.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.57% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/56</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.57% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/56</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Base from '../Node';
+import Camera from '../camera/Perspective';
+import Matrix4 from '../math/Matrix4';
+&nbsp;
+var tmpProjectionMatrix = new Matrix4();
+&nbsp;
+var StereoCamera = Base.extend(function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+&nbsp;
+        aspect: 0.5,
+&nbsp;
+        _leftCamera: new Camera(),
+&nbsp;
+        _rightCamera: new Camera(),
+&nbsp;
+        _eyeLeft: new Matrix4(),
+        _eyeRight: new Matrix4(),
+&nbsp;
+        _frameData: null
+    };
+}, {
+&nbsp;
+    updateFromCamera: function (camera, focus, zoom, eyeSep) <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        if (camera.transformNeedsUpdate()) {</span>
+<span class="cstat-no" title="statement not covered" >            console.warn('Node transform is not updated');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        focus = focus == null ? 10 : focus;</span>
+<span class="cstat-no" title="statement not covered" >        zoom = zoom == null ? 1 : zoom;</span>
+<span class="cstat-no" title="statement not covered" >        eyeSep = eyeSep == null ? 0.064 : eyeSep;</span>
+&nbsp;
+        var fov = <span class="cstat-no" title="statement not covered" >camera.fov;</span>
+        var aspect = <span class="cstat-no" title="statement not covered" >camera.aspect * this.aspect;</span>
+        var near = <span class="cstat-no" title="statement not covered" >camera.near;</span>
+&nbsp;
+        // Off-axis stereoscopic effect based on
+        // http://paulbourke.net/stereographics/stereorender/
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        tmpProjectionMatrix.copy(camera.projectionMatrix);</span>
+        var eyeSep = <span class="cstat-no" title="statement not covered" >eyeSep / 2;</span>
+        var eyeSepOnProjection = <span class="cstat-no" title="statement not covered" >eyeSep * near / focus;</span>
+        var ymax = <span class="cstat-no" title="statement not covered" >(near * Math.tan(Math.PI / 180 * fov * 0.5 ) ) / zoom;</span>
+        var xmin, xmax;
+&nbsp;
+        // translate xOffset
+<span class="cstat-no" title="statement not covered" >        this._eyeLeft.array[12] = - eyeSep;</span>
+<span class="cstat-no" title="statement not covered" >        this._eyeRight.array[12] = eyeSep;</span>
+&nbsp;
+        // for left eye
+<span class="cstat-no" title="statement not covered" >        xmin = - ymax * aspect + eyeSepOnProjection;</span>
+<span class="cstat-no" title="statement not covered" >        xmax = ymax * aspect + eyeSepOnProjection;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        tmpProjectionMatrix.array[0] = 2 * near / (xmax - xmin);</span>
+<span class="cstat-no" title="statement not covered" >        tmpProjectionMatrix.array[8] = (xmax + xmin ) / (xmax - xmin);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._leftCamera.projectionMatrix.copy(tmpProjectionMatrix);</span>
+&nbsp;
+        // for right eye
+<span class="cstat-no" title="statement not covered" >        xmin = - ymax * aspect - eyeSepOnProjection;</span>
+<span class="cstat-no" title="statement not covered" >        xmax = ymax * aspect - eyeSepOnProjection;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        tmpProjectionMatrix.array[0] = 2 * near / (xmax - xmin);</span>
+<span class="cstat-no" title="statement not covered" >        tmpProjectionMatrix.array[8] = (xmax + xmin ) / (xmax - xmin);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._rightCamera.projectionMatrix.copy(tmpProjectionMatrix);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._leftCamera.worldTransform</span>
+            .copy(camera.worldTransform)
+            .multiply(this._eyeLeft);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._rightCamera.worldTransform</span>
+            .copy(camera.worldTransform)
+            .multiply(this._eyeRight);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._leftCamera.decomposeWorldTransform();</span>
+<span class="cstat-no" title="statement not covered" >        this._leftCamera.decomposeProjectionMatrix();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._rightCamera.decomposeWorldTransform();</span>
+<span class="cstat-no" title="statement not covered" >        this._rightCamera.decomposeProjectionMatrix();</span>
+    },
+&nbsp;
+    updateFromVRDisplay: function (vrDisplay, parentNode) <span class="fstat-no" title="function not covered" >{</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (typeof VRFrameData === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+        var frameData = <span class="cstat-no" title="statement not covered" >this._frameData || (this._frameData = new VRFrameData());</span>
+<span class="cstat-no" title="statement not covered" >        vrDisplay.getFrameData(frameData);</span>
+        var leftCamera = <span class="cstat-no" title="statement not covered" >this._leftCamera;</span>
+        var rightCamera = <span class="cstat-no" title="statement not covered" >this._rightCamera;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        leftCamera.projectionMatrix.setArray(frameData.leftProjectionMatrix);</span>
+<span class="cstat-no" title="statement not covered" >        leftCamera.decomposeProjectionMatrix();</span>
+<span class="cstat-no" title="statement not covered" >        leftCamera.viewMatrix.setArray(frameData.leftViewMatrix);</span>
+<span class="cstat-no" title="statement not covered" >        leftCamera.setViewMatrix(leftCamera.viewMatrix);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        rightCamera.projectionMatrix.setArray(frameData.rightProjectionMatrix);</span>
+<span class="cstat-no" title="statement not covered" >        rightCamera.decomposeProjectionMatrix();</span>
+<span class="cstat-no" title="statement not covered" >        rightCamera.viewMatrix.setArray(frameData.rightViewMatrix);</span>
+<span class="cstat-no" title="statement not covered" >        rightCamera.setViewMatrix(rightCamera.viewMatrix);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (parentNode &amp;&amp; parentNode.worldTransform) {</span>
+<span class="cstat-no" title="statement not covered" >            if (parentNode.transformNeedsUpdate()) {</span>
+<span class="cstat-no" title="statement not covered" >                console.warn('Node transform is not updated');</span>
+            }
+<span class="cstat-no" title="statement not covered" >            leftCamera.worldTransform.multiplyLeft(parentNode.worldTransform);</span>
+<span class="cstat-no" title="statement not covered" >            leftCamera.decomposeWorldTransform();</span>
+<span class="cstat-no" title="statement not covered" >            rightCamera.worldTransform.multiplyLeft(parentNode.worldTransform);</span>
+<span class="cstat-no" title="statement not covered" >            rightCamera.decomposeWorldTransform();</span>
+        }
+    },
+&nbsp;
+    getLeftCamera: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return this._leftCamera;</span>
+    },
+&nbsp;
+    getRightCamera: function () <span class="fstat-no" title="function not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >        return this._rightCamera;</span>
+    }
+});
+&nbsp;
+export default StereoCamera;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/geometry/Plane.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/geometry/</a> Plane.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>29/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>29/29</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">467×</span>
+<span class="cline-any cline-yes">467×</span>
+<span class="cline-any cline-yes">982×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">982×</span>
+<span class="cline-any cline-yes">982×</span>
+<span class="cline-any cline-yes">982×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">982×</span>
+<span class="cline-any cline-yes">982×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">982×</span>
+<span class="cline-any cline-yes">282×</span>
+<span class="cline-any cline-yes">282×</span>
+<span class="cline-any cline-yes">282×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-yes">217×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Geometry from '../Geometry';
+import BoundingBox from '../math/BoundingBox';
+&nbsp;
+/**
+ * @constructor clay.geometry.Plane
+ * @extends clay.Geometry
+ * @param {Object} [opt]
+ * @param {number} [opt.widthSegments]
+ * @param {number} [opt.heightSegments]
+ */
+var Plane = Geometry.extend(
+/** @lends clay.geometry.Plane# */
+{
+    dynamic: false,
+    /**
+     * @type {number}
+     */
+    widthSegments: 1,
+    /**
+     * @type {number}
+     */
+    heightSegments: 1
+}, function() {
+    this.build();
+},
+/** @lends clay.geometry.Plane.prototype */
+{
+    /**
+     * Build plane geometry
+     */
+    build: function() {
+        var heightSegments = this.heightSegments;
+        var widthSegments = this.widthSegments;
+        var attributes = this.attributes;
+        var positions = [];
+        var texcoords = [];
+        var normals = [];
+        var faces = [];
+&nbsp;
+        for (var y = 0; y &lt;= heightSegments; y++) {
+            var t = y / heightSegments;
+            for (var x = 0; x &lt;= widthSegments; x++) {
+                var s = x / widthSegments;
+&nbsp;
+                positions.push([2 * s - 1, 2 * t - 1, 0]);
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (texcoords) {
+                    texcoords.push([s, t]);
+                }
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (normals) {
+                    normals.push([0, 0, 1]);
+                }
+                if (x &lt; widthSegments &amp;&amp; y &lt; heightSegments) {
+                    var i = x + y * (widthSegments + 1);
+                    faces.push([i, i + 1, i + widthSegments + 1]);
+                    faces.push([i + widthSegments + 1, i + 1, i + widthSegments + 2]);
+                }
+            }
+        }
+&nbsp;
+        attributes.position.fromArray(positions);
+        attributes.texcoord0.fromArray(texcoords);
+        attributes.normal.fromArray(normals);
+&nbsp;
+        this.initIndicesFromArray(faces);
+&nbsp;
+        this.boundingBox = new BoundingBox();
+        this.boundingBox.min.set(-1, -1, 0);
+        this.boundingBox.max.set(1, 1, 0);
+    }
+});
+&nbsp;
+export default Plane;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 23 2018 01:09:23 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -6,16 +6,16 @@
 
 const WebpackError = require("./WebpackError");
 
-/** @typedef {import("./Module.js")} Module */
+/** @typedef {import("./Module")} Module */
 
-/** @typedef {import("./Dependency.js").Loc} Loc */
+/** @typedef {import("./Dependency").DependencyLocation} DependencyLocation */
 
 class CommentCompilationWarning extends WebpackError {
 	/**
 	 *
 	 * @param {string} message warning message
 	 * @param {Module} module affected module
-	 * @param {Loc} loc affected lines of code
+	 * @param {DependencyLocation} loc affected lines of code
 	 */
 	constructor(message, module, loc) {
 		super(message);
